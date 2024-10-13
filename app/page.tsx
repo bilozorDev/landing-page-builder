@@ -2,13 +2,13 @@
 
 import { useState } from "react";
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
-import SettingsSlideDrawer from "./components/global/SettingsSlideDrawer";
+import Settings from "./components/SettingsSlider/Settings";
 
 export default function Home() {
   const [open, setOpen] = useState(true);
   return (
     <div className="relative">
-      <SettingsSlideDrawer open={open} setOpen={setOpen} />
+      <Settings open={open} setOpen={setOpen} />
       <div
         className="  top-24 right-0 fixed flex justify-end pr-7 py-2 items-center group hover:cursor-pointer "
         onClick={() => setOpen(true)}

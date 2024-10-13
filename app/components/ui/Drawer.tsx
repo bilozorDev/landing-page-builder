@@ -2,16 +2,18 @@
 
 import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import { useEffect } from "react";
+import { ReactNode, useEffect } from "react";
 import ClearLocalStorage from "../utils/ClearLocalStorage";
 
-export default function SettingsSlideDrawer({
+const Drawer = ({
   open,
   setOpen,
+  children,
 }: {
   open: boolean;
   setOpen: (open: boolean) => void;
-}) {
+  children: ReactNode;
+}) => {
   // to make content behind the drawer scrollable
   useEffect(() => {
     if (open) {
@@ -35,7 +37,7 @@ export default function SettingsSlideDrawer({
                 <div className="flex items-start justify-between space-x-3">
                   <div className="space-y-1">
                     <DialogTitle className="text-base font-semibold leading-6 text-gray-900">
-                      Landing Page Config <ClearLocalStorage/>
+                      Landing Page Config <ClearLocalStorage />
                     </DialogTitle>
                     <p className="text-sm text-gray-500">
                       Get started by filling in the information below to create
@@ -55,11 +57,14 @@ export default function SettingsSlideDrawer({
                   </div>
                 </div>
               </div>
-              <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl"></div>
+              <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
+                {children}
+              </div>
             </DialogPanel>
           </div>
         </div>
       </div>
     </Dialog>
   );
-}
+};
+export default Drawer;
