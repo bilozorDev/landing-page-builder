@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import React, { useState } from "react";
+import React from "react";
 import useLocalStorageState from "use-local-storage-state";
 
 type StepTab = {
