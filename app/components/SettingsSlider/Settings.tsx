@@ -1,16 +1,11 @@
 import React from "react";
 import Drawer from "../ui/Drawer";
 import SectionsTabs from "./SectionsTabs";
+import { showOpen } from "../@types/showOpen";
 
-const Settings = ({
-  open,
-  setOpen,
-}: {
-  open: boolean;
-  setOpen: (open: boolean) => void;
-}) => {
+const Settings = ({ show, setShow }: showOpen) => {
   return (
-    <Drawer open={open} setOpen={setOpen}>
+    <Drawer show={show} setShow={setShow}>
       <SectionsTabs />
     </Drawer>
   );

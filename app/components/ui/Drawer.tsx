@@ -4,26 +4,23 @@ import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { ReactNode, useEffect } from "react";
 import ClearLocalStorage from "../utils/ClearLocalStorage";
+import { showOpen } from "../@types/showOpen";
 
 const Drawer = ({
-  open,
-  setOpen,
+  show,
+  setShow,
   children,
-}: {
-  open: boolean;
-  setOpen: (open: boolean) => void;
-  children: ReactNode;
-}) => {
+}: showOpen & { children: ReactNode }) => {
   // to make content behind the drawer scrollable
   useEffect(() => {
-    if (open) {
+    if (show) {
       setTimeout(() => {
         document.documentElement.style.overflow = "unset";
       }, 1000);
     }
-  }, [open]);
+  }, [show]);
   return (
-    <Dialog open={open} onClose={setOpen} className="relative z-10">
+    <Dialog open={show} onClose={setShow} className="relative z-10">
       <div className="fixed inset-0" />
 
       <div className="fixed inset-0 overflow-hidden">
@@ -47,7 +44,7 @@ const Drawer = ({
                   <div className="flex h-7 items-center">
                     <button
                       type="button"
-                      onClick={() => setOpen(false)}
+                      onClick={() => setShow(false)}
                       className="relative text-gray-400 hover:text-gray-500"
                     >
                       <span className="absolute -inset-2.5" />
