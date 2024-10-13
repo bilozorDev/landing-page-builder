@@ -3,8 +3,9 @@
 import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { useEffect } from "react";
+import ClearLocalStorage from "../utils/ClearLocalStorage";
 
-export default function Drawer({
+export default function SettingsSlideDrawer({
   open,
   setOpen,
 }: {
@@ -34,7 +35,7 @@ export default function Drawer({
                 <div className="flex items-start justify-between space-x-3">
                   <div className="space-y-1">
                     <DialogTitle className="text-base font-semibold leading-6 text-gray-900">
-                      Landing Page Config
+                      Landing Page Config <ClearLocalStorage/>
                     </DialogTitle>
                     <p className="text-sm text-gray-500">
                       Get started by filling in the information below to create

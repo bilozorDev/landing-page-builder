@@ -1,14 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import Drawer from "./components/global/Drawer";
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
+import SettingsSlideDrawer from "./components/global/SettingsSlideDrawer";
 
 export default function Home() {
   const [open, setOpen] = useState(true);
   return (
     <div className="relative">
-      <Drawer open={open} setOpen={setOpen} />
+      <SettingsSlideDrawer open={open} setOpen={setOpen} />
       <div
         className="  top-24 right-0 fixed flex justify-end pr-7 py-2 items-center group hover:cursor-pointer "
         onClick={() => setOpen(true)}
