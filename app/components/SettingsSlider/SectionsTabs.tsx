@@ -1,24 +1,10 @@
 import classNames from "classnames";
 import React from "react";
 import useLocalStorageState from "use-local-storage-state";
+import { StepTab } from "../@types/stepTab.t";
+import getSettingsComponentByName from "../utils/getSettingsComponentByName";
 
-type StepTab = {
-  name: string;
-  component: React.ReactNode;
-  current: boolean;
-};
-const General = () => <div>General</div>;
-const Header = () => <div>Header</div>;
-const Body = () => <div>Body</div>;
-const Footer = () => <div>Footer</div>;
-
-const tabs: StepTab[] = [
-  { name: "General", component: <General />, current: true },
-  { name: "Header", component: <Header />, current: false },
-  { name: "Body", component: <Body />, current: false },
-  { name: "Footer", component: <Footer />, current: false },
-];
-const SectionsTabs = () => {
+const SectionsTabs = ({ tabs }: { tabs: StepTab[] }) => {
   const [steps, setSteps] = useLocalStorageState("settingsSteps", {
     defaultValue: tabs,
   });
@@ -31,23 +17,24 @@ const SectionsTabs = () => {
       }))
     );
   };
-  console.log(steps);
   return (
-    <div>
+    <>
       <div className="sm:hidden">
         <label htmlFor="tabs" className="sr-only">
           Select a tab
         </label>
-        {/* Use an "onChange" listener to redirect the user to the selected tab URL. */}
+
         <select
           id="tabs"
           name="tabs"
-          onChange={(e) => alert(e)}
+          onChange={(e) => handleStepChange(e.target.value)}
           defaultValue={tabs.find((tab) => tab.current)?.name || ""}
           className="block w-full rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
         >
           {tabs.map((tab) => (
-            <option key={tab.name}>{tab.name}</option>
+            <option key={tab.name} value={tab.name}>
+              {tab.name}
+            </option>
           ))}
         </select>
       </div>
@@ -81,7 +68,11 @@ const SectionsTabs = () => {
           })}
         </nav>
       </div>
-    </div>
+      {steps.map((tab) => {
+        console.log(tab);
+        return tab.current ? getSettingsComponentByName(tab.name) : null;
+      })}
+    </>
   );
 };
 

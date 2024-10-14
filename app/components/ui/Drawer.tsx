@@ -4,7 +4,7 @@ import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { ReactNode, useEffect } from "react";
 import ClearLocalStorage from "../utils/ClearLocalStorage";
-import { showOpen } from "../@types/showOpen";
+import { showOpen } from "../@types/showOpen.t";
 
 const Drawer = ({
   show,
