@@ -1,5 +1,6 @@
 import React from "react";
-const General = () => <div>General</div>;
+import GeneralTab from "../SettingsSlider/generalTab/GeneralTab";
+
 const Header = () => <div>Header</div>;
 const Body = () => <div>Body</div>;
 const Footer = () => <div>Footsser</div>;
@@ -8,7 +9,7 @@ const getSettingsComponentByName = (
   name: "General" | "Header" | "Body" | "Footer"
 ): React.ReactElement | null => {
   const componentMap: { [key: string]: React.ReactElement } = {
-    General: <General />,
+    General: <GeneralTab />,
     Header: <Header />,
     Body: <Body />,
     Footer: <Footer />,
