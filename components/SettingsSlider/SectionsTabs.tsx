@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import React from "react";
+import React, { Fragment } from "react";
 import useLocalStorageState from "use-local-storage-state";
 import { StepTab } from "../@types/stepTab.t";
 import getSettingsComponentByName from "../utils/getSettingsComponentByName";
@@ -69,10 +69,11 @@ const SectionsTabs = ({ tabs }: { tabs: StepTab[] }) => {
         </nav>
       </div>
       <div className="px-4 sm:px-6">
-        {steps.map((tab) => {
-          console.log(tab);
-          return tab.current ? getSettingsComponentByName(tab.name) : null;
-        })}
+        {steps.map((step) => (
+          <Fragment key={step.name}>
+            {step.current ? getSettingsComponentByName(step.name) : null}
+          </Fragment>
+        ))}
       </div>
     </>
   );

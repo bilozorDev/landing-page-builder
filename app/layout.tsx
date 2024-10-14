@@ -1,7 +1,7 @@
 "use client";
 import localFont from "next/font/local";
 import "./globals.css";
-import { GeneralTabSettingsProvider } from "./components/contexts/GeneralTabSettings";
+import { GeneralTabSettingsProvider } from "../components/contexts/GeneralTabSettings";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
