@@ -68,7 +68,7 @@ const SectionsTabs = ({ tabs }: { tabs: StepTab[] }) => {
           })}
         </nav>
       </div>
-      <div className="px-4 py-6 sm:px-6">
+      <div className="px-4 sm:px-6">
         {steps.map((tab) => {
           console.log(tab);
           return tab.current ? getSettingsComponentByName(tab.name) : null;

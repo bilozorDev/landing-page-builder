@@ -7,6 +7,8 @@ const GeneralTab = () => {
     <>
     <SectionTitle title='Website identity'/>
     <MetaDataUpdate/>
+    <SectionTitle title='Logo'/>
+    <SectionTitle title='Colors'/>
     </>
   )
 }
