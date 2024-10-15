@@ -55,7 +55,7 @@ export const GeneralTabSettingsProvider = ({
     </GeneralTabSettings.Provider>
   );
 };
-export const useGeneralSetting = () => {
-  const context = useContext(GeneralTabSettings);
-  return context;
-};
+
+export const useGeneralSetting=()=>{
+  return useContext(GeneralTabSettings)
+}
