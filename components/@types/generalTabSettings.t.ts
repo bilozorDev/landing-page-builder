@@ -1,13 +1,17 @@
 export type GeneralTabSettingsType = {
-    metaData: {
-      title: string;
-      description: string;
-    };
-    colors: {
-      brandColor: string;
-    };
-    logo: {
-      src: string;
-      size: number;
+  metaData: {
+    title: string;
+    description: string;
+  };
+  colors: {
+    brandColor: {
+      hex: string;
+      color: string;
+      shade: string;
     };
   };
+  logo: {
+    src: string;
+    size: number;
+  };
+};

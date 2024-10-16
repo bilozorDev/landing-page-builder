@@ -3,11 +3,13 @@ import React, { Fragment } from "react";
 import useLocalStorageState from "use-local-storage-state";
 import { StepTab } from "../@types/stepTab.t";
 import getSettingsComponentByName from "../utils/getSettingsComponentByName";
+import useGetBrandColor from "../hooks/useGetBrandColor";
 
 const SectionsTabs = ({ tabs }: { tabs: StepTab[] }) => {
   const [steps, setSteps] = useLocalStorageState("settingsSteps", {
     defaultValue: tabs,
   });
+  const brandColor = useGetBrandColor();
 
   const handleStepChange = (selectedTabName: string) => {
     setSteps((prevSteps) =>
@@ -29,7 +31,7 @@ const SectionsTabs = ({ tabs }: { tabs: StepTab[] }) => {
           name="tabs"
           onChange={(e) => handleStepChange(e.target.value)}
           defaultValue={tabs.find((tab) => tab.current)?.name || ""}
-          className="block w-full rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
+          className={`block w-full rounded-md border-gray-300 focus:border-[${brandColor}] focus:ring-[${brandColor}]`}
         >
           {tabs.map((tab) => (
             <option key={tab.name} value={tab.name}>
@@ -59,7 +61,7 @@ const SectionsTabs = ({ tabs }: { tabs: StepTab[] }) => {
                 <span
                   aria-hidden="true"
                   className={classNames(
-                    tab.current ? "bg-indigo-500" : "bg-transparent",
+                    tab.current ? `bg-[${brandColor}]` : "bg-transparent",
                     "absolute inset-x-0 bottom-0 h-0.5"
                   )}
                 />

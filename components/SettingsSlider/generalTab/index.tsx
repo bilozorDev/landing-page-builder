@@ -10,14 +10,15 @@ const GeneralTab = () => {
     <>
       <SectionTitle title="Website identity" />
       <MetaDataUpdate />
-      <SectionTitle title="Logo" />
 
+      <SectionTitle title="Logo" />
       <LogoUploader />
+      
 
       <SectionTitle title="Colors" />
-      <ColorPicker/>
-      
-      <Example/>
+      <ColorPicker />
+
+      <Example />
     </>
   );
 };

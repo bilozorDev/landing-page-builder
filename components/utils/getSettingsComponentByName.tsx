@@ -1,5 +1,5 @@
 import React from "react";
-import GeneralTab from "../SettingsSlider/generalTab/GeneralTab";
+import GeneralTab from "../SettingsSlider/generalTab";
 
 const Header = () => <div>Header</div>;
 const Body = () => <div>Body</div>;

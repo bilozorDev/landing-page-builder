@@ -1,5 +1,30 @@
 import type { Config } from "tailwindcss";
 import forms from "@tailwindcss/forms";
+import { predefinedColors } from "./components/utils/predefinedColors";
+
+//dynamically generate safe list depends on global predifined colors array
+const generateSafelist = () => {
+  const safelist: string[] = [];
+  predefinedColors.forEach((color) => {
+    safelist.push(
+      `bg-[${color.hex}]`,
+      `text-[${color.hex}]`,
+      `ring-[${color.hex}]`,
+      `border-[${color.hex}]`,
+      `outline-[${color.hex}]`,
+      `divide-[${color.hex}]`,
+      `placeholder-[${color.hex}]`,
+      `shadow-[${color.hex}]`,
+      `accent-[${color.hex}]`,
+      `caret-[${color.hex}]`,
+      `fill-[${color.hex}]`,
+      `stroke-[${color.hex}]`,
+      `focus-within:ring-[${color.hex}]`
+    );
+  });
+  return safelist;
+};
+
 const config: Config = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -26,38 +51,7 @@ const config: Config = {
     "h-20",
     "h-24",
     "h-28",
-    "bg-[#dc2626]",
-    "bg-[#d97706]",
-    "bg-[#059669]",
-    "bg-[#0284c7]",
-    "bg-[#6366F1]",
-    "bg-[#e11d48]",
-    "bg-[#0891b2]",
-    "bg-[#52525b]",
-    "bg-[#0f172a]",
-    "bg-[#6366f1]",
-    "text-[#dc2626]",
-    "text-[#d97706]",
-    "text-[#059669]",
-    "text-[#0284c7]",
-    "text-[#6366F1]",
-    "text-[#e11d48]",
-    "text-[#0891b2]",
-    "text-[#52525b]",
-    "text-[#0f172a]",
-    "text-[#6366f1]",
-    "ring-[#dc2626]",
-    "ring-[#d97706]",
-    "ring-[#059669]",
-    "ring-[#0284c7]",
-    "ring-[#6366F1]",
-    "ring-[#e11d48]",
-    "ring-[#0891b2]",
-    "ring-[#52525b]",
-    "ring-[#0f172a]",
-    "ring-[#6366f1]",
-
-
+    ...generateSafelist(),
   ],
 };
 export default config;
