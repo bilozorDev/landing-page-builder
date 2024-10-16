@@ -243,7 +243,7 @@ const LogoSizeSlider = () => {
   const { generalSettings, setGeneralSettings } = useGeneralSetting();
   const brandColor = useGetBrandColor();
   const [logoSize, setLogoSize] = useState(generalSettings.logo.size);
-  const handleSliderChange = (e) => {
+  const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newSize = sizeOptions[parseInt(e.target.value, 10)];
     setLogoSize(newSize);
     setGeneralSettings({
