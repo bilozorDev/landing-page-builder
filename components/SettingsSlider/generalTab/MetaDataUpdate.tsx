@@ -1,14 +1,10 @@
 import { useGeneralSetting } from "@/components/contexts/GeneralTabSettings";
 import useGetBrandColor from "@/components/hooks/useGetBrandColor";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 const MetaDataUpdate = () => {
   const brandColor = useGetBrandColor();
   const { generalSettings, setGeneralSettings } = useGeneralSetting();
-  const [newMetaData, setNewMetaData] = useState({
-    title: generalSettings.metaData.title,
-    description: generalSettings.metaData.description,
-  });
 
   const handleUpdate = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();

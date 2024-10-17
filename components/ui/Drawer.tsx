@@ -1,6 +1,6 @@
 "use client";
 
-import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
+import { Dialog, DialogPanel } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { ReactNode, useEffect } from "react";
 import ClearLocalStorage from "../utils/ClearLocalStorage";
@@ -33,7 +33,7 @@ const Drawer = ({
               <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
                 <div className="p-6">
                   <div className="flex items-start justify-between">
-                    <ClearLocalStorage/>
+                    <ClearLocalStorage />
                     <div className="ml-3 flex h-7 items-center">
                       <button
                         type="button"

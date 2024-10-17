@@ -1,6 +1,5 @@
 import { Color } from "@/components/@types/predefinedColors.t";
 import { useGeneralSetting } from "@/components/contexts/GeneralTabSettings";
-import useGetBrandColor from "@/components/hooks/useGetBrandColor";
 import { predefinedColors } from "@/components/utils/predefinedColors";
 import classNames from "classnames";
 import React from "react";

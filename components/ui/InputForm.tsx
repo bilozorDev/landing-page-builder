@@ -5,7 +5,7 @@ const InputItem = ({ children }: { children: React.ReactNode }) => {
   return <>{children}</>;
 };
 
-InputItem.withLink = ({
+InputItem.WithLink = ({
   menuItem,
   onChange,
 }: {
