@@ -1,11 +1,7 @@
 import { menuItem } from "../@types/menuItem.t";
 import useGetBrandColor from "../hooks/useGetBrandColor";
 
-const InputItem = ({ children }: { children: React.ReactNode }) => {
-  return <>{children}</>;
-};
-
-InputItem.WithLink = ({
+const InputItemWithLink = ({
   menuItem,
   onChange,
 }: {
@@ -63,4 +59,4 @@ InputItem.WithLink = ({
   );
 };
 
-export default InputItem;
+export default InputItemWithLink;

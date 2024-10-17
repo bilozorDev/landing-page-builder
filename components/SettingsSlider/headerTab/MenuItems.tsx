@@ -1,7 +1,7 @@
 import { menuItem } from "@/components/@types/menuItem.t";
 import { useHeaderSettings } from "@/components/contexts/HeaderTabSettings";
 import DraggableList from "@/components/ui/DraggableList";
-import InputItem from "@/components/ui/InputForm";
+import InputItemWithLink from "@/components/ui/InputForm";
 import React from "react";
 
 const MenuItems = () => {
@@ -21,7 +21,7 @@ const MenuItems = () => {
       onReorder={handleReorder}
       values={headerSettings.menuItems}
       renderItem={(item) => (
-        <InputItem.withLink menuItem={item} onChange={handleUpdate} />
+        <InputItemWithLink menuItem={item} onChange={handleUpdate} />
       )}
     />
   );
