@@ -1,7 +1,5 @@
 import { DragControls, Reorder, useDragControls } from "framer-motion";
 import React from "react";
-import { menuItem } from "../@types/menuItem.t";
-import ItemWIthLinkInput from "./ItemWIthLinkInput";
 
 type DraggableListProps<T> = {
   axis: "x" | "y";
