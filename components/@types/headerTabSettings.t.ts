@@ -1,8 +1,4 @@
-type menuItem = {
-  name: string;
-  href: string;
-  id: string;
-};
+import { menuItem } from "./menuItem.t";
 
 export type HeaderTabSettingsType = {
   menuItems: menuItem[];
