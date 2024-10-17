@@ -2,6 +2,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import { GeneralTabSettingsProvider } from "../components/contexts/GeneralTabSettings";
+import { HeaderTabSettingsProvider } from "@/components/contexts/HeaderTabSettings";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -24,7 +25,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <GeneralTabSettingsProvider>{children}</GeneralTabSettingsProvider>
+        <GeneralTabSettingsProvider>
+          <HeaderTabSettingsProvider>{children}</HeaderTabSettingsProvider>
+        </GeneralTabSettingsProvider>
       </body>
     </html>
   );
