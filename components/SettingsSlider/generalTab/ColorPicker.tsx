@@ -1,6 +1,6 @@
 import { Color } from "@/components/@types/predefinedColors.t";
 import { useGeneralSetting } from "@/components/contexts/GeneralTabSettings";
-import { predefinedColors } from "@/components/utils/predefinedColors";
+import { allAvailableOptions } from "@/components/utils/allAvailableOptions";
 import classNames from "classnames";
 import React from "react";
 
@@ -20,7 +20,7 @@ const ColorPicker = () => {
     <div className=" flex flex-row  justify-between items-center">
       <p className="text-black text-lg">Brand Color:</p>
       <div className="grid grid-cols-4 sm:flex sm:flex-row gap-3 ">
-        {predefinedColors.map((color) => {
+        {allAvailableOptions.general.predefinedColors.map((color) => {
           return (
             <div
               key={color.hex}

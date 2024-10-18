@@ -6,6 +6,7 @@ import { PutBlobResult } from "@vercel/blob";
 import Logo from "@/components/Logo";
 import { useGeneralSetting } from "@/components/contexts/GeneralTabSettings";
 import useGetBrandColor from "@/components/hooks/useGetBrandColor";
+import { allAvailableOptions } from "@/components/utils/allAvailableOptions";
 
 export default function LogoUploader() {
   const [data, setData] = useState<{
@@ -239,18 +240,19 @@ export default function LogoUploader() {
 }
 
 const LogoSizeSlider = () => {
-  const sizeOptions = [8, 9, 10, 11, 12, 14, 16, 20, 24, 28]; //
   const { generalSettings, setGeneralSettings } = useGeneralSetting();
   const brandColor = useGetBrandColor();
+  const { logoSizeOptions } = allAvailableOptions.general;
   const [logoSize, setLogoSize] = useState(generalSettings.logo.size);
   const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newSize = sizeOptions[parseInt(e.target.value, 10)];
+    const newSize = logoSizeOptions[parseInt(e.target.value, 10)];
     setLogoSize(newSize);
     setGeneralSettings({
       ...generalSettings,
       logo: { ...generalSettings.logo, size: newSize },
     });
   };
+
   return (
     <div className="flex flex-col h-full justify-between">
       <div>
@@ -258,9 +260,9 @@ const LogoSizeSlider = () => {
           type="range"
           id="logoSizeSlider"
           min="0"
-          max={sizeOptions.length - 1}
+          max={logoSizeOptions.length - 1}
           step="1"
-          value={sizeOptions.indexOf(logoSize)}
+          value={logoSizeOptions.indexOf(logoSize)}
           onChange={handleSliderChange}
           className={`w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700 accent-[${brandColor}]`}
         />

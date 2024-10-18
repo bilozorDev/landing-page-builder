@@ -1,11 +1,27 @@
 import type { Config } from "tailwindcss";
 import forms from "@tailwindcss/forms";
-import { predefinedColors } from "./components/utils/predefinedColors";
+import { allAvailableOptions } from "./components/utils/allAvailableOptions";
 
-//dynamically generate safe list depends on global predifined colors array
+// add responsive class to each item in safe list
+const addResponsiveClasses = (array: string[]) => {
+  const responsiveClasses = ["sm", "md", "lg", "xl", "2xl"];
+  const newArray: string[] = [];
+  array.map((className) => {
+    responsiveClasses.forEach((responsiveClassName) => {
+      newArray.push(`${responsiveClassName}:${className}`);
+    });
+  });
+  console.log(newArray);
+  return newArray;
+};
+
+//tailwind safe list for dynamic func to work 
 const generateSafelist = () => {
   const safelist: string[] = [];
-  predefinedColors.forEach((color) => {
+  allAvailableOptions.header.aligment.forEach((alignment) => {
+    safelist.push(`justify-${alignment.label}`);
+  });
+  allAvailableOptions.general.predefinedColors.forEach((color) => {
     safelist.push(
       `bg-[${color.hex}]`,
       `text-[${color.hex}]`,
@@ -22,7 +38,8 @@ const generateSafelist = () => {
       `focus-within:ring-[${color.hex}]`
     );
   });
-  return safelist;
+
+  return addResponsiveClasses(safelist);
 };
 
 const config: Config = {

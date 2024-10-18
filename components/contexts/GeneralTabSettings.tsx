@@ -1,7 +1,7 @@
 import { createContext, ReactNode, useContext } from "react";
 import useLocalStorageState from "use-local-storage-state";
 import { GeneralTabSettingsType } from "../@types/generalTabSettings.t";
-import { predefinedColors } from "../utils/predefinedColors";
+import { allAvailableOptions } from "../utils/allAvailableOptions";
 const GeneralTabSettings = createContext<{
   generalSettings: GeneralTabSettingsType;
   setGeneralSettings: React.Dispatch<
@@ -14,7 +14,7 @@ const GeneralTabSettings = createContext<{
       description: "Description",
     },
     colors: {
-      brandColor: predefinedColors[0],
+      brandColor: allAvailableOptions.general.predefinedColors[0],
     },
     logo: {
       src: "https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=500",
@@ -38,7 +38,7 @@ export const GeneralTabSettingsProvider = ({
           description: "Description ",
         },
         colors: {
-          brandColor: predefinedColors[0],
+          brandColor: allAvailableOptions.general.predefinedColors[0],
         },
         logo: {
           src: "",
