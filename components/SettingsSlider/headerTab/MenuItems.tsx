@@ -12,17 +12,19 @@ const MenuItems = () => {
   const handleReorder = (newOrder: menuItem[]) => {
     setHeaderSettings({ ...headerSettings, menuItems: newOrder });
   };
-  const handleUpdate = (id: string, field: string, value: string) => {
-    const updatedMenuItems = headerSettings.menuItems.map((item) =>
-      item.id === id ? { ...item, [field]: value } : item
-    );
-    setHeaderSettings({ ...headerSettings, menuItems: updatedMenuItems });
+
+  const handleUpdate = (updatedItem: menuItem) => {
+    setHeaderSettings({
+      ...headerSettings,
+      menuItems: headerSettings.menuItems.map((item) =>
+        item.id === updatedItem.id ? updatedItem : item
+      ),
+    });
   };
 
   const handleAddItem = () => {
     const updatedArray = headerSettings.menuItems;
     updatedArray.push({ name: "", href: "#", id: v4() });
-    console.log("you are here");
     setHeaderSettings({ ...headerSettings, menuItems: updatedArray });
   };
 
@@ -41,7 +43,11 @@ const MenuItems = () => {
         onReorder={handleReorder}
         values={headerSettings.menuItems}
         renderItem={(item) => (
-          <InputItemWithLink menuItem={item} onChange={handleUpdate} handleDelete={handleRemoveItem}/>
+          <InputItemWithLink
+            item={item}
+            onChange={handleUpdate}
+            handleDelete={handleRemoveItem}
+          />
         )}
       />
       {headerSettings.menuItems.length < 6 ? (

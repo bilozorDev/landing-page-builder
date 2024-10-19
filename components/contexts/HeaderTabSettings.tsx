@@ -21,6 +21,11 @@ const HeaderTabSettings = createContext<{
       { name: "Company", href: "#", id: v4() },
     ],
     alignment: "start",
+    cta: {
+      name: "Get in touch",
+      id: v4(),
+      href: "#",
+    },
   },
   setHeaderSettings: () => {},
 });
@@ -44,6 +49,11 @@ export const HeaderTabSettingsProvider = ({
           { name: "Company", href: "#", id: v4() },
         ],
         alignment: "start",
+        cta: {
+          name: "Get in touch",
+          id: v4(),
+          href: "#",
+        },
       },
     });
   return (
