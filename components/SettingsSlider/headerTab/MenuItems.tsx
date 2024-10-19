@@ -25,6 +25,15 @@ const MenuItems = () => {
     console.log("you are here");
     setHeaderSettings({ ...headerSettings, menuItems: updatedArray });
   };
+
+  const handleRemoveItem = (id: string) => {
+    setHeaderSettings({
+      ...headerSettings,
+      menuItems: headerSettings.menuItems.filter(
+        (menuItem) => menuItem.id !== id
+      ),
+    });
+  };
   return (
     <>
       <DraggableList
@@ -32,12 +41,14 @@ const MenuItems = () => {
         onReorder={handleReorder}
         values={headerSettings.menuItems}
         renderItem={(item) => (
-          <InputItemWithLink menuItem={item} onChange={handleUpdate} />
+          <InputItemWithLink menuItem={item} onChange={handleUpdate} handleDelete={handleRemoveItem}/>
         )}
       />
-      <div onClick={handleAddItem}>
-        <AddMenuItem />
-      </div>
+      {headerSettings.menuItems.length < 6 ? (
+        <div onClick={handleAddItem}>
+          <AddMenuItem />
+        </div>
+      ) : null}
     </>
   );
 };
@@ -46,7 +57,7 @@ export default MenuItems;
 
 const AddMenuItem = () => {
   return (
-    <BlurredWrap text="Add item">
+    <BlurredWrap text="Add item +">
       <div className="flex flex-row items-center space-x-4 w-full justify-between mt-4">
         <svg
           xmlns="http://www.w3.org/2000/svg"

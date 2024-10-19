@@ -49,6 +49,7 @@ function ReorderIcon({ dragControls }: Props) {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 39 39"
+      className="hover:cursor-move"
       width="10"
       height="10"
       onPointerDown={(event) => dragControls.start(event)}
