@@ -5,7 +5,7 @@ import React from "react";
 
 const AlignmentSelector = () => {
   const { headerSettings, setHeaderSettings } = useHeaderSettings();
-  const handleSetValue = (newAlignment: string) => {
+  const handleSetValue = (newAlignment: "start" | "center" | "end") => {
     setHeaderSettings({ ...headerSettings, alignment: newAlignment });
   };
   return (

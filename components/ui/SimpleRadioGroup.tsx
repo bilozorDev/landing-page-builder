@@ -1,44 +1,31 @@
 import React from "react";
 
-type RadioOption = {
-  id?: string;
-  label: string; // Consider renaming to `label` for clarity
-};
+interface SimpleRadioGroupProps<T extends string | number> {
+  options: Array<{ label: string; value: T }>;
+  value: T;
+  setValue: (value: T) => void;
+}
 
-type RadioGroupProps = {
-  options: RadioOption[];
-  value: string | number;
-  setValue: (value: string | number) => void;
-};
-
-const SimpleRadioGroup: React.FC<RadioGroupProps> = ({
+const SimpleRadioGroup = <T,>({
   options,
   value,
   setValue,
-}) => {
+}: SimpleRadioGroupProps<T>) => {
   return (
-    <fieldset>
-      <div className="mt-6 space-y-6 sm:flex sm:items-center sm:space-x-10 sm:space-y-0">
-        {options.map((option) => (
-          <div key={option.id ?? option.label} className="flex items-center">
-            <input
-              checked={value === option.label}
-              onChange={() => setValue(option.label)}
-              id={option.id ?? option.label}
-              name="radio-group" // Common name for all radio buttons in the group
-              type="radio"
-              className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
-            />
-            <label
-              htmlFor={option.id ?? option.label}
-              className="ml-3 block text-sm font-medium leading-6 text-gray-900"
-            >
-              {option.label}
-            </label>
-          </div>
-        ))}
-      </div>
-    </fieldset>
+    <div>
+      {options.map((option) => (
+        <label key={String(option.value)}>
+          <input
+            type="radio"
+            name="alignment"
+            value={String(option.value)}
+            checked={value === option.value}
+            onChange={() => setValue(option.value)}
+          />
+          {option.label}
+        </label>
+      ))}
+    </div>
   );
 };
 
