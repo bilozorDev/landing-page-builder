@@ -46,15 +46,11 @@ export const allAvailableOptions = {
   },
   header: {
     aligment: [
-      {
-        label: "start",
-      },
-      {
-        label: "center",
-      },
-      {
-        label: "end",
-      },
+      { label: "Left", value: "start" },
+
+      { label: "Center", value: "center" },
+
+      { label: "Right", value: "end" },
     ],
   },
 };
