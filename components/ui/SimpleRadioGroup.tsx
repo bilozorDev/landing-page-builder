@@ -6,7 +6,17 @@ interface SimpleRadioGroupProps<T extends string | number> {
   setValue: (value: T) => void;
 }
 
+
 const SimpleRadioGroup = <T,>({
+
+type RadioGroupProps = {
+  options: RadioOption[];
+  value: string;
+  setValue: (value: string) => void;
+};
+
+const SimpleRadioGroup: React.FC<RadioGroupProps> = ({
+
   options,
   value,
   setValue,
