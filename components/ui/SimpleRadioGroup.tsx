@@ -1,34 +1,26 @@
 import React from "react";
-
-interface SimpleRadioGroupProps<T extends string | number> {
-  options: Array<{ label: string; value: T }>;
-  value: T;
-  setValue: (value: T) => void;
-}
-
-
-const SimpleRadioGroup = <T,>({
-
-type RadioGroupProps = {
-  options: RadioOption[];
+type SimpleRadioGroupProps = {
+  options: {
+    label: string;
+    value: string;
+  }[];
   value: string;
   setValue: (value: string) => void;
 };
 
-const SimpleRadioGroup: React.FC<RadioGroupProps> = ({
-
+const SimpleRadioGroup = ({
   options,
   value,
   setValue,
-}: SimpleRadioGroupProps<T>) => {
+}: SimpleRadioGroupProps) => {
   return (
     <div>
       {options.map((option) => (
-        <label key={String(option.value)}>
+        <label key={option.value}>
           <input
             type="radio"
             name="alignment"
-            value={String(option.value)}
+            value={option.value}
             checked={value === option.value}
             onChange={() => setValue(option.value)}
           />
