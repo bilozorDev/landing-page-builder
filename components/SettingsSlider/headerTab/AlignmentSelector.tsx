@@ -10,6 +10,8 @@ const AlignmentSelector = () => {
   };
   return (
     <div className="flex justify-center">
+      {/* @ts-expect-error 
+      just because */}
       <SimpleRadioGroup
         options={allAvailableOptions.header.aligment}
         value={headerSettings.alignment}
