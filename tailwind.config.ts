@@ -8,6 +8,7 @@ const addResponsiveClasses = (array: string[]) => {
   const newArray: string[] = [];
   array.map((className) => {
     responsiveClasses.forEach((responsiveClassName) => {
+      newArray.push(className);
       newArray.push(`${responsiveClassName}:${className}`);
     });
   });
