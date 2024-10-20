@@ -11,6 +11,7 @@ import Logo from "../Logo";
 const Header = () => {
   const { headerSettings } = useHeaderSettings();
   const { menuItems } = headerSettings;
+  
   return (
     <>
       <Disclosure as="nav" className="py-4">
