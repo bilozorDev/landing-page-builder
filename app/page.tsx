@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 import Settings from "@/components/SettingsSlider/Settings";
-import Header from "@/components/Header";
+import Header from "@/components/header/Header";
 
 export default function Home() {
   const [open, setOpen] = useState(true);

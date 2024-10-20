@@ -1,4 +1,11 @@
 export const allAvailableOptions = {
+  steps: [
+    { name: "General", current: true },
+    { name: "Header", current: false },
+    { name: "Banner", current: false },
+    { name: "Body", current: false },
+    { name: "Footer", current: false },
+  ],
   general: {
     predefinedColors: [
       {

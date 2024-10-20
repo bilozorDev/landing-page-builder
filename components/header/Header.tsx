@@ -1,12 +1,13 @@
 import React from "react";
-import { useHeaderSettings } from "./contexts/HeaderTabSettings";
+
 import {
   Disclosure,
   DisclosureButton,
   DisclosurePanel,
 } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import Logo from "./Logo";
+import { useHeaderSettings } from "../contexts/HeaderTabSettings";
+import Logo from "../Logo";
 
 const Header = () => {
   const { headerSettings } = useHeaderSettings();

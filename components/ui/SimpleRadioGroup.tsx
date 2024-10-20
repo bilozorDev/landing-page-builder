@@ -15,7 +15,6 @@ const SimpleRadioGroup = ({
   setValue,
 }: SimpleRadioGroupProps) => {
   const brandColor = useGetBrandColor();
-  console.log(value)
   return (
     <div className="mt-6 space-y-6 sm:flex sm:items-center sm:space-x-10 sm:space-y-0">
       {options.map((option) => (

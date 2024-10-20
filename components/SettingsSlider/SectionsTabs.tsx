@@ -1,13 +1,15 @@
 import classNames from "classnames";
 import React, { Fragment } from "react";
 import useLocalStorageState from "use-local-storage-state";
-import { StepTab } from "../@types/stepTab.t";
-import getSettingsComponentByName from "../utils/getSettingsComponentByName";
 import useGetBrandColor from "../hooks/useGetBrandColor";
+import { allAvailableOptions } from "../utils/allAvailableOptions";
+import GeneralTab from "./generalTab";
+import HeaderTab from "./headerTab";
+import BannerTab from "./bannerTab";
 
-const SectionsTabs = ({ tabs }: { tabs: StepTab[] }) => {
+const SectionsTabs = () => {
   const [steps, setSteps] = useLocalStorageState("settingsSteps", {
-    defaultValue: tabs,
+    defaultValue: allAvailableOptions.steps,
   });
   const brandColor = useGetBrandColor();
 
@@ -15,10 +17,12 @@ const SectionsTabs = ({ tabs }: { tabs: StepTab[] }) => {
     setSteps((prevSteps) =>
       prevSteps.map((step) => ({
         ...step,
-        current: step.name === selectedTabName, // Set current to true for the selected tab, false for others
+        current: step.name === selectedTabName,
       }))
     );
+    console.log(steps);
   };
+
   return (
     <>
       <div className="sm:hidden">
@@ -30,10 +34,10 @@ const SectionsTabs = ({ tabs }: { tabs: StepTab[] }) => {
           id="tabs"
           name="tabs"
           onChange={(e) => handleStepChange(e.target.value)}
-          defaultValue={tabs.find((tab) => tab.current)?.name || ""}
+          defaultValue={steps.find((tab) => tab.current)?.name || ""}
           className={`block w-full rounded-md border-gray-300 focus:border-[${brandColor}] focus:ring-[${brandColor}]`}
         >
-          {tabs.map((tab) => (
+          {steps.map((tab) => (
             <option key={tab.name} value={tab.name}>
               {tab.name}
             </option>
@@ -82,3 +86,19 @@ const SectionsTabs = ({ tabs }: { tabs: StepTab[] }) => {
 };
 
 export default SectionsTabs;
+
+const Body = () => <div>Body</div>;
+const Footer = () => <div>Footsser</div>;
+
+const getSettingsComponentByName = (
+  name: string
+): React.ReactElement | null => {
+  const componentMap: { [key: string]: React.ReactElement } = {
+    General: <GeneralTab />,
+    Header: <HeaderTab />,
+    Banner: <BannerTab />,
+    Body: <Body />,
+    Footer: <Footer />,
+  };
+  return componentMap[name] || null;
+};
