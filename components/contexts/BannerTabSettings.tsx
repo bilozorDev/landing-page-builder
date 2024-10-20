@@ -1,7 +1,6 @@
 import { createContext, ReactNode, useContext } from "react";
 import useLocalStorageState from "use-local-storage-state";
 import { BannerTabSettingsType } from "../@types/bannerTabSettings.t";
-import { v4 } from "uuid";
 import { allAvailableOptions } from "../utils/allAvailableOptions";
 const BannerTabSettings = createContext<{
   bannerSettings: BannerTabSettingsType;
