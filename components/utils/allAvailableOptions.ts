@@ -65,14 +65,14 @@ export const allAvailableOptions = {
   banner: {
     styles: [
       {
-        id: "2-columns",
-        name: "2 Columns",
-        description: "List of features in 2 columns",
+        id: "brand-bg",
+        name: "Solid background",
+        description: "Background color is brand color",
       },
       {
-        id: "3-columns",
-        name: "3 Columns",
-        description: "List of features in 3 columns",
+        id: "gray-bg",
+        name: "Gray background",
+        description: "White background with underline",
       },
     ],
   },
