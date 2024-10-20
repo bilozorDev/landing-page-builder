@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 import Settings from "@/components/SettingsSlider/Settings";
-import Banner from "../components/Banner/Banner";
 import Header from "../components/Header/Header";
 
 export default function Home() {
@@ -11,7 +10,7 @@ export default function Home() {
 
   return (
     <div className="relative">
-      <Banner />
+     
       <Header />
       <Settings show={open} setShow={setOpen} />
       <div
