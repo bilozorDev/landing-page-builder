@@ -3,14 +3,16 @@
 import { useState } from "react";
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 import Settings from "@/components/SettingsSlider/Settings";
-import Header from "@/components/header/Header";
+import Header from "@/components/Header/Header";
+import Banner from "@/components/Banner/Banner";
 
 export default function Home() {
   const [open, setOpen] = useState(true);
 
   return (
     <div className="relative">
-      <Header/>
+      <Banner />
+      <Header />
       <Settings show={open} setShow={setOpen} />
       <div
         className="  top-24 right-0 fixed flex justify-end pr-7 py-2 items-center group hover:cursor-pointer "
