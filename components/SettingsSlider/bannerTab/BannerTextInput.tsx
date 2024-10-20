@@ -1,7 +1,6 @@
 import { menuItem } from "@/components/@types/menuItem.t";
 import { useBannerSetting } from "@/components/contexts/BannerTabSettings";
 import InputItemWithLink from "@/components/ui/InputForm";
-import { data } from "framer-motion/client";
 import React from "react";
 
 const BannerTextInput = () => {

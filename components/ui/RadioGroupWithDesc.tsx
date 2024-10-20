@@ -1,8 +1,7 @@
 import { Radio, RadioGroup } from "@headlessui/react";
 import classNames from "classnames";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { styleOption } from "../@types/styleOption.t";
-import { useBannerSetting } from "../contexts/BannerTabSettings";
 
 type RadioGroupWithDesc = {
   options: styleOption[];
