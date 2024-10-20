@@ -1,9 +1,9 @@
-import React from 'react'
+import SectionTitle from "@/components/ui/SectionTitle";
+import React from "react";
 
 const BannerTab = () => {
-  return (
-    <div>index</div>
-  )
-}
+  return <SectionTitle title="Style" />;
+  
+};
 
-export default BannerTab
+export default BannerTab;

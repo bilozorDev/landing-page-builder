@@ -2,7 +2,6 @@ import React from "react";
 import Drawer from "../ui/Drawer";
 import SectionsTabs from "./SectionsTabs";
 import { showOpen } from "../@types/showOpen.t";
-import { StepTab } from "../@types/stepTab.t";
 
 const Settings = ({ show, setShow }: showOpen) => {
   return (
