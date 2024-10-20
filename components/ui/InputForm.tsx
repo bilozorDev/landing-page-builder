@@ -5,10 +5,12 @@ import useGetBrandColor from "../hooks/useGetBrandColor";
 const InputItemWithLink = ({
   item,
   onChange,
+  inputLabel = "Title",
   handleDelete,
 }: {
   item: menuItem;
   onChange: (item: menuItem) => void;
+  inputLabel?: string;
   handleDelete?: (id: string) => void;
 }) => {
   const brandColor = useGetBrandColor();
@@ -22,16 +24,16 @@ const InputItemWithLink = ({
           htmlFor={`title-${item.id}`}
           className="block text-xs font-medium text-gray-500"
         >
-          Title
+          {inputLabel}
         </label>
         <input
           id={`title-${item.id}`}
           name={item.name}
           type="text"
-          value={item.name}
+          value={item.name || " "}
           onChange={(e) => onChange({ ...item, name: e.target.value })}
           placeholder="Our Features"
-          className="block w-full border-0 p-0 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+          className="block w-full border-0 p-0 text-gray-950 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
         />
       </div>
       <div
@@ -50,7 +52,7 @@ const InputItemWithLink = ({
           value={item.href || ""}
           onChange={(e) => onChange({ ...item, href: e.target.value })}
           placeholder="#newsletter"
-          className="block w-full border-0 p-0 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+          className="block w-full border-0 p-0 text-gray-950 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
         />
       </div>
       {handleDelete && (

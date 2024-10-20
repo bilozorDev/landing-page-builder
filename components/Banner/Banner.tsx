@@ -11,10 +11,14 @@ const Banner = () => {
       className={`flex items-center justify-center align-middle gap-x-6 bg-[${brandColor}] px-6 py-2.5 sm:px-3.5 `}
     >
       <p className="text-sm leading-6 text-white">
-        <a href="#">
-          {bannerSettings.data.text}&nbsp;
-          <span aria-hidden="true">&rarr;</span>
-        </a>
+        {bannerSettings.data.href ? (
+          <a href={bannerSettings.data.href}>
+            {bannerSettings.data.name}&nbsp;
+            <span aria-hidden="true">&rarr;</span>
+          </a>
+        ) : (
+          bannerSettings.data.name
+        )}
       </p>
     </div>
   );

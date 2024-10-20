@@ -1,24 +1,25 @@
+import { menuItem } from "@/components/@types/menuItem.t";
 import { useBannerSetting } from "@/components/contexts/BannerTabSettings";
-import SingleTextInput from "@/components/ui/SingleTextInput";
+import InputItemWithLink from "@/components/ui/InputForm";
+import { data } from "framer-motion/client";
 import React from "react";
 
 const BannerTextInput = () => {
   const { bannerSettings, setBannerSettings } = useBannerSetting();
-  const handleUpdate = (e) => {
-    console.log(e);
+  const handleUpdates = (updatedItem: menuItem) => {
     setBannerSettings({
       ...bannerSettings,
-      data: { ...bannerSettings.data, text: e },
+      data: updatedItem,
     });
   };
-  return (
-    <SingleTextInput
-      label="Banner text"
-      value={bannerSettings.data.text}
-      onChange={handleUpdate}
-    />
-    
 
+  return (
+    <>
+      <InputItemWithLink
+        item={bannerSettings.data}
+        onChange={handleUpdates}
+      />
+    </>
   );
 };
 

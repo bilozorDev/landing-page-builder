@@ -2,6 +2,7 @@ import { createContext, ReactNode, useContext } from "react";
 import useLocalStorageState from "use-local-storage-state";
 import { BannerTabSettingsType } from "../@types/bannerTabSettings.t";
 import { allAvailableOptions } from "../utils/allAvailableOptions";
+import { v4 } from "uuid";
 const BannerTabSettings = createContext<{
   bannerSettings: BannerTabSettingsType;
   setBannerSettings: React.Dispatch<
@@ -12,11 +13,9 @@ const BannerTabSettings = createContext<{
     display: true,
     style: allAvailableOptions.banner.styles[0],
     data: {
-      text: "",
-      cta: {
-        text: "",
-        href: "",
-      },
+      name: "",
+      href: "",
+      id: v4(),
     },
   },
   setBannerSettings: () => {},
@@ -34,11 +33,9 @@ export const BannerTabSettingsProvider = ({
         display: true,
         style: allAvailableOptions.banner.styles[0],
         data: {
-          text: "GeneriCon 2023 Join us in Denver from June 7 – 9 to see what’s coming next.",
-          cta: {
-            text: "Register now",
-            href: "#",
-          },
+          name: "GeneriCon 2023 Join us in Denver from June 7 – 9 to see what’s coming next.",
+          href: "",
+          id: v4(),
         },
       },
     }

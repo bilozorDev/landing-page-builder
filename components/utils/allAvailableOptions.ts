@@ -1,4 +1,4 @@
-import { v4 } from "uuid";
+// no use of UUID!!!!!!!!
 
 export const allAvailableOptions = {
   steps: [
@@ -65,12 +65,12 @@ export const allAvailableOptions = {
   banner: {
     styles: [
       {
-        id: v4(),
+        id: "2-columns",
         name: "2 Columns",
         description: "List of features in 2 columns",
       },
       {
-        id: v4(),
+        id: "3-columns",
         name: "3 Columns",
         description: "List of features in 3 columns",
       },
