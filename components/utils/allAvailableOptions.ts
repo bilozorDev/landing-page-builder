@@ -1,3 +1,5 @@
+import { v4 } from "uuid";
+
 export const allAvailableOptions = {
   steps: [
     { name: "General", current: true },
@@ -58,6 +60,20 @@ export const allAvailableOptions = {
       { label: "Center", value: "center" },
 
       { label: "Right", value: "end" },
+    ],
+  },
+  banner: {
+    styles: [
+      {
+        id: v4(),
+        name: "2 Columns",
+        description: "List of features in 2 columns",
+      },
+      {
+        id: v4(),
+        name: "3 Columns",
+        description: "List of features in 3 columns",
+      },
     ],
   },
 };

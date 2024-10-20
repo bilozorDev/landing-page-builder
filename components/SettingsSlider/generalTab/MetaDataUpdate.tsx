@@ -16,7 +16,7 @@ const MetaDataUpdate = () => {
       },
     });
   };
-  // update
+
   useEffect(() => {
     if (generalSettings.metaData.title) {
       document.title = generalSettings.metaData.title;

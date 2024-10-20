@@ -2,6 +2,7 @@ import { createContext, ReactNode, useContext } from "react";
 import useLocalStorageState from "use-local-storage-state";
 import { BannerTabSettingsType } from "../@types/bannerTabSettings.t";
 import { v4 } from "uuid";
+import { allAvailableOptions } from "../utils/allAvailableOptions";
 const BannerTabSettings = createContext<{
   bannerSettings: BannerTabSettingsType;
   setBannerSettings: React.Dispatch<
@@ -10,20 +11,7 @@ const BannerTabSettings = createContext<{
 }>({
   bannerSettings: {
     display: true,
-    style: [
-      {
-        id: v4(),
-        name: "2 Columns",
-        description: "List of features in 2 columns",
-        selected: true,
-      },
-      {
-        id: v4(),
-        name: "3 Columns",
-        description: "List of features in 3 columns",
-        selected: false,
-      },
-    ],
+    style: allAvailableOptions.banner.styles[0],
   },
   setBannerSettings: () => {},
 });
@@ -38,20 +26,7 @@ export const BannerTabSettingsProvider = ({
     {
       defaultValue: {
         display: true,
-        style: [
-          {
-            id: v4(),
-            name: "2 Columns",
-            description: "List of features in 2 columns",
-            selected: true,
-          },
-          {
-            id: v4(),
-            name: "3 Columns",
-            description: "List of features in 3 columns",
-            selected: false,
-          },
-        ],
+        style: allAvailableOptions.banner.styles[0],
       },
     }
   );

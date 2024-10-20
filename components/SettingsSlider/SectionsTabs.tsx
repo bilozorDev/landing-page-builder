@@ -20,7 +20,6 @@ const SectionsTabs = () => {
         current: step.name === selectedTabName,
       }))
     );
-    console.log(steps);
   };
 
   return (
