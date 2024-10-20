@@ -11,6 +11,13 @@ const BannerTabSettings = createContext<{
   bannerSettings: {
     display: true,
     style: allAvailableOptions.banner.styles[0],
+    data: {
+      text: "",
+      cta: {
+        text: "",
+        href: "",
+      },
+    },
   },
   setBannerSettings: () => {},
 });
@@ -26,6 +33,13 @@ export const BannerTabSettingsProvider = ({
       defaultValue: {
         display: true,
         style: allAvailableOptions.banner.styles[0],
+        data: {
+          text: "GeneriCon 2023 Join us in Denver from June 7 – 9 to see what’s coming next.",
+          cta: {
+            text: "Register now",
+            href: "#",
+          },
+        },
       },
     }
   );

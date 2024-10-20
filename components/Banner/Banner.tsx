@@ -12,15 +12,7 @@ const Banner = () => {
     >
       <p className="text-sm leading-6 text-white">
         <a href="#">
-          <strong className="font-semibold">GeneriCon 2023</strong>
-          <svg
-            viewBox="0 0 2 2"
-            aria-hidden="true"
-            className="mx-2 inline h-0.5 w-0.5 fill-current"
-          >
-            <circle r={1} cx={1} cy={1} />
-          </svg>
-          Join us in Denver from June 7 – 9 to see what’s coming next&nbsp;
+          {bannerSettings.data.text}&nbsp;
           <span aria-hidden="true">&rarr;</span>
         </a>
       </p>
