@@ -6,6 +6,7 @@ import { allAvailableOptions } from "../utils/allAvailableOptions";
 import GeneralTab from "./generalTab";
 import HeaderTab from "./headerTab";
 import BannerTab from "./bannerTab";
+import BodyTab from "./bodyTab";
 
 const SectionsTabs = () => {
   const [steps, setSteps] = useLocalStorageState("settingsSteps", {
@@ -86,7 +87,6 @@ const SectionsTabs = () => {
 
 export default SectionsTabs;
 
-const Body = () => <div>Body</div>;
 const Footer = () => <div>Footsser</div>;
 
 const getSettingsComponentByName = (
@@ -96,7 +96,7 @@ const getSettingsComponentByName = (
     General: <GeneralTab />,
     Header: <HeaderTab />,
     Banner: <BannerTab />,
-    Body: <Body />,
+    Body: <BodyTab />,
     Footer: <Footer />,
   };
   return componentMap[name] || null;

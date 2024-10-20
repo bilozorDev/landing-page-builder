@@ -4,6 +4,7 @@ import "./globals.css";
 import { GeneralTabSettingsProvider } from "../components/contexts/GeneralTabSettings";
 import { HeaderTabSettingsProvider } from "@/components/contexts/HeaderTabSettings";
 import { BannerTabSettingsProvider } from "@/components/contexts/BannerTabSettings";
+import { BodyTabSettingsProvider } from "@/components/contexts/BodyTabSettings";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -28,7 +29,9 @@ export default function RootLayout({
       >
         <GeneralTabSettingsProvider>
           <HeaderTabSettingsProvider>
-            <BannerTabSettingsProvider>{children}</BannerTabSettingsProvider>
+            <BannerTabSettingsProvider>
+              <BodyTabSettingsProvider>{children}</BodyTabSettingsProvider>
+            </BannerTabSettingsProvider>
           </HeaderTabSettingsProvider>
         </GeneralTabSettingsProvider>
       </body>
