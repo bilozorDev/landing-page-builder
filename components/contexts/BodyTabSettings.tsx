@@ -6,7 +6,9 @@ const BodyTabSettings = createContext<{
   bodySettings: BodyTabSettingsType;
   setBodySettings: React.Dispatch<React.SetStateAction<BodyTabSettingsType>>;
 }>({
-  bodySettings: {},
+  bodySettings: {
+    parts: [],
+  },
   setBodySettings: () => {},
 });
 
@@ -17,7 +19,9 @@ export const BodyTabSettingsProvider = ({
 }) => {
   const [bodySettings, setBodySettings] =
     useLocalStorageState<BodyTabSettingsType>("bodySettings", {
-      defaultValue: {},
+      defaultValue: {
+        parts: [],
+      },
     });
   return (
     <BodyTabSettings.Provider value={{ bodySettings, setBodySettings }}>

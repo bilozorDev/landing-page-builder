@@ -16,7 +16,7 @@ const addResponsiveClasses = (array: string[]) => {
   return newArray;
 };
 
-//tailwind safe list for dynamic func to work 
+//tailwind safe list for dynamic func to work
 const generateSafelist = () => {
   const safelist: string[] = [];
   allAvailableOptions.header.aligment.forEach((alignment) => {
@@ -27,6 +27,7 @@ const generateSafelist = () => {
       `bg-[${color.hex}]`,
       `text-[${color.hex}]`,
       `ring-[${color.hex}]`,
+      `data-[checked]:bg-[${color.hex}]`,
       `border-[${color.hex}]`,
       `outline-[${color.hex}]`,
       `divide-[${color.hex}]`,

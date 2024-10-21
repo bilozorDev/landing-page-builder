@@ -1,5 +1,6 @@
 import { Field, Label, Switch } from "@headlessui/react";
 import React from "react";
+import useGetBrandColor from "../hooks/useGetBrandColor";
 
 type ToggleSwitchType = {
   value: boolean;
@@ -8,13 +9,14 @@ type ToggleSwitchType = {
 };
 
 const ToggleSwitch = ({ value, onChange, text }: ToggleSwitchType) => {
+  const brandColor = useGetBrandColor()
   return (
     <Field className="flex space-x-8">
       <Label>{text}</Label>
       <Switch
         checked={value}
         onChange={onChange}
-        className="group relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-gray-200 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 data-[checked]:bg-indigo-600"
+        className={`group relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-gray-200 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-[${brandColor}] focus:ring-offset-2 data-[checked]:bg-[${brandColor}]`}
       >
         <span className="sr-only">Use setting</span>
         <span className="pointer-events-none relative inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out group-data-[checked]:translate-x-5">
@@ -43,7 +45,7 @@ const ToggleSwitch = ({ value, onChange, text }: ToggleSwitchType) => {
             <svg
               fill="currentColor"
               viewBox="0 0 12 12"
-              className="h-3 w-3 text-indigo-600"
+              className={`h-3 w-3 text-[${brandColor}]`}
             >
               <path d="M3.707 5.293a1 1 0 00-1.414 1.414l1.414-1.414zM5 8l-.707.707a1 1 0 001.414 0L5 8zm4.707-3.293a1 1 0 00-1.414-1.414l1.414 1.414zm-7.414 2l2 2 1.414-1.414-2-2-1.414 1.414zm3.414 2l4-4-1.414-1.414-4 4 1.414 1.414z" />
             </svg>
