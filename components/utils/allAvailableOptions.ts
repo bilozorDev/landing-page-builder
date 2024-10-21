@@ -1,16 +1,17 @@
 // no use of UUID!!!!!!!!
 
 import { ChartPieIcon } from "@heroicons/react/24/outline";
+import { Banner, General, Header, Parts, Steps } from "./allAvailableOptions.t";
 
 export const allAvailableOptions = {
-  steps: [
+  steps: <Steps>[
     { name: "General", current: true },
     { name: "Header", current: false },
     { name: "Banner", current: false },
     { name: "Body", current: false },
     { name: "Footer", current: false },
   ],
-  general: {
+  general: <General>{
     predefinedColors: [
       {
         hex: "#a855f7",
@@ -55,7 +56,7 @@ export const allAvailableOptions = {
     ],
     logoSizeOptions: [8, 9, 10, 11, 12, 14, 16, 20, 24, 28],
   },
-  header: {
+  header: <Header>{
     aligment: [
       { label: "Left", value: "start" },
 
@@ -64,7 +65,7 @@ export const allAvailableOptions = {
       { label: "Right", value: "end" },
     ],
   },
-  banner: {
+  banner: <Banner>{
     styles: [
       {
         id: "brand-bg",
@@ -79,9 +80,10 @@ export const allAvailableOptions = {
     ],
   },
   body: {
-    parts: [
+    parts: <Parts>[
       {
         name: "hero",
+        id: "hero",
         options: {
           styleSelections: [
             {
@@ -135,6 +137,7 @@ export const allAvailableOptions = {
       },
       {
         name: "feature",
+        id: "feature",
         options: {
           iconsStyle: [
             {
@@ -247,6 +250,7 @@ export const allAvailableOptions = {
 
       {
         name: "newsletter",
+        id: "newsletter",
         options: {
           iconsStyle: [
             {
@@ -334,6 +338,7 @@ export const allAvailableOptions = {
 
       {
         name: "stats",
+        id: "stats",
         options: {
           styleSelections: [
             {
