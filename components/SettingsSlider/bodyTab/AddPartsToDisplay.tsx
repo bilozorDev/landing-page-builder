@@ -61,7 +61,7 @@ const AddPartsToDisplay = () => {
                 className="flex-none rounded-full px-2 py-1 text-xs font-medium ring-1 ring-inset"
                 onClick={() => {
                   setShow(true);
-                  setSelectedPart(part.name);
+                  setSelectedPart(part.name as keyof typeof PartsMap);
                 }}
               >
                 View
