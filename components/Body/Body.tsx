@@ -3,11 +3,9 @@ import { useBodySettings } from "../contexts/BodyTabSettings";
 
 const Body = () => {
   const { bodySettings } = useBodySettings();
-  return (
-    <>
-      {bodySettings.parts.length}
-    </>
-  );
+  const { parts } = bodySettings;
+  if (!parts.length) return "hello";
+  return <>{parts.map((part) => part.name)}</>;
 };
 
 export default Body;
