@@ -1,13 +1,6 @@
-import { useBodySettings } from "@/components/contexts/BodyTabSettings";
 
 const SelectedParts = () => {
-  const { bodySettings } = useBodySettings();
-
-  return (
-    <>
-      
-    </>
-  );
+  return <></>;
 };
 
 export default SelectedParts;
