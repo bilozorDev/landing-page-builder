@@ -22,7 +22,7 @@ const AddPartsToDisplay = () => {
 
   const { parts } = allAvailableOptions.body;
   const [show, setShow] = useState(false);
-  const [selectedPart, setSelectedPart] = useState("");
+  const [selectedPart, setSelectedPart] = useState<keyof typeof PartsMap | "">("");
 
   const PartsMap = {
     hero: <HeroPreview />,
@@ -81,7 +81,7 @@ const AddPartsToDisplay = () => {
         </div>
       </div>
       <Drawer show={show} setShow={setShow} showLocalStorage={false}>
-        {PartsMap[selectedPart] && PartsMap[selectedPart]}
+        {selectedPart && PartsMap[selectedPart]}
       </Drawer>
     </>
   );
