@@ -32,7 +32,7 @@ type Step = {
   type Alignments = Alignment[];
   
   type Header = {
-    alignment: Alignments; 
+    aligment: Alignments; 
   };
   
   // Banner Style Types
@@ -111,5 +111,5 @@ type Step = {
   
   type Parts = BodyPart[];
   
-  export type { Steps, General, Header, Banner, Parts };
+  export type { Steps, General, Header, Banner, Parts, BodyPart };
   

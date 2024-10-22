@@ -136,8 +136,8 @@ export const allAvailableOptions = {
         },
       },
       {
-        name: "feature",
-        id: "feature",
+        name: "features",
+        id: "features",
         options: {
           iconsStyle: [
             {

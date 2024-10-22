@@ -10,6 +10,7 @@ const Drawer = ({
   show,
   setShow,
   children,
+  showLocalStorage = true,
 }: showOpen & { children: ReactNode }) => {
   // to make content behind the drawer scrollable
   useEffect(() => {
@@ -19,6 +20,7 @@ const Drawer = ({
       }, 1000);
     }
   }, [show]);
+
   return (
     <Dialog open={show} onClose={setShow} className="relative z-10">
       <div className="fixed inset-0" />
@@ -33,7 +35,7 @@ const Drawer = ({
               <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
                 <div className="p-6">
                   <div className="flex items-start justify-between">
-                    <ClearLocalStorage />
+                    {showLocalStorage && <ClearLocalStorage />}
                     <div className="ml-3 flex h-7 items-center">
                       <button
                         type="button"

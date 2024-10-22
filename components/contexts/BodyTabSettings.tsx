@@ -1,6 +1,6 @@
-import { BodyTabSettingsType } from "../@types/BodyTabSettingsType.t";
 import { createContext, ReactNode, useContext } from "react";
 import useLocalStorageState from "use-local-storage-state";
+import { BodyTabSettingsType } from "../@types/bodyTabSettingsType.t";
 
 const BodyTabSettings = createContext<{
   bodySettings: BodyTabSettingsType;

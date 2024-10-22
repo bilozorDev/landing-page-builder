@@ -1,16 +1,13 @@
-import {useBodySettings } from '@/components/contexts/BodyTabSettings'
-import React from 'react'
+import { useBodySettings } from "@/components/contexts/BodyTabSettings";
 
 const SelectedParts = () => {
-    const {bodySettings} = useBodySettings()
+  const { bodySettings } = useBodySettings();
 
   return (
-  <>
-  {bodySettings.parts.map((part)=>{
-  console.log("added " + part)
-  })}
-  </>
-  )
-}
+    <>
+      
+    </>
+  );
+};
 
-export default SelectedParts
+export default SelectedParts;
