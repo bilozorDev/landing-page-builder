@@ -1,10 +1,10 @@
 import { createContext, ReactNode, useContext } from "react";
 import useLocalStorageState from "use-local-storage-state";
-import { BodyTabSettingsType } from "../@types/bodyTabSettingsType.t";
+import { BodyParts } from "../utils/allAvailableOptions.t";
 
 const BodyTabSettings = createContext<{
-  bodySettings: BodyTabSettingsType;
-  setBodySettings: React.Dispatch<React.SetStateAction<BodyTabSettingsType>>;
+  bodySettings: BodyParts;
+  setBodySettings: React.Dispatch<React.SetStateAction<BodyParts>>;
 }>({
   bodySettings: {
     parts: [],
@@ -17,12 +17,14 @@ export const BodyTabSettingsProvider = ({
 }: {
   children: ReactNode;
 }) => {
-  const [bodySettings, setBodySettings] =
-    useLocalStorageState<BodyTabSettingsType>("bodySettings", {
+  const [bodySettings, setBodySettings] = useLocalStorageState<BodyParts>(
+    "bodySettings",
+    {
       defaultValue: {
         parts: [],
       },
-    });
+    }
+  );
   return (
     <BodyTabSettings.Provider value={{ bodySettings, setBodySettings }}>
       {children}

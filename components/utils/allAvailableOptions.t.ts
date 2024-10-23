@@ -1,3 +1,4 @@
+import { BodyPart } from "@/components/utils/allAvailableOptions.t";
 type Step = {
   name: string;
   current: boolean;
@@ -79,6 +80,10 @@ type BodyPart = {
   data: Data;
 };
 
+type BodyParts = {
+  parts: BodyPart[];
+};
+
 type BodyPartsSelections = BodyPartSelection[];
 export type {
   Steps,
@@ -88,4 +93,5 @@ export type {
   BodyPartsSelections,
   BodyPartSelection,
   BodyPart,
+  BodyParts
 };
