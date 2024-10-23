@@ -1,4 +1,3 @@
-import { BodyPart } from "@/components/utils/allAvailableOptions.t";
 type Step = {
   name: string;
   current: boolean;
@@ -93,5 +92,5 @@ export type {
   BodyPartsSelections,
   BodyPartSelection,
   BodyPart,
-  BodyParts
+  BodyParts,
 };
