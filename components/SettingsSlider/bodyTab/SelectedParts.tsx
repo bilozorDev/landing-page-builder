@@ -1,12 +1,12 @@
 import { useBodySettings } from "@/components/contexts/BodyTabSettings";
 import DraggableList from "@/components/ui/DraggableList";
-import { Parts } from "@/components/utils/allAvailableOptions.t";
 import PartCard from "./PartCard";
+import { BodyPart } from "@/components/utils/allAvailableOptions.t";
 
 const SelectedParts = () => {
   const { bodySettings, setBodySettings } = useBodySettings();
   const { parts } = bodySettings;
-  const handleReorder = (newOrder: Parts) => {
+  const handleReorder = (newOrder: BodyPart[]) => {
     setBodySettings((prev) => ({
       ...prev,
       parts: newOrder,
