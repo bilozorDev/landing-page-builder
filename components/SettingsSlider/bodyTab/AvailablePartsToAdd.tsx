@@ -19,9 +19,9 @@ const AvailablePartsToAdd = () => {
     const newArray: BodyPart[] = bodySettings.parts; // get already parts in array
     const uniqueId = `${part.name}-${v4()}`; // unique ID for new part
 
-    const newPart = {
-      ...part,
+    const newPart: BodyPart = {
       id: uniqueId,
+      name: part.name,
       data: { ...part.data, selectedStyle: part.availableStyles[0] },
     };
     newArray.push(newPart);
@@ -49,7 +49,7 @@ const AvailablePartsToAdd = () => {
         <div className="divide-y divide-gray-200">
           {parts.map((part) => (
             <div
-              key={part.id}
+              key={part.name}
               className="relative flex items-center space-x-4 p-4 group hover:bg-gray-50 transition-all duration-75"
             >
               <div className="min-w-0 flex-auto">

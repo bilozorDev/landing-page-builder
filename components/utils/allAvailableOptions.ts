@@ -88,7 +88,7 @@ export const allAvailableOptions = {
     parts: <BodyPartsSelections>[
       {
         name: "hero",
-        id: "",
+
         availableStyles: [
           {
             id: "default",

@@ -68,7 +68,6 @@ type Data = {
 };
 type BodyPartSelection = {
   name: string;
-  id: string;
   availableStyles: Styles;
   data: Data;
 };
@@ -93,4 +92,6 @@ export type {
   BodyPartSelection,
   BodyPart,
   BodyParts,
+  Styles,
+  Style,
 };
