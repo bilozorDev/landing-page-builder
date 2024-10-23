@@ -60,7 +60,7 @@ const AvailablePartsToAdd = () => {
                 </div>
                 <div className="mt-3 flex items-center gap-x-2.5 text-xs leading-5 text-gray-500">
                   <p className="truncate">
-                    Available styles {part.options?.availableStyles.length}
+                    Available styles {part?.availableStyles.length}
                   </p>
                   <svg
                     viewBox="0 0 2 2"
