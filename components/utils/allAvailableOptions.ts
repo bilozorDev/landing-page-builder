@@ -2,7 +2,6 @@
 
 import {
   Banner,
-  BodyParts,
   BodyPartsSelections,
   General,
   Header,
