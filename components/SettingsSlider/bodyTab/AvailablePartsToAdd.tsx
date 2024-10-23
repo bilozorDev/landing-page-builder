@@ -7,22 +7,35 @@ import HeroPreview from "./previews/HeroPreview";
 import FeaturesPreview from "./previews/FeaturesPreview";
 import NewsletterPreview from "./previews/NewsletterPreview";
 import StatsPreview from "./previews/StatsPreview";
-import { BodyPart, Parts } from "@/components/utils/allAvailableOptions.t";
+import {
+  BodyPart,
+  BodyPartSelection,
+} from "@/components/utils/allAvailableOptions.t";
 import { v4 } from "uuid";
 
-const AddPartsToDisplay = () => {
+const AvailablePartsToAdd = () => {
   const { bodySettings, setBodySettings } = useBodySettings();
-  const handleAddPart = (part: BodyPart) => {
-    const newId = v4();
-    part.id = part.name + "-" + newId;
-    const newArray: Parts = bodySettings.parts;
-    newArray.push(part);
-    setBodySettings({ ...bodySettings, parts: newArray });
+  const handleAddPart = (part: BodyPartSelection) => {
+    const newArray: BodyPart[] = bodySettings.parts; // get already parts in array
+    const uniqueId = `${part.name}-${v4()}`; // unique ID for new part
+
+    const newPart = {
+      ...part,
+      id: uniqueId,
+      data: { ...part.data, selectedStyle: part.availableStyles[0] },
+    };
+    newArray.push(newPart);
+    setBodySettings((prev) => ({
+      ...prev,
+      parts: newArray,
+    }));
   };
 
   const { parts } = allAvailableOptions.body;
   const [show, setShow] = useState(false);
-  const [selectedPart, setSelectedPart] = useState<keyof typeof PartsMap | "">("");
+  const [selectedPart, setSelectedPart] = useState<keyof typeof PartsMap | "">(
+    ""
+  );
 
   const PartsMap = {
     hero: <HeroPreview />,
@@ -47,7 +60,7 @@ const AddPartsToDisplay = () => {
                 </div>
                 <div className="mt-3 flex items-center gap-x-2.5 text-xs leading-5 text-gray-500">
                   <p className="truncate">
-                    Available styles {part.options?.styleSelections.length}
+                    Available styles {part.options?.availableStyles.length}
                   </p>
                   <svg
                     viewBox="0 0 2 2"
@@ -87,4 +100,4 @@ const AddPartsToDisplay = () => {
   );
 };
 
-export default AddPartsToDisplay;
+export default AvailablePartsToAdd;

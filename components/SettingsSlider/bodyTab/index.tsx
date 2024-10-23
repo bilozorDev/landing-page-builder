@@ -1,13 +1,13 @@
 import SectionTitle from "@/components/ui/SectionTitle";
 import React from "react";
-import AddPartsToDisplay from "./AddPartsToDisplay";
 import SelectedParts from "./SelectedParts";
+import AvailablePartsToAdd from "./AvailablePartsToAdd";
 
 const BodyTab = () => {
   return (
     <>
       <SectionTitle title="Available parts" />
-      <AddPartsToDisplay />
+      <AvailablePartsToAdd />
       <SectionTitle title="Selected parts" />
       <SelectedParts />
     </>

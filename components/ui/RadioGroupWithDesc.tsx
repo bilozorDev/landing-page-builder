@@ -4,13 +4,13 @@ import React from "react";
 import { styleOption } from "../@types/styleOption.t";
 
 type RadioGroupWithDesc = {
-  options: styleOption[];
+  availableStyles: styleOption[];
   value: styleOption;
   handleSelect: (e: styleOption) => void;
 };
 
 const RadioGroupWithDesc = ({
-  options,
+  availableStyles,
   value,
   handleSelect,
 }: RadioGroupWithDesc) => {
@@ -21,7 +21,7 @@ const RadioGroupWithDesc = ({
         onChange={handleSelect}
         className="-space-y-px rounded-md bg-white"
       >
-        {options.map((option, optionIdx) => (
+        {availableStyles.map((option, optionIdx) => (
           <Radio
             key={option.id}
             value={option}
@@ -29,7 +29,7 @@ const RadioGroupWithDesc = ({
             aria-description={option.description}
             className={classNames(
               optionIdx === 0 ? "rounded-tl-md rounded-tr-md" : "",
-              optionIdx === options.length - 1
+              optionIdx === availableStyles.length - 1
                 ? "rounded-bl-md rounded-br-md"
                 : "",
               "group relative flex cursor-pointer border border-gray-200 p-4 focus:outline-none data-[checked]:z-10 data-[checked]:border-gray-300 data-[checked]:bg-gray-100"

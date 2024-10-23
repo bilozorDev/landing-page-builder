@@ -12,7 +12,7 @@ const StyleSelector = () => {
   };
   return (
     <RadioGroupWithDesc
-      options={allAvailableOptions.banner.styles}
+      availableStyles={allAvailableOptions.banner.availableStyles}
       value={style}
       handleSelect={handleUpdate}
     />

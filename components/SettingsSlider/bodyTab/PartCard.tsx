@@ -4,7 +4,7 @@ import { ChevronRightIcon } from "@heroicons/react/24/outline";
 import React, { useState } from "react";
 import PartSettings from "./PartSettings";
 
-const PartPreview = ({ part }: { part: BodyPart }) => {
+const PartCard = ({ part }: { part: BodyPart }) => {
   const [show, setShow] = useState(false);
   return (
     <>
@@ -28,10 +28,10 @@ const PartPreview = ({ part }: { part: BodyPart }) => {
         </div>
       </div>
       <Drawer show={show} setShow={setShow} showLocalStorage={false}>
-        <PartSettings id={part.id} />
+       <PartSettings part={part} />
       </Drawer>
     </>
   );
 };
 
-export default PartPreview;
+export default PartCard;

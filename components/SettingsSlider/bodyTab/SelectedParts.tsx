@@ -1,7 +1,7 @@
 import { useBodySettings } from "@/components/contexts/BodyTabSettings";
-import PartPreview from "./PartPreview";
 import DraggableList from "@/components/ui/DraggableList";
 import { Parts } from "@/components/utils/allAvailableOptions.t";
+import PartCard from "./PartCard";
 
 const SelectedParts = () => {
   const { bodySettings, setBodySettings } = useBodySettings();
@@ -19,7 +19,7 @@ const SelectedParts = () => {
         axis="y"
         onReorder={handleReorder}
         values={parts}
-        renderItem={(item) => <PartPreview part={item} />}
+        renderItem={(item) => <PartCard part={item} />}
       />
     </>
   );
