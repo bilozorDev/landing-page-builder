@@ -34,7 +34,7 @@ const PartSettings = ({ part }: { part: SelectedComponent }) => {
         <RadioGroupWithDesc
           availableStyles={availableStyles}
           handleSelect={handleStyleUpdate}
-          value={part.selectedStyle}
+          value={part.selectedStyle || availableStyles[0]}
         />
         <SectionTitle title="Data" />
       </div>
