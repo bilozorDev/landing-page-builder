@@ -1,12 +1,12 @@
 import { Radio, RadioGroup } from "@headlessui/react";
 import classNames from "classnames";
 import React from "react";
-import { Style, Styles } from "../utils/allAvailableOptions.t";
+import { SelectionVariation } from "../utils/allAvailableOptions.t";
 
 type RadioGroupWithDesc = {
-  availableStyles: Styles;
-  value: Style;
-  handleSelect: (e: Style) => void;
+  availableStyles: SelectionVariation[];
+  value: SelectionVariation;
+  handleSelect: (e: SelectionVariation) => void;
 };
 
 const RadioGroupWithDesc = ({
