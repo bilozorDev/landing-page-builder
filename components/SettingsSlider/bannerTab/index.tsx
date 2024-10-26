@@ -7,10 +7,10 @@ import BannerTextInput from "./BannerTextInput";
 const BannerTab = () => {
   return (
     <>
-      <SectionTitle title="Text" />
-      <BannerTextInput />
       <SectionTitle title="Display" />
       <DisplayToggle />
+      <SectionTitle title="Text" />
+      <BannerTextInput />
       <SectionTitle title="Style" />
       <StyleSelector />
     </>

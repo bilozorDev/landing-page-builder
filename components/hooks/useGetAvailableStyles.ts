@@ -1,8 +1,8 @@
 import { allAvailableOptions } from "../utils/allAvailableOptions";
-import { BodyPart } from "../utils/allAvailableOptions.t";
+import { SelectedComponent } from "../utils/allAvailableOptions.t";
 
-const useGetAvailableStyles = (part: BodyPart) => {
-  const currentPart = allAvailableOptions.body.parts.find(
+const useGetAvailableStyles = (part: SelectedComponent) => {
+  const currentPart = allAvailableOptions.body.availableComponents.find(
     (el) => el.name == part.name
   );
   if (currentPart) return currentPart.availableStyles;

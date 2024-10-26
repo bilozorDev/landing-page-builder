@@ -1,10 +1,10 @@
 import Drawer from "@/components/ui/Drawer";
-import { BodyPart } from "@/components/utils/allAvailableOptions.t";
 import { ChevronRightIcon } from "@heroicons/react/24/outline";
 import React, { useState } from "react";
 import PartSettings from "./PartSettings";
+import { SelectedComponent } from "@/components/utils/allAvailableOptions.t";
 
-const PartCard = ({ part }: { part: BodyPart }) => {
+const PartCard = ({ part }: { part: SelectedComponent }) => {
   const [show, setShow] = useState(false);
   return (
     <>
@@ -28,7 +28,7 @@ const PartCard = ({ part }: { part: BodyPart }) => {
         </div>
       </div>
       <Drawer show={show} setShow={setShow} showLocalStorage={false}>
-       <PartSettings part={part} />
+        <PartSettings part={part} />
       </Drawer>
     </>
   );

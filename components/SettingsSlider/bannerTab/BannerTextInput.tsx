@@ -18,6 +18,7 @@ const BannerTextInput = () => {
         item={bannerSettings.data}
         onChange={handleUpdates}
       />
+      
     </>
   );
 };

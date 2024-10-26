@@ -7,22 +7,22 @@ import HeroPreview from "./previews/HeroPreview";
 import FeaturesPreview from "./previews/FeaturesPreview";
 import NewsletterPreview from "./previews/NewsletterPreview";
 import StatsPreview from "./previews/StatsPreview";
-import {
-  BodyPart,
-  BodyPartSelection,
-} from "@/components/utils/allAvailableOptions.t";
 import { v4 } from "uuid";
+import {
+  AvailableComponentToAdd,
+  SelectedComponent,
+} from "@/components/utils/allAvailableOptions.t";
 
 const AvailablePartsToAdd = () => {
   const { bodySettings, setBodySettings } = useBodySettings();
-  const handleAddPart = (part: BodyPartSelection) => {
-    const newArray: BodyPart[] = bodySettings.parts; // get already parts in array
+  const handleAddPart = (part: AvailableComponentToAdd) => {
+    const newArray = bodySettings.parts; // get already parts in array
     const uniqueId = `${part.name}-${v4()}`; // unique ID for new part
-
-    const newPart: BodyPart = {
+    const newPart: SelectedComponent = {
       id: uniqueId,
       name: part.name,
-      data: { ...part.data, selectedStyle: part.availableStyles[0] },
+      selectedStyle: part.availableStyles[0],
+      contentBlocks: [...part.contentBlocks],
     };
     newArray.push(newPart);
     setBodySettings((prev) => ({
@@ -31,36 +31,30 @@ const AvailablePartsToAdd = () => {
     }));
   };
 
-  const { parts } = allAvailableOptions.body;
+  const { availableComponents } = allAvailableOptions.body;
   const [show, setShow] = useState(false);
   const [selectedPart, setSelectedPart] = useState<keyof typeof PartsMap | "">(
     ""
   );
 
-  const PartsMap = {
-    hero: <HeroPreview />,
-    features: <FeaturesPreview />,
-    newsletter: <NewsletterPreview />,
-    stats: <StatsPreview />,
-  };
   return (
     <>
       <div>
         <div className="divide-y divide-gray-200">
-          {parts.map((part) => (
+          {availableComponents.map((component) => (
             <div
-              key={part.name}
+              key={component.name}
               className="relative flex items-center space-x-4 p-4 group hover:bg-gray-50 transition-all duration-75"
             >
               <div className="min-w-0 flex-auto">
                 <div className="flex items-center gap-x-3">
                   <h2 className="min-w-0 font-semibold leading-6 text-gray-600 capitalize">
-                    {part.name}
+                    {component.name}
                   </h2>
                 </div>
                 <div className="mt-3 flex items-center gap-x-2.5 text-xs leading-5 text-gray-500">
                   <p className="truncate">
-                    Available styles {part?.availableStyles.length}
+                    Available styles {component?.availableStyles.length}
                   </p>
                   <svg
                     viewBox="0 0 2 2"
@@ -74,14 +68,14 @@ const AvailablePartsToAdd = () => {
                 className="flex-none rounded-full px-2 py-1 text-xs font-medium ring-1 ring-inset"
                 onClick={() => {
                   setShow(true);
-                  setSelectedPart(part.name as keyof typeof PartsMap);
+                  setSelectedPart(component.name as keyof typeof PartsMap);
                 }}
               >
                 View
               </div>
               <div
                 className="flex flex-row items-center rounded-full px-2 py-1 text-xs font-medium ring-1 ring-inset "
-                onClick={() => handleAddPart(part)}
+                onClick={() => handleAddPart(component)}
               >
                 Add
                 <ChevronRightIcon
@@ -101,3 +95,10 @@ const AvailablePartsToAdd = () => {
 };
 
 export default AvailablePartsToAdd;
+
+const PartsMap = {
+  hero: <HeroPreview />,
+  features: <FeaturesPreview />,
+  newsletter: <NewsletterPreview />,
+  stats: <StatsPreview />,
+};

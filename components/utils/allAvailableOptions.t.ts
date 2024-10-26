@@ -1,23 +1,20 @@
+//setting step
 type Step = {
   name: string;
   current: boolean;
 };
 
-type Steps = Step[];
-
+// available color selection
 type Color = {
   hex: string;
   color: string;
   shade: string;
 };
 
-type Colors = Color[];
-
-type LogoSizeOptions = number[];
-
+// general section of available options
 type General = {
-  predefinedColors: Colors;
-  logoSizeOptions: LogoSizeOptions;
+  predefinedColors: Color[];
+  logoSizeOptions: number[];
 };
 
 // Header Alignment Types
@@ -26,72 +23,52 @@ type Alignment = {
   value: string;
 };
 
-type Alignments = Alignment[];
-
 type Header = {
-  aligment: Alignments;
+  aligment: Alignment[];
 };
 
-// Banner Style Types
-type Style = {
+type SelectionVariation = {
   id: string;
   name: string;
-  description: string;
+  description?: string;
 };
 
-type Styles = Style[];
-
+// Banner section on top of header
 type Banner = {
-  availableStyles: Styles;
+  availableStyles: SelectionVariation[];
 };
-
-interface Text {
+// Part list in allAvailableOptionsObject
+type AvailableComponentToAdd = {
+  name: string;
+  availableStyles: SelectionVariation[];
+  contentBlocks: ContentBlock[];
+};
+type ContentBlock = {
+  type: "news" | "headline" | "description" | "";
   text: string;
-}
-
-interface TextLink extends Text {
-  link: string;
-}
-
-interface TextLinkWithStyleSelection extends TextLink {
-  style: "text" | "button";
-}
-
-type CTA = TextLinkWithStyleSelection[];
-
-type Data = {
-  news?: TextLink;
-  selectedStyle: Style;
-  headline: Text;
-  description: Text;
-  cta: CTA;
-};
-type BodyPartSelection = {
-  name: string;
-  availableStyles: Styles;
-  data: Data;
+  link?: string;
+  contentBlock?: ContentBlock;
 };
 
-type BodyPart = {
-  name: string;
+type SelectedComponent = {
   id: string;
-  data: Data;
+  name: string;
+  selectedStyle?: SelectionVariation;
+  contentBlocks: ContentBlock[];
 };
 
-type BodyParts = {
-  parts: BodyPart[];
+type SelectedBodyParts = {
+  parts: SelectedComponent[];
 };
 
-type BodyPartsSelections = BodyPartSelection[];
 export type {
-  Steps,
+  Step,
   General,
   Header,
   Banner,
-  BodyPartsSelections,
-  BodyPartSelection,
-  BodyPart,
-  BodyParts,
-  Styles,
-  Style,
+  SelectionVariation,
+  AvailableComponentToAdd,
+  SelectedComponent,
+  ContentBlock,
+  SelectedBodyParts,
 };

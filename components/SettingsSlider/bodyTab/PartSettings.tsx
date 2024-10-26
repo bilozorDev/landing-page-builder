@@ -1,18 +1,21 @@
 import useGetAvailableStyles from "@/components/hooks/useGetAvailableStyles";
-import { BodyPart, Style } from "@/components/utils/allAvailableOptions.t";
+
 import React from "react";
 import RadioGroupWithDesc from "@/components/ui/RadioGroupWithDesc";
 import { useBodySettings } from "@/components/contexts/BodyTabSettings";
 import SectionTitle from "@/components/ui/SectionTitle";
+import {
+  SelectedComponent,
+  SelectionVariation,
+} from "@/components/utils/allAvailableOptions.t";
 
-const PartSettings = ({ part }: { part: BodyPart }) => {
+const PartSettings = ({ part }: { part: SelectedComponent }) => {
   const { bodySettings, setBodySettings } = useBodySettings();
   const availableStyles = useGetAvailableStyles(part);
-
-  const handStyleUpdate = (style: Style) => {
-    const updatedObj: BodyPart = {
+  const handleStyleUpdate = (style: SelectionVariation) => {
+    const updatedObj: SelectedComponent = {
       ...part,
-      data: { ...part.data, selectedStyle: style },
+      selectedStyle: style,
     };
     const newArray = bodySettings.parts.map((item) =>
       item.id === part.id ? updatedObj : item
@@ -30,8 +33,8 @@ const PartSettings = ({ part }: { part: BodyPart }) => {
         <SectionTitle title="Style" />
         <RadioGroupWithDesc
           availableStyles={availableStyles}
-          handleSelect={handStyleUpdate}
-          value={part.data.selectedStyle}
+          handleSelect={handleStyleUpdate}
+          value={part.selectedStyle}
         />
         <SectionTitle title="Data" />
       </div>
