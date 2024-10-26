@@ -8,24 +8,20 @@ import {
   SelectedComponent,
   SelectionVariation,
 } from "@/components/utils/allAvailableOptions.t";
+import SelectiveInputForm from "./SelectiveInputForm";
 
 const PartSettings = ({ part }: { part: SelectedComponent }) => {
-  const { bodySettings, setBodySettings } = useBodySettings();
+  const { setBodySettings } = useBodySettings();
   const availableStyles = useGetAvailableStyles(part);
   const handleStyleUpdate = (style: SelectionVariation) => {
-    const updatedObj: SelectedComponent = {
-      ...part,
-      selectedStyle: style,
-    };
-    const newArray = bodySettings.parts.map((item) =>
-      item.id === part.id ? updatedObj : item
-    );
-
     setBodySettings((prev) => ({
       ...prev,
-      parts: newArray,
+      parts: prev.parts.map((item) =>
+        item.id === part.id ? { ...item, selectedStyle: style } : item
+      ),
     }));
   };
+
   if (!availableStyles) return "no available styles";
   else {
     return (
@@ -37,6 +33,9 @@ const PartSettings = ({ part }: { part: SelectedComponent }) => {
           value={part.selectedStyle || availableStyles[0]}
         />
         <SectionTitle title="Data" />
+        {part.contentBlocks.map((item, index) => (
+          <SelectiveInputForm obj={item} key={index} />
+        ))}
       </div>
     );
   }

@@ -36,7 +36,6 @@ type SelectionVariation = {
 // Banner section on top of header
 type Banner = {
   availableStyles: SelectionVariation[];
-  
 };
 // Part list in allAvailableOptionsObject
 type AvailableComponentToAdd = {
@@ -45,7 +44,8 @@ type AvailableComponentToAdd = {
   contentBlocks: ContentBlock[];
 };
 type ContentBlock = {
-  type: "news" | "headline" | "description" | "";
+  type: "textWithLink" | "text";
+  blockName: string;
   text: string;
   link?: string;
   contentBlock?: ContentBlock;
