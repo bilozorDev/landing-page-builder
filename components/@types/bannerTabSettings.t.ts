@@ -1,8 +1,8 @@
+import { SelectionVariation } from "../utils/allAvailableOptions.t";
 import { menuItem } from "./menuItem.t";
-import { styleOption } from "./styleOption.t";
 
 export type BannerTabSettingsType = {
   display: boolean;
-  style: styleOption;
+  style: SelectionVariation;
   data: menuItem;
 };

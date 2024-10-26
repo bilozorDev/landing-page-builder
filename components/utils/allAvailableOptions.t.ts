@@ -36,6 +36,7 @@ type SelectionVariation = {
 // Banner section on top of header
 type Banner = {
   availableStyles: SelectionVariation[];
+  
 };
 // Part list in allAvailableOptionsObject
 type AvailableComponentToAdd = {
