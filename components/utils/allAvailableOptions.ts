@@ -3,7 +3,6 @@
 import {
   AvailableComponentToAdd,
   Banner,
-  Body,
   General,
   Header,
   Step,
