@@ -7,11 +7,12 @@ import {
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useHeaderSettings } from "../contexts/HeaderTabSettings";
 import Logo from "../Logo";
+import useGetBrandColor from "../hooks/useGetBrandColor";
 
 const Header = () => {
   const { headerSettings } = useHeaderSettings();
   const { menuItems } = headerSettings;
-
+  const brandColor = useGetBrandColor();
   return (
     <>
       <Disclosure as="nav" className="py-4">
@@ -53,7 +54,12 @@ const Header = () => {
               </div>
             </div>
             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-              sss
+              <a
+                href={headerSettings.cta.href}
+                className={`rounded-md bg-[${brandColor}] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:opacity-85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[${brandColor}]`}
+              >
+                {headerSettings.cta.name}
+              </a>
             </div>
           </div>
         </div>
