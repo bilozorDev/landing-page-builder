@@ -9,7 +9,7 @@ export enum ActionTypes {
   HANDLE_PARTS_REORDER = "HANDLE_PARTS_REORDER",
   SIMPLE_TEXT_UPDATE = "SIMPLE_TEXT_UPDATE",
   TEXT_WITH_LINK_UPDATE = "TEXT_WITH_LINK_UPDATE",
-  UPDATE_BUTTON = "UPDATE_BUTTON" 
+  UPDATE_BUTTON = "UPDATE_BUTTON",
 }
 
 export type AddNewPartAction = {
@@ -40,10 +40,6 @@ export type TextWithLinkUpdate = {
     index: number;
   };
 };
-
-export type ButtonWithStyleUpdate = {
-  type: ActionTypes.
-}
 
 export type Actions =
   | AddNewPartAction

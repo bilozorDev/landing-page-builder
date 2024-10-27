@@ -29,10 +29,6 @@ const SelectiveInputForm = ({ obj, id, index }: SelectiveInputType) => {
       payload: { updatedValue, id, index },
     });
   };
-  const handleButton = (updatedValue: { text: string; link: string }) => {
-   
-   
-  }
 
   const currentValue = bodySettings.parts.find((part) => part.id === id)
     ?.contentBlocks[index];
