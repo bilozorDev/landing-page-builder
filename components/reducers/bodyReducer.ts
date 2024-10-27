@@ -26,7 +26,6 @@ const bodyReducer = (state: SelectedBodyParts, action: Actions) => {
     }
     case ActionTypes.SIMPLE_TEXT_UPDATE: {
       const { id, index, newText } = action.payload;
-
       return {
         ...state,
         parts: state.parts.map((part) => {
@@ -52,37 +51,53 @@ const bodyReducer = (state: SelectedBodyParts, action: Actions) => {
     }
     case ActionTypes.TEXT_WITH_LINK_UPDATE: {
       const { id, index, updatedValue } = action.payload;
-
       return {
         ...state,
         parts: state.parts.map((part) => {
           if (part.id !== id) return part;
-
           // Get the contentBlock to update
           const contentBlock = part.contentBlocks[index];
-
-          // Only update if the contentBlock type is 'textWithLink'
-          if (contentBlock.type !== "textWithLink") {
-            console.warn(
-              `ContentBlock at index ${index} in part with id ${id} is not of type 'textWithLink'.`
-            );
-            return part;
-          }
-
           // Create the updated contentBlock
           const updatedContentBlock: ContentBlock = {
             ...contentBlock,
             text: updatedValue.text,
             link: updatedValue.link,
           };
-
           // Create the updated contentBlocks array
           const updatedContentBlocks = [
             ...part.contentBlocks.slice(0, index),
             updatedContentBlock,
             ...part.contentBlocks.slice(index + 1),
           ];
-
+          // Return the updated part
+          return {
+            ...part,
+            contentBlocks: updatedContentBlocks,
+          };
+        }),
+      };
+    }
+    case ActionTypes.UPDATE_BUTTON: {
+      const { id, index, updatedValue } = action.payload;
+      return {
+        ...state,
+        parts: state.parts.map((part) => {
+          if (part.id !== id) return part;
+          // Get the contentBlock to update
+          const contentBlock = part.contentBlocks[index];
+          
+          // Create the updated contentBlock
+          const updatedContentBlock: ContentBlock = {
+            ...contentBlock,
+            text: updatedValue.text,
+            link: updatedValue.link,
+          };
+          // Create the updated contentBlocks array
+          const updatedContentBlocks = [
+            ...part.contentBlocks.slice(0, index),
+            updatedContentBlock,
+            ...part.contentBlocks.slice(index + 1),
+          ];
           // Return the updated part
           return {
             ...part,

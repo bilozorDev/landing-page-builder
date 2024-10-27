@@ -15,7 +15,7 @@ type SelectiveInputType = {
 
 const SelectiveInputForm = ({ obj, id, index }: SelectiveInputType) => {
   const { dispatch, bodySettings } = useBodySettings();
-
+  console.log(obj.type);
   const handleSimpleTextUpdate = (newText: string) => {
     dispatch({
       type: ActionTypes.SIMPLE_TEXT_UPDATE,
@@ -26,6 +26,13 @@ const SelectiveInputForm = ({ obj, id, index }: SelectiveInputType) => {
   const handleTextWithLink = (updatedValue: { text: string; link: string }) => {
     dispatch({
       type: ActionTypes.TEXT_WITH_LINK_UPDATE,
+      payload: { updatedValue, id, index },
+    });
+  };
+
+  const handleButton = (updatedValue: { text: string; link: string }) => {
+    dispatch({
+      type: ActionTypes.UPDATE_BUTTON,
       payload: { updatedValue, id, index },
     });
   };
@@ -54,33 +61,23 @@ const SelectiveInputForm = ({ obj, id, index }: SelectiveInputType) => {
     case ContentBlockTypes.button: {
       return (
         <>
+          <div className="flex relative items-center space-x-4">
+            <p className="mt-4  capitalize whitespace-nowrap">
+              {obj.blockName}
+            </p>
+            <div className="w-full h-4 border-b border-gray-300"></div>
+          </div>
           <TextInputWithLink
-            onChange={handleTextWithLink}
+            label="Label"
+            onChange={handleButton}
             value={currentValue as { text: string; link: string }}
           />
         </>
       );
     }
-    case ContentBlockTypes.contentBlock: {
-      if (Array.isArray(obj.contentBlock) && obj.contentBlock.length > 0) {
-        return (
-          <div>
-            {obj.contentBlock.map((childBlock, childIndex) => (
-              <SelectiveInputForm
-                key={`${id}-${index}-${childIndex}`}
-                obj={childBlock}
-                id={id}
-                index={childIndex}
-              />
-            ))}
-          </div>
-        );
-      } else {
-        return <div>No nested content blocks available</div>;
-      }
-    }
+
     default:
-      console.log(obj);
+      console.log("not valid", obj);
       return "not valid";
   }
 };

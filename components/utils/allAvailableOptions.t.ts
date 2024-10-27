@@ -48,7 +48,11 @@ export enum ContentBlockTypes {
   textWithLink = "textWithLink",
   text = "text",
   button = "button",
-  contentBlock = "contentBlock",
+}
+
+export enum ButtonStyles {
+  button = "button",
+  text = "text",
 }
 type ContentBlock = {
   type: ContentBlockTypes;

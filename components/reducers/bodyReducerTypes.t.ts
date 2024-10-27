@@ -1,4 +1,5 @@
 import {
+  ButtonStyles,
   SelectedComponent,
   SelectionVariation,
 } from "../utils/allAvailableOptions.t";
@@ -41,9 +42,19 @@ export type TextWithLinkUpdate = {
   };
 };
 
+export type UpdateButton = {
+  type: ActionTypes.UPDATE_BUTTON;
+  payload: {
+    updatedValue: { text: string; link: string };
+    id: string;
+    index: number;
+  };
+};
+
 export type Actions =
   | AddNewPartAction
   | SelectNewComponentStyleAction
   | HandlePartsReorder
   | SimpleTextUpdate
-  | TextWithLinkUpdate;
+  | TextWithLinkUpdate
+  | UpdateButton;

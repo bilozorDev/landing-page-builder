@@ -6,9 +6,10 @@ type SingleTextInput = {
     link: string;
   };
   onChange: (value: { text: string; link: string }) => void;
+  label?: string
 };
 
-const TextInputWithLink = ({ value, onChange }: SingleTextInput) => {
+const TextInputWithLink = ({ value, onChange, label="Text" }: SingleTextInput) => {
   const handleTextChange = (e: ChangeEvent<HTMLInputElement>) => {
     onChange({ ...value, text: e.target.value });
   };
@@ -26,7 +27,7 @@ const TextInputWithLink = ({ value, onChange }: SingleTextInput) => {
             htmlFor="text"
             className="block text-xs font-medium text-gray-500"
           >
-            Text
+            {label}
           </label>
           <input
             name="text"
