@@ -9,17 +9,16 @@ import {
   SelectionVariation,
 } from "@/components/utils/allAvailableOptions.t";
 import SelectiveInputForm from "./SelectiveInputForm";
+import { ActionTypes } from "@/components/reducers/bodyReducerTypes.t";
 
 const PartSettings = ({ part }: { part: SelectedComponent }) => {
-  const { setBodySettings } = useBodySettings();
+  const { dispatch } = useBodySettings();
   const availableStyles = useGetAvailableStyles(part);
   const handleStyleUpdate = (style: SelectionVariation) => {
-    setBodySettings((prev) => ({
-      ...prev,
-      parts: prev.parts.map((item) =>
-        item.id === part.id ? { ...item, selectedStyle: style } : item
-      ),
-    }));
+    dispatch({
+      type: ActionTypes.UPDATE_STYLE,
+      payload: { id: part.id, style: style },
+    });
   };
 
   if (!availableStyles) return "no available styles";

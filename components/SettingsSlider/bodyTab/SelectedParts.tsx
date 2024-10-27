@@ -2,15 +2,13 @@ import { useBodySettings } from "@/components/contexts/BodyTabSettings";
 import DraggableList from "@/components/ui/DraggableList";
 import PartCard from "./PartCard";
 import { SelectedComponent } from "@/components/utils/allAvailableOptions.t";
+import { ActionTypes } from "@/components/reducers/bodyReducerTypes.t";
 
 const SelectedParts = () => {
-  const { bodySettings, setBodySettings } = useBodySettings();
+  const { bodySettings, dispatch } = useBodySettings();
   const { parts } = bodySettings;
   const handleReorder = (newOrder: SelectedComponent[]) => {
-    setBodySettings((prev) => ({
-      ...prev,
-      parts: newOrder,
-    }));
+    dispatch({ type: ActionTypes.HANDLE_PARTS_REORDER, payload: newOrder });
   };
 
   return (

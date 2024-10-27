@@ -12,11 +12,11 @@ import {
   AvailableComponentToAdd,
   SelectedComponent,
 } from "@/components/utils/allAvailableOptions.t";
+import { ActionTypes } from "@/components/reducers/bodyReducerTypes.t";
 
 const AvailablePartsToAdd = () => {
-  const { bodySettings, setBodySettings } = useBodySettings();
+  const { dispatch } = useBodySettings();
   const handleAddPart = (part: AvailableComponentToAdd) => {
-    const newArray = bodySettings.parts; // get already parts in array
     const uniqueId = `${part.name}-${v4()}`; // unique ID for new part
     const newPart: SelectedComponent = {
       id: uniqueId,
@@ -24,11 +24,8 @@ const AvailablePartsToAdd = () => {
       selectedStyle: part.availableStyles[0],
       contentBlocks: [...part.contentBlocks],
     };
-    newArray.push(newPart);
-    setBodySettings((prev) => ({
-      ...prev,
-      parts: newArray,
-    }));
+
+    dispatch({ type: ActionTypes.ADD_NEW_PART, payload: newPart });
   };
 
   const { availableComponents } = allAvailableOptions.body;
