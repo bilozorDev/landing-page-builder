@@ -5,6 +5,7 @@ import { GeneralTabSettingsProvider } from "../components/contexts/GeneralTabSet
 import { HeaderTabSettingsProvider } from "@/components/contexts/HeaderTabSettings";
 import { BannerTabSettingsProvider } from "@/components/contexts/BannerTabSettings";
 import { BodyTabSettingsProvider } from "@/components/contexts/BodyTabSettings";
+import { Analytics } from "@vercel/analytics/react";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -34,6 +35,7 @@ export default function RootLayout({
             </BannerTabSettingsProvider>
           </HeaderTabSettingsProvider>
         </GeneralTabSettingsProvider>
+        <Analytics />
       </body>
     </html>
   );

@@ -5,7 +5,6 @@ import Settings from "@/components/SettingsSlider/Settings";
 import Banner from "../components/Banner/Banner";
 import Header from "../components/Header/Header";
 import Body from "@/components/Body/Body";
-
 export default function Home() {
   const [open, setOpen] = useState(true);
 
@@ -22,6 +21,7 @@ export default function Home() {
         <ArrowLeftIcon className="h-6 w-6 inline-flex group-hover:mr-2 transition-all duration-300" />
         <span className="font-thin">Settings </span>
       </div>
+     
     </div>
   );
 }
