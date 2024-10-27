@@ -6,7 +6,7 @@ import Banner from "../components/Banner/Banner";
 import Header from "../components/Header/Header";
 import Body from "@/components/Body/Body";
 export default function Home() {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
 
   return (
     <div className="relative">

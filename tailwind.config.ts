@@ -37,6 +37,7 @@ const generateSafelist = () => {
       `caret-[${color.hex}]`,
       `fill-[${color.hex}]`,
       `stroke-[${color.hex}]`,
+      `to-[${color.hex}]`,
       `focus-within:ring-[${color.hex}]`
     );
   });

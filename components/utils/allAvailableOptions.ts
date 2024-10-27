@@ -106,9 +106,9 @@ export const allAvailableOptions = {
             description: "Text on top, image on the bottom",
           },
           {
-            id: "array_of_images",
-            name: "Array of images",
-            description: "Text on left, and array of images on right",
+            id: "hero_with_full_image_right",
+            name: "With full height image ",
+            description: "Text on left and full height image on right",
           },
         ],
         contentBlocks: [

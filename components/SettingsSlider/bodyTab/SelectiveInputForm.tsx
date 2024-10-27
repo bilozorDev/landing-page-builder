@@ -15,7 +15,6 @@ type SelectiveInputType = {
 
 const SelectiveInputForm = ({ obj, id, index }: SelectiveInputType) => {
   const { dispatch, bodySettings } = useBodySettings();
-  console.log(obj.type);
   const handleSimpleTextUpdate = (newText: string) => {
     dispatch({
       type: ActionTypes.SIMPLE_TEXT_UPDATE,
