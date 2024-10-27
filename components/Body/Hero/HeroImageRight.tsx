@@ -1,5 +1,8 @@
 import useGetBrandColor from "@/components/hooks/useGetBrandColor";
-import { ContentBlock, SelectedComponent } from "@/components/utils/allAvailableOptions.t";
+import {
+  ContentBlock,
+  SelectedComponent,
+} from "@/components/utils/allAvailableOptions.t";
 import { ChevronRightIcon } from "@heroicons/react/24/outline";
 import React from "react";
 
@@ -40,7 +43,7 @@ const HeroImageRight = ({ part }: { part: SelectedComponent }) => {
               <span
                 className={`rounded-full bg-indigo-600/10 px-3 py-1 text-sm font-semibold leading-6 text-[${brandColor}] ring-1 ring-inset ring-indigo-600/10`}
               >
-                What's new
+                What&apos;s new
               </span>
               <span className="inline-flex items-center space-x-2 text-sm font-medium leading-6 text-gray-600">
                 <span>{data.news.text}</span>
@@ -57,10 +60,10 @@ const HeroImageRight = ({ part }: { part: SelectedComponent }) => {
             {data?.headline.text}
           </h1>
           <p className="mt-8 text-pretty text-lg font-medium text-gray-500 sm:text-xl/8">
-          {data?.description.text}
+            {data?.description.text}
           </p>
           <div className="mt-10 flex items-center gap-x-6">
-          {data["main button"].link && data["main button"].text && (
+            {data["main button"].link && data["main button"].text && (
               <a
                 href={data["main button"].link}
                 className={`rounded-md bg-[${brandColor}] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600`}

@@ -1,9 +1,8 @@
 import { SelectedComponent } from "@/components/utils/allAvailableOptions.t";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import HeroDefaultStyle from "./HeroDefaultStyle";
 import HeroImageRight from "./HeroImageRight";
 import HeroImageBottom from "./HeroImageBottom";
-import HeroWithEmailSignup from "./HeroWithEmailSignup";
 import HeroWithFullHeightImage from "./HeroWithFullHeightImage";
 
 const Hero = ({ part }: { part: SelectedComponent }) => {

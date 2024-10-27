@@ -34,7 +34,7 @@ export default function RootLayout({
             </BannerTabSettingsProvider>
           </HeaderTabSettingsProvider>
         </GeneralTabSettingsProvider>
-        
+        <Analytics />
       </body>
     </html>
   );
