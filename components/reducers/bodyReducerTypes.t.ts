@@ -7,6 +7,9 @@ export enum ActionTypes {
   ADD_NEW_PART = "ADD_NEW_PART",
   UPDATE_STYLE = "UPDATE_STYLE",
   HANDLE_PARTS_REORDER = "HANDLE_PARTS_REORDER",
+  SIMPLE_TEXT_UPDATE = "SIMPLE_TEXT_UPDATE",
+  TEXT_WITH_LINK_UPDATE = "TEXT_WITH_LINK_UPDATE",
+  UPDATE_BUTTON = "UPDATE_BUTTON" 
 }
 
 export type AddNewPartAction = {
@@ -24,7 +27,27 @@ export type HandlePartsReorder = {
   payload: SelectedComponent[];
 };
 
+export type SimpleTextUpdate = {
+  type: ActionTypes.SIMPLE_TEXT_UPDATE;
+  payload: { newText: string; id: string; index: number };
+};
+
+export type TextWithLinkUpdate = {
+  type: ActionTypes.TEXT_WITH_LINK_UPDATE;
+  payload: {
+    updatedValue: { text: string; link: string };
+    id: string;
+    index: number;
+  };
+};
+
+export type ButtonWithStyleUpdate = {
+  type: ActionTypes.
+}
+
 export type Actions =
   | AddNewPartAction
   | SelectNewComponentStyleAction
-  | HandlePartsReorder;
+  | HandlePartsReorder
+  | SimpleTextUpdate
+  | TextWithLinkUpdate;

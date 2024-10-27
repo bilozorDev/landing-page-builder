@@ -3,6 +3,7 @@
 import {
   AvailableComponentToAdd,
   Banner,
+  ContentBlockTypes,
   General,
   Header,
   Step,
@@ -112,20 +113,139 @@ export const allAvailableOptions = {
         ],
         contentBlocks: [
           {
-            type: "textWithLink",
+            type: ContentBlockTypes.textWithLink,
             blockName: "news",
             text: "Announcing our next round of funding.",
             link: "#",
           },
           {
-            type: "text",
+            type: ContentBlockTypes.text,
             blockName: "headline",
             text: "Data to enrich your online business",
           },
           {
-            type: "text",
+            type: ContentBlockTypes.text,
             blockName: "description",
             text: "Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.",
+          },
+          {
+            type: ContentBlockTypes.contentBlock,
+            blockName: "cta",
+            contentBlock: [
+              {
+                type: ContentBlockTypes.button,
+                blockName: "mainButton",
+                text: "Get Started",
+                style: "button",
+                link: "#",
+              },
+              {
+                type: ContentBlockTypes.button,
+                blockName: "secondaryButton",
+                style: "text",
+                text: "Learn More",
+                link: "#",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        name: "features",
+        availableStyles: [
+          {
+            id: "default",
+            name: "Centered content",
+            description: "Optional link to feature page on Title click",
+            selected: false,
+          },
+          {
+            id: "image-under-text",
+            name: "Text between headline and features list",
+            description: "Optional link to feature page on Title click",
+            selected: false,
+          },
+          {
+            id: "headline-left-and-features-list-on-right",
+            name: "Headline left and 2 columns of features on the right",
+            description: "Optional link to feature page on Title click",
+            selected: false,
+          },
+          {
+            id: "image-right",
+            name: "Text & features on the left and image on the right",
+            description: "Optional link to feature page on Title click",
+            selected: false,
+          },
+        ],
+        contentBlocks: [
+          {
+            type: ContentBlockTypes.text,
+            blockName: "headline",
+            text: "Everything you need to deploy your app",
+          },
+          {
+            type: ContentBlockTypes.text,
+            blockName: "description",
+            text: "Quis tellus eget adipiscing convallis sit sit eget aliquet quis. Suspendisse eget egestas a elementum pulvinar et feugiat blandit at. In mi viverra elit nunc.",
+          },
+          {
+            type: ContentBlockTypes.text,
+            blockName: "subtitle",
+            text: "Deploy faster",
+          },
+        ],
+      },
+      {
+        name: "newsletter",
+        availableStyles: [
+          {
+            id: "default",
+            name: "One line",
+            description: "Text on left & form on right",
+            selected: true,
+          },
+          {
+            id: "stacked",
+            name: "Stacked",
+            description: "Text and input stacked on top of each other",
+            selected: false,
+          },
+          {
+            id: "stacked-centered",
+            name: "Stacked centered",
+            description: "Text and form stacked centered",
+            selected: false,
+          },
+          {
+            id: "with-bullet-points",
+            name: "With bullet points",
+            description: "Text and form on the left and bullet points on right",
+            selected: false,
+          },
+        ],
+        contentBlocks: [
+          {
+            type: ContentBlockTypes.text,
+            blockName: "headline",
+            text: "Want product news and updates?.",
+          },
+          {
+            type: ContentBlockTypes.text,
+            blockName: "subtitle",
+            text: "Sign up for our newsletter.",
+          },
+          {
+            type: ContentBlockTypes.textWithLink,
+            blockName: "privacyNote",
+            text: " We care about your data. Read our",
+            link: "#",
+          },
+          {
+            type: ContentBlockTypes.button,
+            blockName: "button",
+            text: "Subscribe",
+            style: "button",
           },
         ],
       },

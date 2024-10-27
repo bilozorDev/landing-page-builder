@@ -43,11 +43,19 @@ type AvailableComponentToAdd = {
   availableStyles: SelectionVariation[];
   contentBlocks: ContentBlock[];
 };
+
+export enum ContentBlockTypes {
+  textWithLink = "textWithLink",
+  text = "text",
+  button = "button",
+  contentBlock = "contentBlock",
+}
 type ContentBlock = {
-  type: "textWithLink" | "text";
+  type: ContentBlockTypes;
   blockName: string;
   text: string;
   link?: string;
+  style?: "text" | "button";
   contentBlock?: ContentBlock;
 };
 

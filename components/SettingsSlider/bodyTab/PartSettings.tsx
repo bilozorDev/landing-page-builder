@@ -32,9 +32,17 @@ const PartSettings = ({ part }: { part: SelectedComponent }) => {
           value={part.selectedStyle || availableStyles[0]}
         />
         <SectionTitle title="Data" />
-        {part.contentBlocks.map((item, index) => (
-          <SelectiveInputForm obj={item} key={index} />
-        ))}
+        <div className="space-y-4">
+          {part.contentBlocks.map((item, index) => (
+            <SelectiveInputForm
+              obj={item}
+              key={index}
+              id={part.id}
+              index={index}
+              
+            />
+          ))}
+        </div>
       </div>
     );
   }
