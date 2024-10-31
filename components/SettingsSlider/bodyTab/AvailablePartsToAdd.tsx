@@ -23,6 +23,9 @@ const AvailablePartsToAdd = () => {
       name: part.name,
       selectedStyle: part.availableStyles[0],
       contentBlocks: [...part.contentBlocks],
+      image: part.availableStyles[0].image
+        ? part.availableStyles[0].defaultImgScr
+        : "",
     };
 
     dispatch({ type: ActionTypes.ADD_NEW_PART, payload: newPart });

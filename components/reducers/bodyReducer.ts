@@ -6,6 +6,20 @@ import { Actions, ActionTypes } from "./bodyReducerTypes.t";
 
 const bodyReducer = (state: SelectedBodyParts, action: Actions) => {
   switch (action.type) {
+    case ActionTypes.UPLOAD_IMAGE: {
+      const { id, imageSrc } = action.payload;
+      return {
+        ...state,
+        parts: state.parts.map((item) =>
+          item.id == id
+            ? {
+                ...item,
+                image: imageSrc,
+              }
+            : item
+        ),
+      };
+    }
     case ActionTypes.ADD_NEW_PART: {
       return {
         ...state,
@@ -20,7 +34,13 @@ const bodyReducer = (state: SelectedBodyParts, action: Actions) => {
       return {
         ...state,
         parts: state.parts.map((item) =>
-          item.id == id ? { ...item, selectedStyle: style } : item
+          item.id == id
+            ? {
+                ...item,
+                selectedStyle: style,
+                image: style.image ? style.defaultImgScr : "",
+              }
+            : item
         ),
       };
     }
@@ -85,7 +105,7 @@ const bodyReducer = (state: SelectedBodyParts, action: Actions) => {
           if (part.id !== id) return part;
           // Get the contentBlock to update
           const contentBlock = part.contentBlocks[index];
-          
+
           // Create the updated contentBlock
           const updatedContentBlock: ContentBlock = {
             ...contentBlock,

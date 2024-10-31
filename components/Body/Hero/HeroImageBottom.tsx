@@ -8,7 +8,7 @@ import React from "react";
 const HeroImageBottom = ({ part }: { part: SelectedComponent }) => {
   const { contentBlocks } = part;
   const data = createDataObject(contentBlocks);
-
+console.log(part)
   const brandColor = useGetBrandColor();
   return (
     <div className="relative isolate pt-14">
@@ -28,10 +28,10 @@ const HeroImageBottom = ({ part }: { part: SelectedComponent }) => {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h1 className="text-balance text-5xl font-semibold tracking-tight text-gray-900 sm:text-7xl">
-            {data?.headline.text}
+              {data?.headline.text}
             </h1>
             <p className="mt-8 text-pretty text-lg font-medium text-gray-500 sm:text-xl/8">
-            {data?.description.text}
+              {data?.description.text}
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               {data["main button"].link && data["main button"].text && (
@@ -58,9 +58,9 @@ const HeroImageBottom = ({ part }: { part: SelectedComponent }) => {
             <div className="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
               <img
                 alt="App screenshot"
-                src="https://tailwindui.com/plus/img/component-images/project-app-screenshot.png"
-                width={2432}
-                height={1442}
+                src={part.image || "https://placehold.co/1920x1080"}
+                width={1920}
+                height={1080}
                 className="rounded-md shadow-2xl ring-1 ring-gray-900/10"
               />
             </div>

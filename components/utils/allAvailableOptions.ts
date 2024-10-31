@@ -99,16 +99,23 @@ export const allAvailableOptions = {
             id: "image_right",
             name: "Split with image",
             description: "Image on the left, text on the right",
+            image: true,
+             defaultImgScr: "https://tailwindui.com/plus/img/component-images/project-app-screenshot.png"
           },
           {
             id: "image_bottom",
             name: "Image on the bottom",
             description: "Text on top, image on the bottom",
+            image: true,
+             defaultImgScr: "https://tailwindui.com/plus/img/component-images/project-app-screenshot.png"
           },
           {
             id: "hero_with_full_image_right",
             name: "With full height image ",
             description: "Text on left and full height image on right",
+            image: true,
+            defaultImgScr: "https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format"
+
           },
         ],
         contentBlocks: [
@@ -117,6 +124,7 @@ export const allAvailableOptions = {
             blockName: "news",
             text: "Announcing our next round of funding.",
             link: "#",
+
           },
           {
             type: ContentBlockTypes.text,
@@ -157,19 +165,20 @@ export const allAvailableOptions = {
             id: "image-under-text",
             name: "Text between headline and features list",
             description: "Optional link to feature page on Title click",
-            selected: false,
+            selected: true,
+           
           },
           {
             id: "headline-left-and-features-list-on-right",
             name: "Headline left and 2 columns of features on the right",
             description: "Optional link to feature page on Title click",
-            selected: false,
+            selected: true,
           },
           {
             id: "image-right",
             name: "Text & features on the left and image on the right",
             description: "Optional link to feature page on Title click",
-            selected: false,
+            selected: true,
           },
         ],
         contentBlocks: [

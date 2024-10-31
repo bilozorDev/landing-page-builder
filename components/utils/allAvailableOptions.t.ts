@@ -31,6 +31,8 @@ type SelectionVariation = {
   id: string;
   name: string;
   description?: string;
+  image: boolean;
+  defaultImgScr: string;
 };
 
 // Banner section on top of header
@@ -66,6 +68,7 @@ type ContentBlock = {
 type SelectedComponent = {
   id: string;
   name: string;
+  image: string;
   selectedStyle?: SelectionVariation;
   contentBlocks: ContentBlock[];
 };

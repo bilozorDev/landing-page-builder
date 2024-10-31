@@ -10,7 +10,13 @@ export enum ActionTypes {
   SIMPLE_TEXT_UPDATE = "SIMPLE_TEXT_UPDATE",
   TEXT_WITH_LINK_UPDATE = "TEXT_WITH_LINK_UPDATE",
   UPDATE_BUTTON = "UPDATE_BUTTON",
+  UPLOAD_IMAGE = "UPLOAD_IMAGE",
 }
+
+export type UploadImage = {
+  type: ActionTypes.UPLOAD_IMAGE;
+  payload: { imageSrc: string; id: string };
+};
 
 export type AddNewPartAction = {
   type: ActionTypes.ADD_NEW_PART;
@@ -56,4 +62,5 @@ export type Actions =
   | HandlePartsReorder
   | SimpleTextUpdate
   | TextWithLinkUpdate
-  | UpdateButton;
+  | UpdateButton
+  | UploadImage;

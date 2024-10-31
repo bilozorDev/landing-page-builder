@@ -10,6 +10,7 @@ import {
 } from "@/components/utils/allAvailableOptions.t";
 import SelectiveInputForm from "./SelectiveInputForm";
 import { ActionTypes } from "@/components/reducers/bodyReducerTypes.t";
+import ImageUpload from "./ImageUpload";
 
 const PartSettings = ({ part }: { part: SelectedComponent }) => {
   const { dispatch } = useBodySettings();
@@ -31,6 +32,12 @@ const PartSettings = ({ part }: { part: SelectedComponent }) => {
           handleSelect={handleStyleUpdate}
           value={part.selectedStyle || availableStyles[0]}
         />
+        {part.image && (
+          <>
+            <SectionTitle title="Image" />
+            <ImageUpload part={part} />
+          </>
+        )}
         <SectionTitle title="Data" />
         <div className="space-y-4">
           {part.contentBlocks.map((item, index) => (
@@ -39,7 +46,6 @@ const PartSettings = ({ part }: { part: SelectedComponent }) => {
               key={index}
               id={part.id}
               index={index}
-              
             />
           ))}
         </div>
