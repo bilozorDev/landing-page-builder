@@ -6,6 +6,28 @@ import { Actions, ActionTypes } from "./bodyReducerTypes.t";
 
 const bodyReducer = (state: SelectedBodyParts, action: Actions) => {
   switch (action.type) {
+    case ActionTypes.HANDLE_LIST_REORDER: {
+      const { newOrder, id, index } = action.payload;
+      return {
+        ...state,
+        parts: state.parts.map((part) => {
+          if (part.id !== id) return part;
+          const updatedContentBlock: ContentBlock = {
+            ...part.contentBlocks[index],
+            list: newOrder,
+          };
+          const updatedContentBlocks = [
+            ...part.contentBlocks.slice(0, index),
+            updatedContentBlock,
+            ...part.contentBlocks.slice(index + 1),
+          ];
+          return {
+            ...part,
+            contentBlocks: updatedContentBlocks,
+          };
+        }),
+      };
+    }
     case ActionTypes.UPLOAD_IMAGE: {
       const { id, imageSrc } = action.payload;
       return {

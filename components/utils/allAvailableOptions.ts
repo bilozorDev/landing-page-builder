@@ -100,22 +100,24 @@ export const allAvailableOptions = {
             name: "Split with image",
             description: "Image on the left, text on the right",
             image: true,
-             defaultImgScr: "https://tailwindui.com/plus/img/component-images/project-app-screenshot.png"
+            defaultImgScr:
+              "https://tailwindui.com/plus/img/component-images/project-app-screenshot.png",
           },
           {
             id: "image_bottom",
             name: "Image on the bottom",
             description: "Text on top, image on the bottom",
             image: true,
-             defaultImgScr: "https://tailwindui.com/plus/img/component-images/project-app-screenshot.png"
+            defaultImgScr:
+              "https://tailwindui.com/plus/img/component-images/project-app-screenshot.png",
           },
           {
             id: "hero_with_full_image_right",
             name: "With full height image ",
             description: "Text on left and full height image on right",
             image: true,
-            defaultImgScr: "https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format"
-
+            defaultImgScr:
+              "https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format",
           },
         ],
         contentBlocks: [
@@ -124,7 +126,6 @@ export const allAvailableOptions = {
             blockName: "news",
             text: "Announcing our next round of funding.",
             link: "#",
-
           },
           {
             type: ContentBlockTypes.text,
@@ -166,7 +167,6 @@ export const allAvailableOptions = {
             name: "Text between headline and features list",
             description: "Optional link to feature page on Title click",
             selected: true,
-           
           },
           {
             id: "headline-left-and-features-list-on-right",
@@ -196,6 +196,33 @@ export const allAvailableOptions = {
             type: ContentBlockTypes.text,
             blockName: "subtitle",
             text: "Deploy faster",
+          },
+          {
+            type: ContentBlockTypes.list,
+            blockName: "features",
+            list: [
+              {
+                id: "pushToDeploy",
+                name: "Push to deploy.",
+                description:
+                  "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.",
+                icon: "CloudArrowUpIcon",
+              },
+              {
+                id: "sslCertificate",
+                name: "SSL certificates.",
+                description:
+                  "Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.",
+                icon: "LockClosedIcon",
+              },
+              {
+                id: "databaseBackup",
+                name: "Database backups.",
+                description:
+                  "Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.",
+                icon: "ServerIcon",
+              },
+            ],
           },
         ],
       },

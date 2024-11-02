@@ -1,4 +1,5 @@
 import {
+  ContentBlockList,
   SelectedComponent,
   SelectionVariation,
 } from "../utils/allAvailableOptions.t";
@@ -11,7 +12,13 @@ export enum ActionTypes {
   TEXT_WITH_LINK_UPDATE = "TEXT_WITH_LINK_UPDATE",
   UPDATE_BUTTON = "UPDATE_BUTTON",
   UPLOAD_IMAGE = "UPLOAD_IMAGE",
+  HANDLE_LIST_REORDER = "HANDLE_LIST_REORDER",
 }
+
+export type HandleListReorder = {
+  type: ActionTypes.HANDLE_LIST_REORDER;
+  payload: { id: string; newOrder: ContentBlockList[]; index: number };
+};
 
 export type UploadImage = {
   type: ActionTypes.UPLOAD_IMAGE;
@@ -63,4 +70,5 @@ export type Actions =
   | SimpleTextUpdate
   | TextWithLinkUpdate
   | UpdateButton
-  | UploadImage;
+  | UploadImage
+  | HandleListReorder;

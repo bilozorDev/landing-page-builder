@@ -4,8 +4,10 @@ import SingleTextInput from "@/components/ui/SingleTextInput";
 import TextInputWithLink from "@/components/ui/TextInputWithLink";
 import {
   ContentBlock,
+  ContentBlockList,
   ContentBlockTypes,
 } from "@/components/utils/allAvailableOptions.t";
+import ListEditSettings from "./ListEditSettings";
 
 type SelectiveInputType = {
   obj: ContentBlock;
@@ -36,10 +38,19 @@ const SelectiveInputForm = ({ obj, id, index }: SelectiveInputType) => {
     });
   };
 
+  const handleReorder = (newOrder: ContentBlockList[]) => {
+    dispatch({
+      type: ActionTypes.HANDLE_LIST_REORDER,
+      payload: { newOrder, id, index },
+    });
+  };
+
   const currentValue = bodySettings.parts.find((part) => part.id === id)
     ?.contentBlocks[index];
-
   switch (obj.type) {
+    case ContentBlockTypes.list: {
+      return <ListEditSettings part={obj} handleReorder={handleReorder} />;
+    }
     case ContentBlockTypes.text: {
       return (
         <SingleTextInput

@@ -21,7 +21,6 @@ const PartSettings = ({ part }: { part: SelectedComponent }) => {
       payload: { id: part.id, style: style },
     });
   };
-
   if (!availableStyles) return "no available styles";
   else {
     return (

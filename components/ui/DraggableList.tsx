@@ -1,14 +1,18 @@
 import { DragControls, Reorder, useDragControls } from "framer-motion";
 import React from "react";
+// Base type that requires a key property
+type WithId = {
+  id: string | number;
+};
 
-type DraggableListProps<T> = {
+type DraggableListProps<T extends WithId> = {
   axis: "x" | "y";
   values: T[];
   onReorder: (newOrder: T[]) => void;
   renderItem: (item: T, dragControls: DragControls) => React.ReactNode;
 };
 
-const DraggableList = <T extends { id: string }>({
+const DraggableList = <T extends WithId>({
   axis,
   values,
   onReorder,
@@ -31,13 +35,13 @@ const DraggableList = <T extends { id: string }>({
           className="flex flex-row items-center space-x-4 w-full justify-between"
         >
           <ReorderIcon dragControls={dragControls} />
-
           {renderItem(item, dragControls)}
         </Reorder.Item>
       ))}
     </Reorder.Group>
   );
 };
+
 export default DraggableList;
 
 interface Props {
