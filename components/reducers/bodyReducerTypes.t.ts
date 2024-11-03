@@ -13,11 +13,17 @@ export enum ActionTypes {
   UPDATE_BUTTON = "UPDATE_BUTTON",
   UPLOAD_IMAGE = "UPLOAD_IMAGE",
   HANDLE_LIST_REORDER = "HANDLE_LIST_REORDER",
+  DELETE_LIST_ITEM = "DELETE_LIST_ITEM",
 }
 
 export type HandleListReorder = {
   type: ActionTypes.HANDLE_LIST_REORDER;
   payload: { id: string; newOrder: ContentBlockList[]; index: number };
+};
+
+export type DeleteListItem = {
+  type: ActionTypes.DELETE_LIST_ITEM;
+  payload: { idOfPart: string; idOfListItem: string };
 };
 
 export type UploadImage = {
@@ -71,4 +77,5 @@ export type Actions =
   | TextWithLinkUpdate
   | UpdateButton
   | UploadImage
-  | HandleListReorder;
+  | HandleListReorder
+  | DeleteListItem;

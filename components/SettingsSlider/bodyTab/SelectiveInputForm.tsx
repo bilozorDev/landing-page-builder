@@ -45,11 +45,26 @@ const SelectiveInputForm = ({ obj, id, index }: SelectiveInputType) => {
     });
   };
 
+  const handleDelete = (idOfListItem: string) => {
+    dispatch({
+      type: ActionTypes.DELETE_LIST_ITEM,
+      payload: { idOfPart: id, idOfListItem },
+    });
+  };
+
   const currentValue = bodySettings.parts.find((part) => part.id === id)
     ?.contentBlocks[index];
   switch (obj.type) {
     case ContentBlockTypes.list: {
-      return <ListEditSettings part={obj} handleReorder={handleReorder} />;
+      return (
+        <>
+          <ListEditSettings
+            part={obj}
+            handleReorder={handleReorder}
+            handleDelete={handleDelete}
+          />
+        </>
+      );
     }
     case ContentBlockTypes.text: {
       return (
