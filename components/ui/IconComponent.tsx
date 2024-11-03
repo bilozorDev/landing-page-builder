@@ -10,7 +10,7 @@ const IconComponent: React.FC<IconComponentProps> = ({ iconName }) => {
 
   if (!Icon) return <span>Icon not found</span>;
 
-  return <Icon className="h-8 w-8" />;
+  return <Icon />;
 };
 
 export default IconComponent;
