@@ -37,7 +37,7 @@ const HeroWithFullHeightImage = ({ part }: { part: SelectedComponent }) => {
               {data["main button"].link && data["main button"].text && (
                 <a
                   href={data["main button"].link}
-                  className={`rounded-md bg-[${brandColor}] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600`}
+                  className={`rounded-md bg-[${brandColor}] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[${brandColor}]`}
                 >
                   {data["main button"].text}
                 </a>
@@ -58,7 +58,7 @@ const HeroWithFullHeightImage = ({ part }: { part: SelectedComponent }) => {
         <div className="relative lg:col-span-5 lg:-mr-8 xl:absolute xl:inset-0 xl:left-1/2 xl:mr-0">
           <img
             alt=""
-            src={part.image || "https://placehold.co/1920x1080"}
+            src={data.image.image || part.selectedStyle?.defaultImgScr}
             className="aspect-[3/2] w-full bg-gray-50 object-cover lg:absolute lg:inset-0 lg:aspect-auto lg:h-full"
           />
         </div>

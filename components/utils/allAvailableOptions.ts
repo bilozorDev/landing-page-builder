@@ -129,6 +129,7 @@ export const allAvailableOptions = {
             id: "default",
             name: "Centered text without image",
             description: "Include a headline and description",
+            image: false,
           },
           {
             id: "image_right",
@@ -156,6 +157,11 @@ export const allAvailableOptions = {
           },
         ],
         contentBlocks: [
+          {
+            type: ContentBlockTypes.image,
+            blockName: "image",
+            image: "",
+          },
           {
             type: ContentBlockTypes.textWithLink,
             blockName: "news",
@@ -226,6 +232,11 @@ export const allAvailableOptions = {
         ],
         contentBlocks: [
           {
+            type: ContentBlockTypes.image,
+            blockName: "image",
+            image: "",
+          },
+          {
             type: ContentBlockTypes.text,
             blockName: "headline",
             text: "Everything you need to deploy your app",
@@ -271,6 +282,322 @@ export const allAvailableOptions = {
       },
       {
         name: "newsletter",
+        availableStyles: [
+          {
+            id: "default",
+            name: "One line",
+            description: "Text on left & form on right",
+            selected: true,
+          },
+          {
+            id: "stacked",
+            name: "Stacked",
+            description: "Text and input stacked on top of each other",
+            selected: false,
+          },
+          {
+            id: "stacked-centered",
+            name: "Stacked centered",
+            description: "Text and form stacked centered",
+            selected: false,
+          },
+          {
+            id: "with-bullet-points",
+            name: "With bullet points",
+            description: "Text and form on the left and bullet points on right",
+            selected: false,
+          },
+        ],
+        contentBlocks: [
+          {
+            type: ContentBlockTypes.text,
+            blockName: "headline",
+            text: "Want product news and updates?.",
+          },
+          {
+            type: ContentBlockTypes.text,
+            blockName: "subtitle",
+            text: "Sign up for our newsletter.",
+          },
+          {
+            type: ContentBlockTypes.textWithLink,
+            blockName: "privacyNote",
+            text: " We care about your data. Read our",
+            link: "#",
+          },
+          {
+            type: ContentBlockTypes.button,
+            blockName: "button",
+            text: "Subscribe",
+            style: "button",
+          },
+        ],
+      },
+      {
+        name: "CTA",
+        availableStyles: [
+          {
+            id: "default",
+            name: "One line",
+            description: "Text on left & form on right",
+            selected: true,
+          },
+          {
+            id: "stacked",
+            name: "Stacked",
+            description: "Text and input stacked on top of each other",
+            selected: false,
+          },
+          {
+            id: "stacked-centered",
+            name: "Stacked centered",
+            description: "Text and form stacked centered",
+            selected: false,
+          },
+          {
+            id: "with-bullet-points",
+            name: "With bullet points",
+            description: "Text and form on the left and bullet points on right",
+            selected: false,
+          },
+        ],
+        contentBlocks: [
+          {
+            type: ContentBlockTypes.text,
+            blockName: "headline",
+            text: "Want product news and updates?.",
+          },
+          {
+            type: ContentBlockTypes.text,
+            blockName: "subtitle",
+            text: "Sign up for our newsletter.",
+          },
+          {
+            type: ContentBlockTypes.textWithLink,
+            blockName: "privacyNote",
+            text: " We care about your data. Read our",
+            link: "#",
+          },
+          {
+            type: ContentBlockTypes.button,
+            blockName: "button",
+            text: "Subscribe",
+            style: "button",
+          },
+        ],
+      },
+      {
+        name: "stats",
+        availableStyles: [
+          {
+            id: "default",
+            name: "One line",
+            description: "Text on left & form on right",
+            selected: true,
+          },
+          {
+            id: "stacked",
+            name: "Stacked",
+            description: "Text and input stacked on top of each other",
+            selected: false,
+          },
+          {
+            id: "stacked-centered",
+            name: "Stacked centered",
+            description: "Text and form stacked centered",
+            selected: false,
+          },
+          {
+            id: "with-bullet-points",
+            name: "With bullet points",
+            description: "Text and form on the left and bullet points on right",
+            selected: false,
+          },
+        ],
+        contentBlocks: [
+          {
+            type: ContentBlockTypes.text,
+            blockName: "headline",
+            text: "Want product news and updates?.",
+          },
+          {
+            type: ContentBlockTypes.text,
+            blockName: "subtitle",
+            text: "Sign up for our newsletter.",
+          },
+          {
+            type: ContentBlockTypes.textWithLink,
+            blockName: "privacyNote",
+            text: " We care about your data. Read our",
+            link: "#",
+          },
+          {
+            type: ContentBlockTypes.button,
+            blockName: "button",
+            text: "Subscribe",
+            style: "button",
+          },
+        ],
+      },
+      {
+        name: "testimonials",
+        availableStyles: [
+          {
+            id: "default",
+            name: "One line",
+            description: "Text on left & form on right",
+            selected: true,
+          },
+          {
+            id: "stacked",
+            name: "Stacked",
+            description: "Text and input stacked on top of each other",
+            selected: false,
+          },
+          {
+            id: "stacked-centered",
+            name: "Stacked centered",
+            description: "Text and form stacked centered",
+            selected: false,
+          },
+          {
+            id: "with-bullet-points",
+            name: "With bullet points",
+            description: "Text and form on the left and bullet points on right",
+            selected: false,
+          },
+        ],
+        contentBlocks: [
+          {
+            type: ContentBlockTypes.text,
+            blockName: "headline",
+            text: "Want product news and updates?.",
+          },
+          {
+            type: ContentBlockTypes.text,
+            blockName: "subtitle",
+            text: "Sign up for our newsletter.",
+          },
+          {
+            type: ContentBlockTypes.textWithLink,
+            blockName: "privacyNote",
+            text: " We care about your data. Read our",
+            link: "#",
+          },
+          {
+            type: ContentBlockTypes.button,
+            blockName: "button",
+            text: "Subscribe",
+            style: "button",
+          },
+        ],
+      },
+      {
+        name: "team",
+        availableStyles: [
+          {
+            id: "default",
+            name: "One line",
+            description: "Text on left & form on right",
+          },
+          {
+            id: "stacked",
+            name: "Stacked",
+            description: "Text and input stacked on top of each other",
+          },
+          {
+            id: "stacked-centered",
+            name: "Stacked centered",
+            description: "Text and form stacked centered",
+            selected: false,
+          },
+          {
+            id: "with-bullet-points",
+            name: "With bullet points",
+            description: "Text and form on the left and bullet points on right",
+            selected: false,
+          },
+        ],
+        contentBlocks: [
+          {
+            type: ContentBlockTypes.text,
+            blockName: "headline",
+            text: "Want product news and updates?.",
+          },
+          {
+            type: ContentBlockTypes.text,
+            blockName: "subtitle",
+            text: "Sign up for our newsletter.",
+          },
+          {
+            type: ContentBlockTypes.textWithLink,
+            blockName: "privacyNote",
+            text: " We care about your data. Read our",
+            link: "#",
+          },
+          {
+            type: ContentBlockTypes.button,
+            blockName: "button",
+            text: "Subscribe",
+            style: "button",
+          },
+        ],
+      },
+      {
+        name: "logos",
+        availableStyles: [
+          {
+            id: "default",
+            name: "One line",
+            description: "Text on left & form on right",
+            selected: true,
+          },
+          {
+            id: "stacked",
+            name: "Stacked",
+            description: "Text and input stacked on top of each other",
+            selected: false,
+          },
+          {
+            id: "stacked-centered",
+            name: "Stacked centered",
+            description: "Text and form stacked centered",
+            selected: false,
+          },
+          {
+            id: "with-bullet-points",
+            name: "With bullet points",
+            description: "Text and form on the left and bullet points on right",
+            selected: false,
+          },
+        ],
+        contentBlocks: [
+          {
+            type: ContentBlockTypes.text,
+            blockName: "headline",
+            text: "Want product news and updates?.",
+          },
+          {
+            type: ContentBlockTypes.text,
+            blockName: "subtitle",
+            text: "Sign up for our newsletter.",
+          },
+          {
+            type: ContentBlockTypes.textWithLink,
+            blockName: "privacyNote",
+            text: " We care about your data. Read our",
+            link: "#",
+          },
+          {
+            type: ContentBlockTypes.button,
+            blockName: "button",
+            text: "Subscribe",
+            style: "button",
+          },
+        ],
+      },
+      {
+        name: "FAQ",
         availableStyles: [
           {
             id: "default",

@@ -6,7 +6,7 @@ import React from "react";
 const HeroDefaultStyle = ({ part }: { part: SelectedComponent }) => {
   const { contentBlocks } = part;
   const data = createDataObject(contentBlocks);
-
+  console.log(data)
   const brandColor = useGetBrandColor();
   return (
     <div className="relative isolate px-6 pt-14 lg:px-8">

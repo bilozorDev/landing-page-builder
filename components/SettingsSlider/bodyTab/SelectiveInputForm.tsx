@@ -70,6 +70,9 @@ const SelectiveInputForm = ({ obj, id, index }: SelectiveInputType) => {
   const currentValue = bodySettings.parts.find((part) => part.id === id)
     ?.contentBlocks[index];
   switch (obj.type) {
+    case ContentBlockTypes.image: {
+      break;
+    }
     case ContentBlockTypes.list: {
       return (
         <>

@@ -51,6 +51,7 @@ export enum ContentBlockTypes {
   text = "text",
   button = "button",
   list = "list",
+  image = "image",
 }
 
 export enum ButtonStyles {
@@ -61,6 +62,7 @@ type ContentBlock = {
   type: ContentBlockTypes;
   blockName: string;
   text?: string;
+  image?: string;
   link?: string;
   style?: "text" | "button";
   list: ContentBlockList[];
@@ -95,5 +97,5 @@ export type {
   SelectedComponent,
   ContentBlock,
   SelectedBodyParts,
-  ContentBlockList
+  ContentBlockList,
 };

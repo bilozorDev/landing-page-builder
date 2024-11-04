@@ -6,8 +6,10 @@ import { ActionTypes } from "@/components/reducers/bodyReducerTypes.t";
 
 const ImageUpload = ({ part }: { part: SelectedComponent }) => {
   const [resource, setResource] = useState<{ url: string } | null>(null);
-  console.log("resource", resource);
   const { dispatch } = useBodySettings();
+  const { image } = part.contentBlocks.find(
+    (block) => block.type === "image"
+  ) || { image: "" };
   useEffect(() => {
     if (resource) {
       dispatch({
@@ -44,7 +46,7 @@ const ImageUpload = ({ part }: { part: SelectedComponent }) => {
               </p>
 
               <img
-                src={part.image || "https://placehold.co/1920x1080"}
+                src={image || "https://placehold.co/1920x1080"}
                 className="object-cover mx-auto h-full "
               />
             </div>

@@ -79,13 +79,18 @@ const bodyReducer = (state: SelectedBodyParts, action: Actions) => {
     }
     case ActionTypes.UPLOAD_IMAGE: {
       const { id, imageSrc } = action.payload;
+      console.log("imageSrc", imageSrc);
       return {
         ...state,
         parts: state.parts.map((item) =>
           item.id == id
             ? {
                 ...item,
-                image: imageSrc,
+                contentBlocks: item.contentBlocks.map((contentBlock) =>
+                  contentBlock.type === "image"
+                    ? { ...contentBlock, image: imageSrc }
+                    : contentBlock
+                ),
               }
             : item
         ),
