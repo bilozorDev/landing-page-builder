@@ -1,15 +1,7 @@
 import useGetBrandColor from "@/components/hooks/useGetBrandColor";
-import {
-  ContentBlock,
-  SelectedComponent,
-} from "@/components/utils/allAvailableOptions.t";
+import { SelectedComponent } from "@/components/utils/allAvailableOptions.t";
+import { createDataObject } from "@/components/utils/createDataObject";
 import React from "react";
-const createDataObject = (contentBlocks: ContentBlock[]) => {
-  return contentBlocks.reduce((acc, block) => {
-    acc[block.blockName] = block;
-    return acc;
-  }, {} as Record<string, ContentBlock>);
-};
 
 const HeroWithFullHeightImage = ({ part }: { part: SelectedComponent }) => {
   const { contentBlocks } = part;

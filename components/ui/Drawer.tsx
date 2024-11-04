@@ -22,7 +22,7 @@ const Drawer = ({
   }, [show]);
 
   return (
-    <Dialog open={show} onClose={setShow} className="relative z-10">
+    <Dialog open={show} onClose={setShow} className="relative z-10 ">
       <div className="fixed inset-0" />
 
       <div className="fixed inset-0 overflow-hidden">
@@ -49,7 +49,7 @@ const Drawer = ({
                     </div>
                   </div>
                 </div>
-                <div>{children}</div>
+                <div className="pb-40">{children}</div>
               </div>
             </DialogPanel>
           </div>

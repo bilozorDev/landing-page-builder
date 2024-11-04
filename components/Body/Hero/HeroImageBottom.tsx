@@ -1,14 +1,11 @@
 import useGetBrandColor from "@/components/hooks/useGetBrandColor";
-import {
-  ContentBlock,
-  SelectedComponent,
-} from "@/components/utils/allAvailableOptions.t";
+import { SelectedComponent } from "@/components/utils/allAvailableOptions.t";
+import { createDataObject } from "@/components/utils/createDataObject";
 import React from "react";
 
 const HeroImageBottom = ({ part }: { part: SelectedComponent }) => {
   const { contentBlocks } = part;
   const data = createDataObject(contentBlocks);
-console.log(part)
   const brandColor = useGetBrandColor();
   return (
     <div className="relative isolate pt-14">
@@ -84,10 +81,3 @@ console.log(part)
 };
 
 export default HeroImageBottom;
-
-const createDataObject = (contentBlocks: ContentBlock[]) => {
-  return contentBlocks.reduce((acc, block) => {
-    acc[block.blockName] = block;
-    return acc;
-  }, {} as Record<string, ContentBlock>);
-};

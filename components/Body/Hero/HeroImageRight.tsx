@@ -1,8 +1,6 @@
 import useGetBrandColor from "@/components/hooks/useGetBrandColor";
-import {
-  ContentBlock,
-  SelectedComponent,
-} from "@/components/utils/allAvailableOptions.t";
+import { SelectedComponent } from "@/components/utils/allAvailableOptions.t";
+import { createDataObject } from "@/components/utils/createDataObject";
 import { ChevronRightIcon } from "@heroicons/react/24/outline";
 import React from "react";
 
@@ -101,10 +99,3 @@ const HeroImageRight = ({ part }: { part: SelectedComponent }) => {
 };
 
 export default HeroImageRight;
-
-const createDataObject = (contentBlocks: ContentBlock[]) => {
-  return contentBlocks.reduce((acc, block) => {
-    acc[block.blockName] = block;
-    return acc;
-  }, {} as Record<string, ContentBlock>);
-};

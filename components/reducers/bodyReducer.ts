@@ -6,6 +6,29 @@ import { Actions, ActionTypes } from "./bodyReducerTypes.t";
 
 const bodyReducer = (state: SelectedBodyParts, action: Actions) => {
   switch (action.type) {
+    case ActionTypes.ADD_LIST_ITEM: {
+      const { idOfPart, ...newItem } = action.payload;
+      return {
+        ...state,
+        parts: state.parts.map((part) => {
+          if (part.id !== idOfPart) return part;
+          const updatedContentBlocks = part.contentBlocks.map(
+            (contentBlock) => {
+              if (contentBlock.type !== "list") return contentBlock;
+              const updatedList = [...contentBlock.list, newItem];
+              return {
+                ...contentBlock,
+                list: updatedList,
+              };
+            }
+          );
+          return {
+            ...part,
+            contentBlocks: updatedContentBlocks,
+          };
+        }),
+      };
+    }
     case ActionTypes.DELETE_LIST_ITEM: {
       const { idOfPart, idOfListItem } = action.payload;
 

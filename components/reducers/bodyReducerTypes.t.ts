@@ -14,7 +14,19 @@ export enum ActionTypes {
   UPLOAD_IMAGE = "UPLOAD_IMAGE",
   HANDLE_LIST_REORDER = "HANDLE_LIST_REORDER",
   DELETE_LIST_ITEM = "DELETE_LIST_ITEM",
+  ADD_LIST_ITEM = "ADD_LIST_ITEM",
 }
+
+export type AddListItem = {
+  type: ActionTypes.ADD_LIST_ITEM;
+  payload: {
+    idOfPart: string;
+    id: string;
+    name: string;
+    description?: string;
+    icon?: string;
+  };
+};
 
 export type HandleListReorder = {
   type: ActionTypes.HANDLE_LIST_REORDER;
@@ -78,4 +90,5 @@ export type Actions =
   | UpdateButton
   | UploadImage
   | HandleListReorder
-  | DeleteListItem;
+  | DeleteListItem
+  | AddListItem;

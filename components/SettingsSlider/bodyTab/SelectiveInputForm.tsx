@@ -8,6 +8,11 @@ import {
   ContentBlockTypes,
 } from "@/components/utils/allAvailableOptions.t";
 import ListEditSettings from "./ListEditSettings";
+import BlurredWrap from "@/components/ui/BlurredWrap";
+import IconComponent from "@/components/ui/IconComponent";
+import { useState } from "react";
+import ModalWindows from "@/components/ui/ModalWindows";
+import AddListItem from "./AddListItem";
 
 type SelectiveInputType = {
   obj: ContentBlock;
@@ -17,6 +22,8 @@ type SelectiveInputType = {
 
 const SelectiveInputForm = ({ obj, id, index }: SelectiveInputType) => {
   const { dispatch, bodySettings } = useBodySettings();
+  const [showMoadl, setShowModal] = useState(false);
+
   const handleSimpleTextUpdate = (newText: string) => {
     dispatch({
       type: ActionTypes.SIMPLE_TEXT_UPDATE,
@@ -52,6 +59,14 @@ const SelectiveInputForm = ({ obj, id, index }: SelectiveInputType) => {
     });
   };
 
+  const handleAddListItem = (newItem: ContentBlockList) => {
+    dispatch({
+      type: ActionTypes.ADD_LIST_ITEM,
+      payload: { idOfPart: id, ...newItem },
+    });
+    setShowModal(false);
+  };
+
   const currentValue = bodySettings.parts.find((part) => part.id === id)
     ?.contentBlocks[index];
   switch (obj.type) {
@@ -63,6 +78,29 @@ const SelectiveInputForm = ({ obj, id, index }: SelectiveInputType) => {
             handleReorder={handleReorder}
             handleDelete={handleDelete}
           />
+          <div onClick={() => setShowModal(true)}>
+            <BlurredWrap text="Add feature">
+              <div className="pl-7 opacity-45 flex relative group justify-start w-full items-center space-x-6 mt-4">
+                <div>
+                  <IconComponent iconName="LockClosedIcon" />
+                </div>
+                <div>
+                  <p className="font-semibold mb-2">Feature Name</p>
+                  <div className="block text-gray-600">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Facere laudantium dolorem explicabo.
+                  </div>
+                </div>
+              </div>
+            </BlurredWrap>
+          </div>
+          <ModalWindows
+            open={showMoadl}
+            setOpen={setShowModal}
+            title="Add Feature"
+          >
+            <AddListItem handleAddListItem={handleAddListItem} />
+          </ModalWindows>
         </>
       );
     }
