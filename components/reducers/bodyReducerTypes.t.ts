@@ -15,8 +15,12 @@ export enum ActionTypes {
   HANDLE_LIST_REORDER = "HANDLE_LIST_REORDER",
   DELETE_LIST_ITEM = "DELETE_LIST_ITEM",
   ADD_LIST_ITEM = "ADD_LIST_ITEM",
+  DELETE_PART = "DELETE_PART",
 }
-
+export type DeletePart = {
+  type: ActionTypes.DELETE_PART;
+  payload: SelectedComponent;
+};
 export type AddListItem = {
   type: ActionTypes.ADD_LIST_ITEM;
   payload: {
@@ -91,4 +95,5 @@ export type Actions =
   | UploadImage
   | HandleListReorder
   | DeleteListItem
-  | AddListItem;
+  | AddListItem
+  | DeletePart;

@@ -6,6 +6,12 @@ import { Actions, ActionTypes } from "./bodyReducerTypes.t";
 
 const bodyReducer = (state: SelectedBodyParts, action: Actions) => {
   switch (action.type) {
+    case ActionTypes.DELETE_PART: {
+      return {
+        ...state,
+        parts: state.parts.filter((part) => part.id !== action.payload.id),
+      };
+    }
     case ActionTypes.ADD_LIST_ITEM: {
       const { idOfPart, ...newItem } = action.payload;
       return {
