@@ -1,5 +1,6 @@
 import {
   ContentBlock,
+  ContentBlockTypes,
   SelectedBodyParts,
 } from "../utils/allAvailableOptions.t";
 import { Actions, ActionTypes } from "./bodyReducerTypes.t";
@@ -20,7 +21,12 @@ const bodyReducer = (state: SelectedBodyParts, action: Actions) => {
           if (part.id !== idOfPart) return part;
           const updatedContentBlocks = part.contentBlocks.map(
             (contentBlock) => {
-              if (contentBlock.type !== "list") return contentBlock;
+              if (
+                contentBlock.type !== ContentBlockTypes.simpleList &&
+                contentBlock.type !== ContentBlockTypes.featureWithIcon
+              )
+                return contentBlock;
+
               const updatedList = [...contentBlock.list, newItem];
               return {
                 ...contentBlock,
@@ -44,7 +50,11 @@ const bodyReducer = (state: SelectedBodyParts, action: Actions) => {
           if (part.id !== idOfPart) return part;
           const updatedContentBlocks = part.contentBlocks.map(
             (contentBlock) => {
-              if (contentBlock.type !== "list") return contentBlock;
+              if (
+                contentBlock.type !== ContentBlockTypes.simpleList &&
+                contentBlock.type !== ContentBlockTypes.featureWithIcon
+              )
+                return contentBlock;
               const updatedList = contentBlock.list.filter(
                 (listItem) => listItem.id !== idOfListItem
               );

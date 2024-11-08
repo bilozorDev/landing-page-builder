@@ -19,7 +19,6 @@ const DraggableList = <T extends WithId>({
   renderItem,
 }: DraggableListProps<T>) => {
   const dragControls = useDragControls();
-
   return (
     <Reorder.Group
       axis={axis}

@@ -30,7 +30,6 @@ const SelectiveInputForm = ({ obj, id, index }: SelectiveInputType) => {
       payload: { newText, id, index },
     });
   };
-
   const handleTextWithLink = (updatedValue: { text: string; link: string }) => {
     dispatch({
       type: ActionTypes.TEXT_WITH_LINK_UPDATE,
@@ -66,86 +65,137 @@ const SelectiveInputForm = ({ obj, id, index }: SelectiveInputType) => {
     });
     setShowModal(false);
   };
-
+  const requiredContent =
+    bodySettings.parts.find((part) => part.id === id)?.selectedStyle
+      ?.requiredBlocks || [];
+  console.log(requiredContent);
   const currentValue = bodySettings.parts.find((part) => part.id === id)
     ?.contentBlocks[index];
   switch (obj.type) {
-    case ContentBlockTypes.image: {
-      break;
-    }
-    case ContentBlockTypes.list: {
-      return (
-        <>
+    case ContentBlockTypes.simpleList: {
+      if (
+        checkIfContentRequired({
+          item: obj.blockName,
+          arrayToCheck: requiredContent,
+        })
+      )
+        return (
           <ListEditSettings
             part={obj}
             handleReorder={handleReorder}
             handleDelete={handleDelete}
           />
-          <div onClick={() => setShowModal(true)}>
-            <BlurredWrap text="Add feature">
-              <div className="pl-7 opacity-45 flex relative group justify-start w-full items-center space-x-6 mt-4">
-                <div>
-                  <IconComponent iconName="LockClosedIcon" />
-                </div>
-                <div>
-                  <p className="font-semibold mb-2">Feature Name</p>
-                  <div className="block text-gray-600">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Facere laudantium dolorem explicabo.
+        );
+    }
+    case ContentBlockTypes.image: {
+      break;
+    }
+    case ContentBlockTypes.featureWithIcon: {
+      if (
+        checkIfContentRequired({
+          item: obj.blockName,
+          arrayToCheck: requiredContent,
+        })
+      )
+        return (
+          <>
+            <ListEditSettings
+              part={obj}
+              handleReorder={handleReorder}
+              handleDelete={handleDelete}
+            />
+            <div onClick={() => setShowModal(true)}>
+              <BlurredWrap text="Add feature">
+                <div className="pl-7 opacity-45 flex relative group justify-start w-full items-center space-x-6 mt-4">
+                  {}
+                  <div>
+                    <IconComponent iconName="LockClosedIcon" />
+                  </div>
+                  <div>
+                    <p className="font-semibold mb-2">Feature Name</p>
+                    <div className="block text-gray-600">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Facere laudantium dolorem explicabo.
+                    </div>
                   </div>
                 </div>
-              </div>
-            </BlurredWrap>
-          </div>
-          <ModalWindows
-            open={showMoadl}
-            setOpen={setShowModal}
-            title="Add Feature"
-          >
-            <AddListItem handleAddListItem={handleAddListItem} />
-          </ModalWindows>
-        </>
-      );
+              </BlurredWrap>
+            </div>
+            <ModalWindows
+              open={showMoadl}
+              setOpen={setShowModal}
+              title="Add Feature"
+            >
+              <AddListItem handleAddListItem={handleAddListItem} />
+            </ModalWindows>
+          </>
+        );
     }
     case ContentBlockTypes.text: {
-      return (
-        <SingleTextInput
-          label={obj.blockName}
-          onChange={handleSimpleTextUpdate}
-          value={currentValue?.text || ""}
-        />
-      );
+      if (
+        checkIfContentRequired({
+          item: obj.blockName,
+          arrayToCheck: requiredContent,
+        })
+      )
+        return (
+          <SingleTextInput
+            label={obj.blockName}
+            onChange={handleSimpleTextUpdate}
+            value={currentValue?.text || ""}
+          />
+        );
     }
     case ContentBlockTypes.textWithLink: {
-      return (
-        <TextInputWithLink
-          onChange={handleTextWithLink}
-          value={currentValue as { text: string; link: string }}
-        />
-      );
-    }
-    case ContentBlockTypes.button: {
-      return (
-        <>
-          <div className="flex relative items-center space-x-4">
-            <p className="mt-4  capitalize whitespace-nowrap">
-              {obj.blockName}
-            </p>
-            <div className="w-full h-4 border-b border-gray-300"></div>
-          </div>
+      if (
+        checkIfContentRequired({
+          item: obj.blockName,
+          arrayToCheck: requiredContent,
+        })
+      )
+        return (
           <TextInputWithLink
-            label="Label"
-            onChange={handleButton}
+            onChange={handleTextWithLink}
             value={currentValue as { text: string; link: string }}
           />
-        </>
-      );
+        );
     }
-
+    case ContentBlockTypes.button: {
+      if (
+        checkIfContentRequired({
+          item: obj.blockName,
+          arrayToCheck: requiredContent,
+        })
+      )
+        return (
+          <>
+            <div className="flex relative items-center space-x-4">
+              <p className="mt-4  capitalize whitespace-nowrap">
+                {obj.blockName}
+              </p>
+              <div className="w-full h-4 border-b border-gray-300"></div>
+            </div>
+            <TextInputWithLink
+              label="Label"
+              onChange={handleButton}
+              value={currentValue as { text: string; link: string }}
+            />
+          </>
+        );
+    }
     default:
-      console.log("not valid", obj);
-      return "not valid";
+      return null;
   }
 };
 
 export default SelectiveInputForm;
+
+const checkIfContentRequired = ({
+  item,
+  arrayToCheck,
+}: {
+  item: string;
+  arrayToCheck: string[];
+}) => {
+  return arrayToCheck.includes(item);
+};

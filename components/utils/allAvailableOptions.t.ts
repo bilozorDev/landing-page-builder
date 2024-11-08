@@ -30,6 +30,7 @@ type Header = {
 type SelectionVariation = {
   id: string;
   name: string;
+  requiredBlocks: string[];
   description?: string;
   image: boolean;
   defaultImgScr: string;
@@ -50,8 +51,9 @@ export enum ContentBlockTypes {
   textWithLink = "textWithLink",
   text = "text",
   button = "button",
-  list = "list",
+  featureWithIcon = "featureWithIcon",
   image = "image",
+  simpleList = "simpleList",
 }
 
 export enum ButtonStyles {
@@ -65,9 +67,13 @@ type ContentBlock = {
   image?: string;
   link?: string;
   style?: "text" | "button";
-  list: ContentBlockList[];
+  list: ContentBlockList[] | SimpleListItem[];
 };
 
+type SimpleListItem = {
+  id: string;
+  name: string;
+};
 type ContentBlockList = {
   id: string;
   name: string;
