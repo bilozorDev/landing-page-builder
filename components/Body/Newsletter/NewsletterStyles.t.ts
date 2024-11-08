@@ -1,0 +1,7 @@
+export enum NewsletterStyles {
+    DEFAULT = "DEFAULT",
+   SIMPLE_SIDE_BY_SIDE = "SIMPLE_SIDE_BY_SIDE",
+   SIMPLE_STACKED = "SIMPLE_STACKED",
+   CENTERED_CARD = "CENTERED_CARD",
+  }
+  

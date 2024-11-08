@@ -1,5 +1,9 @@
 // no use of UUID!!!!!!!!
 
+import { CTAStyles } from "../Body/CTA/CTAStyles.t";
+import { FeatureStyles } from "../Body/Features/FeatureStyles.t";
+import { HeroStyles } from "../Body/Hero/HeroStyles";
+import { NewsletterStyles } from "../Body/Newsletter/NewsletterStyles.t";
 import {
   AvailableComponentToAdd,
   Banner,
@@ -126,7 +130,7 @@ export const allAvailableOptions = {
         name: "hero",
         availableStyles: [
           {
-            id: "default",
+            id: HeroStyles.DEFAULT,
             name: "Centered text without image",
             description: "Include a headline and description",
             requiredBlocks: [
@@ -139,7 +143,7 @@ export const allAvailableOptions = {
             image: false,
           },
           {
-            id: "image_right",
+            id: HeroStyles.IMAGE_RIGHT,
             name: "Split with image",
             description: "Image on the left, text on the right",
             requiredBlocks: [
@@ -154,7 +158,7 @@ export const allAvailableOptions = {
               "https://tailwindui.com/plus/img/component-images/project-app-screenshot.png",
           },
           {
-            id: "image_bottom",
+            id: HeroStyles.IMAGE_BOTTOM,
             name: "Image on the bottom",
             description: "Text on top, image on the bottom",
             requiredBlocks: [
@@ -169,7 +173,7 @@ export const allAvailableOptions = {
               "https://tailwindui.com/plus/img/component-images/project-app-screenshot.png",
           },
           {
-            id: "hero_with_full_image_right",
+            id: HeroStyles.HERO_WITH_FULL_IMAGE_RIGHT,
             name: "With full height image ",
             description: "Text on left and full height image on right",
             requiredBlocks: [
@@ -227,7 +231,7 @@ export const allAvailableOptions = {
         name: "features",
         availableStyles: [
           {
-            id: "default",
+            id: FeatureStyles.DEFAULT,
             name: "Text left and image right",
             description: "List of features on the left and image on the right",
             requiredBlocks: [
@@ -242,7 +246,7 @@ export const allAvailableOptions = {
               "https://tailwindui.com/plus/img/component-images/dark-project-app-screenshot.png",
           },
           {
-            id: "image-above-list",
+            id: FeatureStyles.IMAGE_ABOVE_LIST,
             name: "One column",
             description: "Headline, image and 3 columns of features",
             requiredBlocks: [
@@ -257,13 +261,13 @@ export const allAvailableOptions = {
               "https://tailwindui.com/plus/img/component-images/project-app-screenshot.png",
           },
           {
-            id: "just-list",
+            id: FeatureStyles.JUST_LIST,
             name: "Headline and 3 columns of features",
             description: "No image, just headline and list of features",
             selected: true,
           },
           {
-            id: "text-left-feature-right",
+            id: FeatureStyles.TEXT_LEFT_FEATURE_RIGHT,
             name: "Haedline and 2 columns of features",
             description: "Headline on left and 2 columns of features on right",
             requiredBlocks: [
@@ -275,7 +279,7 @@ export const allAvailableOptions = {
             ],
           },
           {
-            id: "no-icons",
+            id: FeatureStyles.NO_ICONS,
             name: "2 Columns of features",
             description: "Checkmarks instead of icons",
             requiredBlocks: [
@@ -341,52 +345,109 @@ export const allAvailableOptions = {
         name: "newsletter",
         availableStyles: [
           {
-            id: "default",
-            name: "One line",
-            description: "Text on left & form on right",
-            selected: true,
+            id: NewsletterStyles.DEFAULT,
+            name: "Side-by-side with details",
+            description: "Email form on left and details on right",
+            image: false,
+            requiredBlocks: [
+              "heading",
+              "description",
+              "inputPlaceholder",
+              "button",
+              "features",
+            ],
           },
           {
-            id: "stacked",
-            name: "Stacked",
-            description: "Text and input stacked on top of each other",
-            selected: false,
+            id: NewsletterStyles.SIMPLE_SIDE_BY_SIDE,
+            name: "Side-by-side ",
+            description: "Email form on right and text on lett",
+            requiredBlocks: [
+              "heading",
+              "inputLabel",
+              "inputPlaceholder",
+              "button",
+              "privacyText",
+              "privacyLink",
+            ],
           },
           {
-            id: "stacked-centered",
-            name: "Stacked centered",
-            description: "Text and form stacked centered",
-            selected: false,
+            id: NewsletterStyles.SIMPLE_STACKED,
+            name: "Text and email form ",
+            description: "Simple text and email form",
+            requiredBlocks: [
+              "heading",
+              "inputLabel",
+              "inputPlaceholder",
+              "button",
+              "privacyText",
+              "privacyLink",
+            ],
           },
           {
-            id: "with-bullet-points",
-            name: "With bullet points",
-            description: "Text and form on the left and bullet points on right",
-            selected: false,
+            id: NewsletterStyles.CENTERED_CARD,
+            name: "Text, description and email form ",
+            description: "Centered in dark background",
+            requiredBlocks: [
+              "heading",
+              "inputLabel",
+              "inputPlaceholder",
+              "button",
+              "description",
+            ],
           },
         ],
         contentBlocks: [
           {
             type: ContentBlockTypes.text,
-            blockName: "headline",
-            text: "Want product news and updates?.",
+            blockName: "heading",
+            text: "Subscribe to our newsletter",
           },
           {
             type: ContentBlockTypes.text,
-            blockName: "subtitle",
-            text: "Sign up for our newsletter.",
+            blockName: "description",
+            text: "Nostrud amet eu ullamco nisi aute in ad minim nostrud adipisicing velit quis. Duis tempor incididunt dolore.",
           },
           {
-            type: ContentBlockTypes.textWithLink,
-            blockName: "privacyNote",
-            text: " We care about your data. Read our",
-            link: "#",
+            type: ContentBlockTypes.text,
+            blockName: "inputPlaceholder",
+            text: "Enter your email",
           },
           {
             type: ContentBlockTypes.button,
             blockName: "button",
             text: "Subscribe",
-            style: "button",
+            link: "#",
+          },
+          {
+            type: ContentBlockTypes.featureWithIcon,
+            blockName: "features",
+            list: [
+              {
+                id: "weekly_articles",
+                name: "Weekly articles",
+                description:
+                  "Non laboris consequat cupidatat laborum magna. Eiusmod non irure cupidatat duis commodo amet.",
+                icon: "CalendarDaysIcon",
+              },
+              {
+                id: "no_spam",
+                name: "No spam",
+                description:
+                  "Officia excepteur ullamco ut sint duis proident non adipisicing. Voluptate incididunt anim.",
+                icon: "HandRaisedIcon",
+              },
+              {
+                type: ContentBlockTypes.text,
+                blockName: "privacyText",
+                text: "We care about your data. Read our",
+              },
+              {
+                type: ContentBlockTypes.textWithLink,
+                blockName: "privacyLink",
+                text: "privacy policy",
+                link: "#",
+              },
+            ],
           },
         ],
       },
@@ -394,7 +455,7 @@ export const allAvailableOptions = {
         name: "CTA",
         availableStyles: [
           {
-            id: "default",
+            id: CTAStyles.DEFAULT,
             name: "Image on the left with dark bg",
             description: "On dark background with some bullet points",
             requiredBlocks: [
@@ -409,7 +470,7 @@ export const allAvailableOptions = {
               "https://images.unsplash.com/photo-1519338381761-c7523edc1f46?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
           },
           {
-            id: "imageRightDarkBg",
+            id: CTAStyles.IMAGE_RIGHT_DARK_BG,
             name: "Image right with dark bg",
             description: "With text and 2 buttons",
             image: true,
@@ -424,7 +485,7 @@ export const allAvailableOptions = {
               "https://tailwindui.com/plus/img/component-images/dark-project-app-screenshot.png",
           },
           {
-            id: "simple-stacked-center-dark-bg",
+            id: CTAStyles.SIMPLE_STACKED_CENTER_DARK_BG,
             name: "Stacked centered on dark bg card",
             description: "Simple title, descriptions and buttons",
             requiredBlocks: [
@@ -436,7 +497,7 @@ export const allAvailableOptions = {
             image: false,
           },
           {
-            id: "full-width-stacked-center-dark-bg",
+            id: CTAStyles.FULL_WIDTH_STACKED_CENTER_DARK_BG,
             name: "Stacked centered on dark bg full width",
             description: "Simple title, descriptions and buttons",
             requiredBlocks: [
@@ -448,7 +509,7 @@ export const allAvailableOptions = {
             image: false,
           },
           {
-            id: "image-left-text-rigth",
+            id: CTAStyles.IMAGE_LEFT_TEXT_RIGHT,
             name: "Image on the left with text on the right",
             description:
               "On a dark background with title, description and button",
@@ -464,14 +525,14 @@ export const allAvailableOptions = {
             ],
           },
           {
-            id: "simple-stacked-left",
+            id: CTAStyles.SIMPLE_STACKED_LEFT,
             name: "Stacked on the left side",
             description: "Simple title and buttons",
             requiredBlocks: ["headline", "primary_button", "secondary_button"],
             image: false,
           },
           {
-            id: "simple-justified-between",
+            id: CTAStyles.SIMPLE_JUSTIFIED_BETWEEN,
             name: "Title and buttons",
             description: "Simple title buttons on opposite sides",
             requiredBlocks: ["headline", "primary_button", "secondary_button"],
