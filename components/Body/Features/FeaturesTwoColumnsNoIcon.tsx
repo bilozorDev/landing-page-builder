@@ -33,7 +33,7 @@ const FeaturesTwoColumnsNoIcon = ({ part }: { part: SelectedComponent }) => {
                   />
                   {feature.name}
                 </dt>
-                <dd className="mt-2">{feature.description}</dd>
+                { 'description' in feature && <dd className="mt-2">{feature.description}</dd> }
               </div>
             ))}
           </dl>

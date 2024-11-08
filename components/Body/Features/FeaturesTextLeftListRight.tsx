@@ -25,13 +25,15 @@ const FeaturesTextLeftListRight = ({ part }: { part: SelectedComponent }) => {
               <div key={feature.name}>
                 <dt className="text-base/7 font-semibold text-gray-900">
                   <div className="mb-6 flex h-10 w-10 items-center justify-center rounded-lg ">
-                  <IconComponent iconName={feature.icon || "PhoneIcon"} />
+                  {"icon" in feature && <IconComponent iconName={feature.icon || "PhoneIcon"} />}
                   </div>
                   {feature.name}
                 </dt>
-                <dd className="mt-1 text-base/7 text-gray-600">
-                  {feature.description}
-                </dd>
+                {"description" in feature && (
+                  <dd className="mt-1 text-base/7 text-gray-600">
+                    {feature.description}
+                  </dd>
+                )}
               </div>
             ))}
           </dl>

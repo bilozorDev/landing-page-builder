@@ -27,11 +27,11 @@ const FeaturesThreeColums = ({ part }: { part: SelectedComponent }) => {
             {data.features.list.map((feature) => (
               <div key={feature.name} className="flex flex-col">
                 <dt className="flex items-center gap-x-3 text-base/7 font-semibold text-gray-900">
-                  <IconComponent iconName={feature.icon || "PhoneIcon"} />
+                  {"icon" in feature && <IconComponent iconName={feature.icon || "PhoneIcon"} />}
                   {feature.name}
                 </dt>
                 <dd className="mt-4 flex flex-auto flex-col text-base/7 text-gray-600">
-                  <p className="flex-auto">{feature.description}</p>
+                  {"description" in feature && <p className="flex-auto">{feature.description}</p>}
                 </dd>
               </div>
             ))}

@@ -41,14 +41,18 @@ const FeaturesOneColumn = ({ part }: { part: SelectedComponent }) => {
         <dl className="mx-auto grid max-w-2xl grid-cols-1 gap-x-6 gap-y-10 text-base/7 text-gray-600 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-x-8 lg:gap-y-16">
           {data.features.list.map((feature) => (
             <div key={feature.name} className="flex">
-              <div className="mr-4">
-                <IconComponent iconName={feature.icon || "PhoneIcon"} />
-              </div>
+              { 'icon' in feature && (
+                <div className="mr-4">
+                  <IconComponent iconName={feature.icon || "PhoneIcon"} />
+                </div>
+              )}
               <div className="flex-1">
                 <dt className="inline font-semibold text-gray-900 space-x-4">
                   {feature.name}
                 </dt>{" "}
-                <dd className="inline">{feature.description}</dd>
+                {'description' in feature && (
+                  <dd className="inline">{feature.description}</dd>
+                )}
               </div>
             </div>
           ))}
