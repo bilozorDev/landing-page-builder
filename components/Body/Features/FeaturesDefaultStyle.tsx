@@ -26,13 +26,13 @@ const FeaturesDefaultStyle = ({ part }: { part: SelectedComponent }) => {
                 {data.features.list.map((feature) => (
                   <div key={feature.name} className="flex">
                     <div className="mr-4">
-                      <IconComponent iconName={feature.icon || "PhoneIcon"} />
+                      {"icon" in feature && <IconComponent iconName={feature.icon || "PhoneIcon"} />}
                     </div>
                     <div className="flex-1">
                       <dt className="inline font-semibold text-gray-900 space-x-4">
                         {feature.name}
                       </dt>{" "}
-                      <dd className="inline">{feature.description}</dd>
+                      {"description" in feature && <dd className="inline">{feature.description}</dd>}
                     </div>
                   </div>
                 ))}
