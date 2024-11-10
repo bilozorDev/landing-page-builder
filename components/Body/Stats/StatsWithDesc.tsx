@@ -14,7 +14,6 @@ const StatsWithDesc = ({ part }: { part: SelectedComponent }) => {
     description?: { text: string };
     stats?: { list: StatsBlockList[] };
   } = createDataObject(contentBlocks);
-  const brandColor = useGetBrandColor();
   return (
     <div className="bg-white py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
