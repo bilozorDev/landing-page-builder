@@ -2,6 +2,7 @@
 
 import { CTAStyles } from "../Body/CTA/CTAStyles.t";
 import { FeatureStyles } from "../Body/Features/FeatureStyles.t";
+import { HeaderStyles } from "../Body/Header/HeaderStyles.t";
 import { HeroStyles } from "../Body/Hero/HeroStyles";
 import { NewsletterStyles } from "../Body/Newsletter/NewsletterStyles.t";
 import {
@@ -596,6 +597,170 @@ export const allAvailableOptions = {
               {
                 id: "a_great_work_environment",
                 name: "A great work environment",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        name: "header",
+        availableStyles: [
+          {
+            id: HeaderStyles.DEFAULT,
+            name: "Simple Centered",
+            description: "Simple centered Headline and description",
+            requiredBlocks: ["headline", "description"],
+            image: false,
+          },
+          {
+            id: HeaderStyles.SIMPLE_WITH_SUBTITLE,
+            name: "Simple Centered with subtitle",
+            description: "Simple centered Headline, subtitle and description",
+            requiredBlocks: ["headline", "description", "subheading"],
+            image: false,
+          },
+          {
+            id: HeaderStyles.SIMPLE_LEFT_ALIGNED,
+            name: "Simple left aligned",
+            description:
+              "Simple left aligned headline, subtitle and description",
+            requiredBlocks: ["headline", "description"],
+            image: false,
+          },
+          {
+            id: HeaderStyles.CENTERED_DARK_BG,
+            name: "Centered with dark bg",
+            description: "Centered headline and description on dark background",
+            requiredBlocks: ["headline", "description", "subheading"],
+            image: false,
+          },
+          {
+            id: HeaderStyles.SIMPLE_WITH_BG_IMAGE,
+            name: "Simple with background image",
+            description:
+              "Simple headline, subtitle and description with background image",
+            requiredBlocks: ["headline", "description", "image"],
+            image: true,
+            defaultImgScr:
+              "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-y=.8&w=2830&h=1500&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+          },
+          {
+            id: HeaderStyles.WITH_CARDS,
+            name: "With cards",
+            description: "Headline and description with cards",
+            requiredBlocks: [
+              "headline",
+              "description",
+              "cards",
+              "subheading",
+              "image",
+            ],
+            image: true,
+            defaultImgScr:
+              "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-y=.8&w=2830&h=1500&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+          },
+          // {
+          //   id: HeaderStyles.WITH_STATS,
+          //   name: "With stats",
+          //   description: "Headline and description with stats",
+          //   requiredBlocks: [
+          //     "headline",
+          //     "description",
+          //     "stats",
+          //     "links",
+          //     "subheading",
+          //     "image",
+          //   ],
+          //   image: true,
+          //   defaultImgScr:
+          //     "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-y=.8&w=2830&h=1500&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+          // },
+        ],
+        contentBlocks: [
+          {
+            type: ContentBlockTypes.text,
+            blockName: "subheading",
+            text: "Get the help you need",
+          },
+          {
+            type: ContentBlockTypes.text,
+            blockName: "headline",
+            text: "Support center",
+          },
+          {
+            type: ContentBlockTypes.text,
+            blockName: "description",
+            text: "Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat.",
+          },
+          {
+            type: ContentBlockTypes.image,
+            blockName: "image",
+            image: "",
+          },
+          {
+            type: ContentBlockTypes.featureWithIcon,
+            blockName: "cards",
+            list: [
+              {
+                id: "sales",
+                name: "Sales",
+                description:
+                  "Consectetur vel non. Rerum ut consequatur nobis unde. Enim est quo corrupti consequatur.",
+                icon: "PhoneIcon",
+              },
+              {
+                id: "technical_support",
+                name: "Technical Support",
+                description:
+                  "Quod possimus sit modi rerum exercitationem quaerat atque tenetur ullam.",
+                icon: "LifebuoyIcon",
+              },
+              {
+                id: "media_inquiries",
+                name: "Media Inquiries",
+                description:
+                  "Ratione et porro eligendi est sed ratione rerum itaque. Placeat accusantium impedit eum odit.",
+                icon: "NewspaperIcon",
+              },
+            ],
+          },
+          {
+            type: ContentBlockTypes.simpleList,
+            blockName: "links",
+            list: [
+              { id: "open_roles", name: "Open roles", href: "#" },
+              {
+                id: "internship_program",
+                name: "Internship program",
+                href: "#",
+              },
+              { id: "our_values", name: "Our values", href: "#" },
+              {
+                id: "meet_our_leadership",
+                name: "Meet our leadership",
+                href: "#",
+              },
+            ],
+          },
+          {
+            type: ContentBlockTypes.simpleList,
+            blockName: "stats",
+            list: [
+              {
+                id: "offices_worldwide",
+                name: "Offices worldwide",
+                value: "12",
+              },
+              {
+                id: "full_time_colleagues",
+                name: "Full-time colleagues",
+                value: "300+",
+              },
+              { id: "hours_per_week", name: "Hours per week", value: "40" },
+              {
+                id: "paid_time_off",
+                name: "Paid time off",
+                value: "Unlimited",
               },
             ],
           },

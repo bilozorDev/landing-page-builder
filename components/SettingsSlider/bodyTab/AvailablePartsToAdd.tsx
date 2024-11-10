@@ -101,4 +101,5 @@ const PartsMap = {
   features: <FeaturesPreview />,
   newsletter: <NewsletterPreview />,
   stats: <StatsPreview />,
+  
 };

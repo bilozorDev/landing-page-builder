@@ -15,7 +15,7 @@ const CTAHalfSplitWithImage = ({ part }: { part: SelectedComponent }) => {
       >
         <img
           alt=""
-          src={data.section_image?.image || part.selectedStyle?.defaultImgScr}
+          src={data?.image.image || part.selectedStyle?.defaultImgScr}
           className="h-full w-full object-cover"
         />
         <svg

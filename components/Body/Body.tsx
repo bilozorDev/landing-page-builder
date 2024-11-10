@@ -10,6 +10,7 @@ import Team from "./Team/Team";
 import LogoCloud from "./LogoCloud/LogoCloud";
 import Hero from "./Hero/Hero";
 import FAQ from "./FAQ/FAQ";
+import Header from "./Header/Header";
 
 const Body = () => {
   const { bodySettings } = useBodySettings();
@@ -31,8 +32,8 @@ const Body = () => {
     testimonials: Testimonials,
     team: Team,
     logos: LogoCloud,
-    FAQ
-    : FAQ,
+    FAQ: FAQ,
+    header: Header,
   };
   if (!hasMounted) {
     return null;
