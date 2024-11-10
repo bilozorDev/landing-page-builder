@@ -1,4 +1,3 @@
-import useGetBrandColor from "@/components/hooks/useGetBrandColor";
 import {
   SelectedComponent,
   StatsBlockList,
