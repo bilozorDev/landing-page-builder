@@ -7,7 +7,6 @@ import StatsWithTitleAndDesc from "./StatsWithTitleAndDesc";
 import StatsWithTitleAndDescOnDarkBg from "./StatsWithTitleAndDescOnDarkBg";
 import StatsOnImageBg from "./StatsOnImageBg";
 import StatsSplitImageRight from "./StatsSplitImageRight";
-import StatsWithDesc from "./StatsWithDesc";
 
 const Stats = ({ part }: { part: SelectedComponent }) => {
   if (part.selectedStyle?.id === StatsStyles.DEFAULT)
@@ -24,8 +23,8 @@ const Stats = ({ part }: { part: SelectedComponent }) => {
     return <StatsOnImageBg part={part} />;
   if (part.selectedStyle?.id === StatsStyles.SPLIT_IMAGE_RIGHT)
     return <StatsSplitImageRight part={part} />;
-  if (part.selectedStyle?.id === StatsStyles.WITH_DESCRIPTION)
-    return <StatsWithDesc part={part} />;
+  // if (part.selectedStyle?.id === StatsStyles.WITH_DESCRIPTION)
+  //   return <StatsWithDesc part={part} />;
   return <div>Stats</div>;
 };
 
