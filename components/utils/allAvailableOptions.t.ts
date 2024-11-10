@@ -54,6 +54,7 @@ export enum ContentBlockTypes {
   featureWithIcon = "featureWithIcon",
   image = "image",
   simpleList = "simpleList",
+  statsList = "statList",
 }
 
 export enum ButtonStyles {
@@ -67,7 +68,7 @@ type ContentBlock = {
   image?: string;
   link?: string;
   style?: "text" | "button";
-  list: ContentBlockList[] | SimpleListItem[];
+  list: ContentBlockList[] | SimpleListItem[] | StatsBlockList[];
 };
 
 type SimpleListItem = {
@@ -79,6 +80,12 @@ type ContentBlockList = {
   name: string;
   description?: string;
   icon?: string;
+};
+type StatsBlockList = {
+  id: string;
+  name: string;
+  value: string;
+  description?: string;
 };
 
 type SelectedComponent = {
@@ -104,4 +111,6 @@ export type {
   ContentBlock,
   SelectedBodyParts,
   ContentBlockList,
+  SimpleListItem,
+  StatsBlockList,
 };

@@ -72,6 +72,15 @@ const SelectiveInputForm = ({ obj, id, index }: SelectiveInputType) => {
   const currentValue = bodySettings.parts.find((part) => part.id === id)
     ?.contentBlocks[index];
   switch (obj.type) {
+    case ContentBlockTypes.statsList: {
+      if (
+        checkIfContentRequired({
+          item: obj.blockName,
+          arrayToCheck: requiredContent,
+        })
+      )
+        return <>This is stats list</>;
+    }
     case ContentBlockTypes.simpleList: {
       if (
         checkIfContentRequired({

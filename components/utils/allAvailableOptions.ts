@@ -5,6 +5,7 @@ import { FeatureStyles } from "../Body/Features/FeatureStyles.t";
 import { HeaderStyles } from "../Body/Header/HeaderStyles.t";
 import { HeroStyles } from "../Body/Hero/HeroStyles";
 import { NewsletterStyles } from "../Body/Newsletter/NewsletterStyles.t";
+import { StatsStyles } from "../Body/Stats/StatsStyles.t";
 import {
   AvailableComponentToAdd,
   Banner,
@@ -437,18 +438,18 @@ export const allAvailableOptions = {
                   "Officia excepteur ullamco ut sint duis proident non adipisicing. Voluptate incididunt anim.",
                 icon: "HandRaisedIcon",
               },
-              {
-                type: ContentBlockTypes.text,
-                blockName: "privacyText",
-                text: "We care about your data. Read our",
-              },
-              {
-                type: ContentBlockTypes.textWithLink,
-                blockName: "privacyLink",
-                text: "privacy policy",
-                link: "#",
-              },
             ],
+          },
+          {
+            type: ContentBlockTypes.text,
+            blockName: "privacyText",
+            text: "We care about your data. Read our",
+          },
+          {
+            type: ContentBlockTypes.textWithLink,
+            blockName: "privacyLink",
+            text: "privacy policy",
+            link: "#",
           },
         ],
       },
@@ -659,22 +660,22 @@ export const allAvailableOptions = {
             defaultImgScr:
               "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-y=.8&w=2830&h=1500&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
           },
-          // {
-          //   id: HeaderStyles.WITH_STATS,
-          //   name: "With stats",
-          //   description: "Headline and description with stats",
-          //   requiredBlocks: [
-          //     "headline",
-          //     "description",
-          //     "stats",
-          //     "links",
-          //     "subheading",
-          //     "image",
-          //   ],
-          //   image: true,
-          //   defaultImgScr:
-          //     "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-y=.8&w=2830&h=1500&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
-          // },
+          {
+            id: HeaderStyles.WITH_STATS,
+            name: "With stats",
+            description: "Headline and description with stats",
+            requiredBlocks: [
+              "headline",
+              "description",
+              "stats",
+              "links",
+              "subheading",
+              "image",
+            ],
+            image: true,
+            defaultImgScr:
+              "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-y=.8&w=2830&h=1500&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+          },
         ],
         contentBlocks: [
           {
@@ -743,7 +744,7 @@ export const allAvailableOptions = {
             ],
           },
           {
-            type: ContentBlockTypes.simpleList,
+            type: ContentBlockTypes.statsList,
             blockName: "stats",
             list: [
               {
@@ -770,52 +771,114 @@ export const allAvailableOptions = {
         name: "stats",
         availableStyles: [
           {
-            id: "default",
+            id: StatsStyles.DEFAULT,
             name: "One line",
-            description: "Text on left & form on right",
-            selected: true,
+            description: "Value and text stacked",
+            image: false,
+            requiredBlocks: ["stats"],
           },
           {
-            id: "stacked",
-            name: "Stacked",
-            description: "Text and input stacked on top of each other",
-            selected: false,
+            id: StatsStyles.SIMPLE_DARK_BG,
+            name: "Simple dark bg",
+            description: "Value and text stacked on dark background",
+            image: false,
+            requiredBlocks: ["stats"],
           },
           {
-            id: "stacked-centered",
-            name: "Stacked centered",
-            description: "Text and form stacked centered",
-            selected: false,
+            id: StatsStyles.WITH_TITLE_AND_DESCRIPTION,
+            name: "With title and description",
+            description: "Title and description stacked with stats",
+            image: false,
+            requiredBlocks: ["stats", "heading", "description"],
           },
           {
-            id: "with-bullet-points",
-            name: "With bullet points",
-            description: "Text and form on the left and bullet points on right",
-            selected: false,
+            id: StatsStyles.WITH_TITLE_AND_DESC_ON_DARK_BG,
+            name: "With title and description on dark bg",
+            description:
+              "Title and description stacked with stats on dark background",
+            image: false,
+            requiredBlocks: ["stats", "heading", "description"],
           },
+          {
+            id: StatsStyles.WITH_TITLE_AND_DESC_IMAGE_BACKGROUND,
+            name: "With title and description on image bg",
+            description:
+              "Title and description stacked with stats on image background",
+            image: true,
+            requiredBlocks: [
+              "stats",
+              "heading",
+              "subheading",
+              "description",
+              "image",
+            ],
+            defaultImgScr:
+              "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-y=.8&w=2830&h=1500&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+          },
+          {
+            id: StatsStyles.SPLIT_IMAGE_RIGHT,
+            name: "Split image right",
+            description: "Image on the left, stats on the right",
+            requiredBlocks: [
+              "stats",
+              "heading",
+              "subheading",
+              "description",
+              "image",
+            ],
+            image: true,
+            defaultImgScr:
+              "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2850&q=80",
+          },
+          // {
+          //   id: StatsStyles.WITH_DESCRIPTION,
+          //   name: "With description",
+          //   description: "Description on left, stats on right",
+          //   requiredBlocks: ["stats", "heading", "description"],
+          //   image: false,
+          // },
         ],
         contentBlocks: [
           {
             type: ContentBlockTypes.text,
-            blockName: "headline",
-            text: "Want product news and updates?.",
+            blockName: "subheading",
+            text: "Our track record",
           },
           {
             type: ContentBlockTypes.text,
-            blockName: "subtitle",
-            text: "Sign up for our newsletter.",
+            blockName: "heading",
+            text: "Trusted by creators worldwide",
           },
           {
-            type: ContentBlockTypes.textWithLink,
-            blockName: "privacyNote",
-            text: " We care about your data. Read our",
-            link: "#",
+            type: ContentBlockTypes.text,
+            blockName: "description",
+            text: "Lorem ipsum dolor sit amet consect adipisicing possimus.",
           },
           {
-            type: ContentBlockTypes.button,
-            blockName: "button",
-            text: "Subscribe",
-            style: "button",
+            type: ContentBlockTypes.image,
+            blockName: "image",
+            image: "",
+          },
+          {
+            type: ContentBlockTypes.statsList,
+            blockName: "stats",
+            list: [
+              {
+                id: "creators_on_platform",
+                name: "Creators on the platform",
+                value: "8,000+",
+              },
+              {
+                id: "platform_fee",
+                name: "Flat platform fee",
+                value: "3%",
+              },
+              {
+                id: "uptime_guarantee",
+                name: "Uptime guarantee",
+                value: "99.9%",
+              },
+            ],
           },
         ],
       },
