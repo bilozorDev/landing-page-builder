@@ -6,6 +6,7 @@ import { HeaderStyles } from "../Body/Header/HeaderStyles.t";
 import { HeroStyles } from "../Body/Hero/HeroStyles";
 import { NewsletterStyles } from "../Body/Newsletter/NewsletterStyles.t";
 import { StatsStyles } from "../Body/Stats/StatsStyles.t";
+import { TestimonialStyles } from "../Body/Testimonials/TestimonialsStyles.t";
 import {
   AvailableComponentToAdd,
   Banner,
@@ -886,52 +887,160 @@ export const allAvailableOptions = {
         name: "testimonials",
         availableStyles: [
           {
-            id: "default",
-            name: "One line",
-            description: "Text on left & form on right",
-            selected: true,
+            id: TestimonialStyles.DEFAULT,
+            name: "With company logo",
+            description: "Stacked centered with company logo on top",
+            requiredBlocks: [
+              "image",
+              "testimonial",
+              "authorName",
+              "authorTitle",
+            ],
+            image: true,
+            defaultImgScr:
+              "https://tailwindui.com/plus/img/logos/workcation-logo-indigo-600.svg",
           },
           {
-            id: "stacked",
-            name: "Stacked",
-            description: "Text and input stacked on top of each other",
-            selected: false,
+            id: TestimonialStyles.IMAGE_RIGHT,
+            name: "With author image on the right",
+            description: "Image on the right side of the text",
+            requiredBlocks: [
+              "image",
+              "testimonial",
+              "authorName",
+              "authorTitle",
+            ],
+            image: true,
+            defaultImgScr:
+              "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=576&h=576&q=80",
           },
           {
-            id: "stacked-centered",
-            name: "Stacked centered",
-            description: "Text and form stacked centered",
-            selected: false,
+            id: TestimonialStyles.OVERLAP_IMAGE,
+            name: "Overlapping image",
+            description: "Image overlapping the block",
+            requiredBlocks: [
+              "image",
+              "testimonial",
+              "authorName",
+              "authorTitle",
+            ],
+            image: true,
+            defaultImgScr:
+              "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2102&q=80",
           },
           {
-            id: "with-bullet-points",
-            name: "With bullet points",
-            description: "Text and form on the left and bullet points on right",
-            selected: false,
+            id: TestimonialStyles.IMAGE_BACKGROUND,
+            name: "Image background",
+            description: "Image as a background",
+            requiredBlocks: [
+              "image",
+              "testimonial",
+              "authorName",
+              "authorTitle",
+            ],
+            image: true,
+            defaultImgScr:
+              "https://images.unsplash.com/photo-1601381718415-a05fb0a261f3?ixid=MXwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8ODl8fHxlbnwwfHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1216&q=80",
+          },
+          {
+            id: TestimonialStyles.WITH_FEW_TESTIMONIALS,
+            name: "With few testimonials",
+            description: "Few testimonials in columns of 3",
+            requiredBlocks: ["heading", "subheading", "testimonials"],
+            image: false,
           },
         ],
         contentBlocks: [
           {
-            type: ContentBlockTypes.text,
-            blockName: "headline",
-            text: "Want product news and updates?.",
+            type: ContentBlockTypes.image,
+            blockName: "image",
+            image: "",
           },
           {
             type: ContentBlockTypes.text,
-            blockName: "subtitle",
-            text: "Sign up for our newsletter.",
+            blockName: "testimonial",
+            text: "“Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae.”",
+          },
+
+          {
+            type: ContentBlockTypes.text,
+            blockName: "authorName",
+            text: "Judith Black",
           },
           {
-            type: ContentBlockTypes.textWithLink,
-            blockName: "privacyNote",
-            text: " We care about your data. Read our",
-            link: "#",
+            type: ContentBlockTypes.text,
+            blockName: "authorTitle",
+            text: "CEO of Workcation",
           },
           {
-            type: ContentBlockTypes.button,
-            blockName: "button",
-            text: "Subscribe",
-            style: "button",
+            type: ContentBlockTypes.text,
+            blockName: "subheading",
+            text: "Testimonials",
+          },
+          {
+            type: ContentBlockTypes.text,
+            blockName: "heading",
+            text: "We have worked with thousands of amazing people",
+          },
+          {
+            type: ContentBlockTypes.statsList,
+            blockName: "testimonials",
+            list: [
+              {
+                id: "brookswilliam",
+                name: "Kristen Mcpherson",
+                value: "Morris-Jarvis",
+                description: "Question agreement star."
+              },
+              {
+                id: "michellereed",
+                name: "Christopher Cooper",
+                value: "Taylor Inc",
+                description: "Perhaps others billion meet customer color. Commercial firm trial be."
+              },
+              {
+                id: "troth",
+                name: "Cindy Bray",
+                value: "Harvey-Estrada",
+                description: "Anyone your smile owner."
+              },
+              {
+                id: "cfrazier",
+                name: "Natalie Johnson",
+                value: "Kim PLC",
+                description: "Trip almost describe marriage job. Prepare peace magazine personal budget group answer."
+              },
+              {
+                id: "scott24",
+                name: "Scott Murray",
+                value: "Thomas-Gross",
+                description: "Seek laugh page already game. Partner which but artist southern."
+              },
+              {
+                id: "allison83",
+                name: "Trevor Duncan",
+                value: "Hampton-Lopez",
+                description: "Fast site camera as natural."
+              },
+              {
+                id: "yjohnson",
+                name: "Amanda Clark",
+                value: "Vaughn, Howard and King",
+                description: "Perhaps still century hear. East drop teach growth here certain."
+              },
+              {
+                id: "paige00",
+                name: "Teresa Hall",
+                value: "Brown Group",
+                description: "Magazine they north pretty economy. Could minute indicate fish."
+              },
+              {
+                id: "amanda72",
+                name: "Matthew Jackson",
+                value: "Taylor-Schroeder",
+                description: "State test sport."
+              }
+            ],
           },
         ],
       },
