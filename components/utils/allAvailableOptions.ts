@@ -6,6 +6,7 @@ import { HeaderStyles } from "../Body/Header/HeaderStyles.t";
 import { HeroStyles } from "../Body/Hero/HeroStyles";
 import { NewsletterStyles } from "../Body/Newsletter/NewsletterStyles.t";
 import { StatsStyles } from "../Body/Stats/StatsStyles.t";
+import { TeamStyles } from "../Body/Team/TeamStyles.t";
 import { TestimonialStyles } from "../Body/Testimonials/TestimonialsStyles.t";
 import {
   AvailableComponentToAdd,
@@ -13,6 +14,7 @@ import {
   ContentBlockTypes,
   General,
   Header,
+  SocialMedia,
   Step,
 } from "./allAvailableOptions.t";
 
@@ -650,13 +652,7 @@ export const allAvailableOptions = {
             id: HeaderStyles.WITH_CARDS,
             name: "With cards",
             description: "Headline and description with cards",
-            requiredBlocks: [
-              "headline",
-              "description",
-              "cards",
-              "subheading",
-              "image",
-            ],
+            requiredBlocks: ["headline", "description", "cards", "image"],
             image: true,
             defaultImgScr:
               "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-y=.8&w=2830&h=1500&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
@@ -990,56 +986,61 @@ export const allAvailableOptions = {
                 id: "brookswilliam",
                 name: "Kristen Mcpherson",
                 value: "Morris-Jarvis",
-                description: "Question agreement star."
+                description: "Question agreement star.",
               },
               {
                 id: "michellereed",
                 name: "Christopher Cooper",
                 value: "Taylor Inc",
-                description: "Perhaps others billion meet customer color. Commercial firm trial be."
+                description:
+                  "Perhaps others billion meet customer color. Commercial firm trial be.",
               },
               {
                 id: "troth",
                 name: "Cindy Bray",
                 value: "Harvey-Estrada",
-                description: "Anyone your smile owner."
+                description: "Anyone your smile owner.",
               },
               {
                 id: "cfrazier",
                 name: "Natalie Johnson",
                 value: "Kim PLC",
-                description: "Trip almost describe marriage job. Prepare peace magazine personal budget group answer."
+                description:
+                  "Trip almost describe marriage job. Prepare peace magazine personal budget group answer.",
               },
               {
                 id: "scott24",
                 name: "Scott Murray",
                 value: "Thomas-Gross",
-                description: "Seek laugh page already game. Partner which but artist southern."
+                description:
+                  "Seek laugh page already game. Partner which but artist southern.",
               },
               {
                 id: "allison83",
                 name: "Trevor Duncan",
                 value: "Hampton-Lopez",
-                description: "Fast site camera as natural."
+                description: "Fast site camera as natural.",
               },
               {
                 id: "yjohnson",
                 name: "Amanda Clark",
                 value: "Vaughn, Howard and King",
-                description: "Perhaps still century hear. East drop teach growth here certain."
+                description:
+                  "Perhaps still century hear. East drop teach growth here certain.",
               },
               {
                 id: "paige00",
                 name: "Teresa Hall",
                 value: "Brown Group",
-                description: "Magazine they north pretty economy. Could minute indicate fish."
+                description:
+                  "Magazine they north pretty economy. Could minute indicate fish.",
               },
               {
                 id: "amanda72",
                 name: "Matthew Jackson",
                 value: "Taylor-Schroeder",
-                description: "State test sport."
-              }
+                description: "State test sport.",
+              },
             ],
           },
         ],
@@ -1048,50 +1049,152 @@ export const allAvailableOptions = {
         name: "team",
         availableStyles: [
           {
-            id: "default",
-            name: "One line",
-            description: "Text on left & form on right",
+            id: TeamStyles.DEFAULT,
+            name: "Square avatars",
+            description: "Text on left & avatars on right",
+            requiredBlocks: ["heading", "description", "teamMembers"],
+            image: false,
           },
           {
-            id: "stacked",
-            name: "Stacked",
-            description: "Text and input stacked on top of each other",
+            id: TeamStyles.WITH_CIRCLE_AVATARS,
+            name: "With circle avatars",
+            description: "Text on top & circle avatars on bottom",
+            requiredBlocks: ["heading", "description", "teamMembers"],
+            image: false,
           },
           {
-            id: "stacked-centered",
-            name: "Stacked centered",
-            description: "Text and form stacked centered",
-            selected: false,
-          },
-          {
-            id: "with-bullet-points",
-            name: "With bullet points",
-            description: "Text and form on the left and bullet points on right",
-            selected: false,
-          },
+            id: TeamStyles.DARK_BG_CARDS_AVATARS,
+            name: "Dark bg with cards large avatars",
+            description: "Text on top & large avatars cards on dark bg",
+            requiredBlocks: ["heading", "description", "teamMembers"],
+            image: false,
+          }
         ],
         contentBlocks: [
           {
             type: ContentBlockTypes.text,
-            blockName: "headline",
-            text: "Want product news and updates?.",
+            blockName: "heading",
+            text: "Our team",
           },
           {
             type: ContentBlockTypes.text,
-            blockName: "subtitle",
-            text: "Sign up for our newsletter.",
+            blockName: "description",
+            text: "We’re a dynamic group of individuals who are passionate about what we do and dedicated to delivering the best results for our clients.",
           },
           {
-            type: ContentBlockTypes.textWithLink,
-            blockName: "privacyNote",
-            text: " We care about your data. Read our",
-            link: "#",
-          },
-          {
-            type: ContentBlockTypes.button,
-            blockName: "button",
-            text: "Subscribe",
-            style: "button",
+            type: ContentBlockTypes.teamMembers,
+            blockName: "teamMembers",
+            list: [
+              {
+                id: "lindsay_walton",
+                name: "Lindsay Walton",
+                image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80",
+                position: "Front-end Developer",
+                socialLinks: [
+                  {
+                    name: "Twitter",
+                    link: "#",
+                    icon: "TwitterIcon",
+                  },
+                  {
+                    name: "LinkedIn",
+                    link: "#",
+                    icon: "LinkedInIcon",
+                  },
+                ],
+              },
+              {
+                id: "courtney_henry",
+                name: "Courtney Henry",
+                image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80",
+                position: "Designer",
+                socialLinks: [
+                  {
+                    name: "Twitter",
+                    link: "#",
+                    icon: "TwitterIcon",
+                  },
+                  {
+                    name: "LinkedIn",
+                    link: "#",
+                    icon: "LinkedInIcon",
+                  },
+                ],
+              },
+              {
+                id: "tom_cook",
+                name: "Tom Cook",
+                image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80",
+                position: "Director of Product",
+                socialLinks: [
+                  {
+                    name: "Twitter",
+                    link: "#",
+                    icon: "TwitterIcon",
+                  },
+                  {
+                    name: "LinkedIn",
+                    link: "#",
+                    icon: "LinkedInIcon",
+                  },
+                ],
+              },
+              {
+                id: "whitney_francis",
+                name: "Whitney Francis",
+                image: "https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80",
+                position: "Copywriter",
+                socialLinks: [
+                  {
+                    name: "Twitter",
+                    link: "#",
+                    icon: "TwitterIcon",
+                  },
+                  {
+                    name: "LinkedIn",
+                    link: "#",
+                    icon: "LinkedInIcon",
+                  },
+                ],
+              },
+              {
+                id: "leonard_krasner",
+                name: "Leonard Krasner",
+                image: "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80",
+                position: "Senior Designer",
+                socialLinks: [
+                  {
+                    name: "Twitter",
+                    link: "#",
+                    icon: "TwitterIcon",
+                  },
+                  {
+                    name: "LinkedIn",
+                    link: "#",
+                    icon: "LinkedInIcon",
+                  },
+                ],
+              },
+              {
+                id: "floyd_miles",
+                name: "Floyd Miles",
+                image: "https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80",
+                position: "Principal Designer",
+                socialLinks: [
+                  {
+                    name: "Twitter",
+                    link: "#",
+                    icon: "TwitterIcon",
+                  },
+                  {
+                    name: "LinkedIn",
+                    link: "#",
+                    icon: "LinkedInIcon",
+                  },
+                ],
+              },
+            ]
+            
           },
         ],
       },

@@ -55,7 +55,29 @@ export enum ContentBlockTypes {
   image = "image",
   simpleList = "simpleList",
   statsList = "statList",
+  teamMembers = "teamMembers",
 }
+
+export enum SocialMedia {
+  facebook = "facebook",
+  twitter = "twitter",
+  linkedin = "linkedin",
+  instagram = "instagram",
+}
+
+export type TeamMember = {
+  id: string;
+  name: string;
+  image: string;
+  position: string;
+  socialLinks: {
+    name: SocialMedia;
+    link: string;
+    icon: string;
+  }[];
+};
+
+export type TeamMembers = TeamMember[];
 
 export enum ButtonStyles {
   button = "button",
