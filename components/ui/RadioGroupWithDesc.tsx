@@ -26,7 +26,6 @@ const RadioGroupWithDesc = ({
             key={option.id}
             value={option}
             aria-label={option.name}
-            aria-description={option.description}
             className={classNames(
               optionIdx === 0 ? "rounded-tl-md rounded-tr-md" : "",
               optionIdx === availableStyles.length - 1

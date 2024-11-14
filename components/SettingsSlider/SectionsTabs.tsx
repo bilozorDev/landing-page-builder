@@ -7,6 +7,7 @@ import GeneralTab from "./generalTab";
 import HeaderTab from "./headerTab";
 import BannerTab from "./bannerTab";
 import BodyTab from "./bodyTab";
+import FooterTab from "./footerTab/FooterTab";
 
 const SectionsTabs = () => {
   const [steps, setSteps] = useLocalStorageState("settingsSteps", {
@@ -87,8 +88,6 @@ const SectionsTabs = () => {
 
 export default SectionsTabs;
 
-const Footer = () => <div>Footsser</div>;
-
 const getSettingsComponentByName = (
   name: string
 ): React.ReactElement | null => {
@@ -97,7 +96,7 @@ const getSettingsComponentByName = (
     Header: <HeaderTab />,
     Banner: <BannerTab />,
     Body: <BodyTab />,
-    Footer: <Footer />,
+    Footer: <FooterTab />,
   };
   return componentMap[name] || null;
 };

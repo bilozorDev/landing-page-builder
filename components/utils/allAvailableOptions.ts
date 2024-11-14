@@ -14,6 +14,7 @@ import {
   ContentBlockTypes,
   General,
   Header,
+  SelectionVariation,
   SocialMedia,
   Step,
 } from "./allAvailableOptions.t";
@@ -126,6 +127,32 @@ export const allAvailableOptions = {
         id: "gray-bg",
         name: "Gray background",
         description: "White background with underline",
+      },
+    ],
+  },
+  footer: {
+    availableStyles: <SelectionVariation[]>[
+      {
+        id: "default",
+        name: "Simple copyrigth",
+        description: "White background with cop",
+        image: false,
+        requiredBlocks: ["copyrigth"],
+      },
+      {
+        id: "simple-dark-bg",
+        name: "Simple copyrigth on dark bg",
+
+        description: "Dark background with cop",
+        image: false,
+        requiredBlocks: ["copyrigth"],
+      },
+    ],
+    contentBlocks: [
+      {
+        type: ContentBlockTypes.text,
+        blockName: "copyrigth",
+        text: "Company, Inc.",
       },
     ],
   },
@@ -1068,7 +1095,7 @@ export const allAvailableOptions = {
             description: "Text on top & large avatars cards on dark bg",
             requiredBlocks: ["heading", "description", "teamMembers"],
             image: false,
-          }
+          },
         ],
         contentBlocks: [
           {
@@ -1088,7 +1115,8 @@ export const allAvailableOptions = {
               {
                 id: "lindsay_walton",
                 name: "Lindsay Walton",
-                image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80",
+                image:
+                  "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80",
                 position: "Front-end Developer",
                 socialLinks: [
                   {
@@ -1106,7 +1134,8 @@ export const allAvailableOptions = {
               {
                 id: "courtney_henry",
                 name: "Courtney Henry",
-                image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80",
+                image:
+                  "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80",
                 position: "Designer",
                 socialLinks: [
                   {
@@ -1124,7 +1153,8 @@ export const allAvailableOptions = {
               {
                 id: "tom_cook",
                 name: "Tom Cook",
-                image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80",
+                image:
+                  "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80",
                 position: "Director of Product",
                 socialLinks: [
                   {
@@ -1142,7 +1172,8 @@ export const allAvailableOptions = {
               {
                 id: "whitney_francis",
                 name: "Whitney Francis",
-                image: "https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80",
+                image:
+                  "https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80",
                 position: "Copywriter",
                 socialLinks: [
                   {
@@ -1160,7 +1191,8 @@ export const allAvailableOptions = {
               {
                 id: "leonard_krasner",
                 name: "Leonard Krasner",
-                image: "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80",
+                image:
+                  "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80",
                 position: "Senior Designer",
                 socialLinks: [
                   {
@@ -1178,7 +1210,8 @@ export const allAvailableOptions = {
               {
                 id: "floyd_miles",
                 name: "Floyd Miles",
-                image: "https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80",
+                image:
+                  "https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80",
                 position: "Principal Designer",
                 socialLinks: [
                   {
@@ -1193,117 +1226,116 @@ export const allAvailableOptions = {
                   },
                 ],
               },
-            ]
-            
+            ],
           },
         ],
       },
-      {
-        name: "logos",
-        availableStyles: [
-          {
-            id: "default",
-            name: "One line",
-            description: "Text on left & form on right",
-            selected: true,
-          },
-          {
-            id: "stacked",
-            name: "Stacked",
-            description: "Text and input stacked on top of each other",
-            selected: false,
-          },
-          {
-            id: "stacked-centered",
-            name: "Stacked centered",
-            description: "Text and form stacked centered",
-            selected: false,
-          },
-          {
-            id: "with-bullet-points",
-            name: "With bullet points",
-            description: "Text and form on the left and bullet points on right",
-            selected: false,
-          },
-        ],
-        contentBlocks: [
-          {
-            type: ContentBlockTypes.text,
-            blockName: "headline",
-            text: "Want product news and updates?.",
-          },
-          {
-            type: ContentBlockTypes.text,
-            blockName: "subtitle",
-            text: "Sign up for our newsletter.",
-          },
-          {
-            type: ContentBlockTypes.textWithLink,
-            blockName: "privacyNote",
-            text: " We care about your data. Read our",
-            link: "#",
-          },
-          {
-            type: ContentBlockTypes.button,
-            blockName: "button",
-            text: "Subscribe",
-            style: "button",
-          },
-        ],
-      },
-      {
-        name: "FAQ",
-        availableStyles: [
-          {
-            id: "default",
-            name: "One line",
-            description: "Text on left & form on right",
-            selected: true,
-          },
-          {
-            id: "stacked",
-            name: "Stacked",
-            description: "Text and input stacked on top of each other",
-            selected: false,
-          },
-          {
-            id: "stacked-centered",
-            name: "Stacked centered",
-            description: "Text and form stacked centered",
-            selected: false,
-          },
-          {
-            id: "with-bullet-points",
-            name: "With bullet points",
-            description: "Text and form on the left and bullet points on right",
-            selected: false,
-          },
-        ],
-        contentBlocks: [
-          {
-            type: ContentBlockTypes.text,
-            blockName: "headline",
-            text: "Want product news and updates?.",
-          },
-          {
-            type: ContentBlockTypes.text,
-            blockName: "subtitle",
-            text: "Sign up for our newsletter.",
-          },
-          {
-            type: ContentBlockTypes.textWithLink,
-            blockName: "privacyNote",
-            text: " We care about your data. Read our",
-            link: "#",
-          },
-          {
-            type: ContentBlockTypes.button,
-            blockName: "button",
-            text: "Subscribe",
-            style: "button",
-          },
-        ],
-      },
+      // {
+      //   name: "logos",
+      //   availableStyles: [
+      //     {
+      //       id: "default",
+      //       name: "One line",
+      //       description: "Text on left & form on right",
+      //       selected: true,
+      //     },
+      //     {
+      //       id: "stacked",
+      //       name: "Stacked",
+      //       description: "Text and input stacked on top of each other",
+      //       selected: false,
+      //     },
+      //     {
+      //       id: "stacked-centered",
+      //       name: "Stacked centered",
+      //       description: "Text and form stacked centered",
+      //       selected: false,
+      //     },
+      //     {
+      //       id: "with-bullet-points",
+      //       name: "With bullet points",
+      //       description: "Text and form on the left and bullet points on right",
+      //       selected: false,
+      //     },
+      //   ],
+      //   contentBlocks: [
+      //     {
+      //       type: ContentBlockTypes.text,
+      //       blockName: "headline",
+      //       text: "Want product news and updates?.",
+      //     },
+      //     {
+      //       type: ContentBlockTypes.text,
+      //       blockName: "subtitle",
+      //       text: "Sign up for our newsletter.",
+      //     },
+      //     {
+      //       type: ContentBlockTypes.textWithLink,
+      //       blockName: "privacyNote",
+      //       text: " We care about your data. Read our",
+      //       link: "#",
+      //     },
+      //     {
+      //       type: ContentBlockTypes.button,
+      //       blockName: "button",
+      //       text: "Subscribe",
+      //       style: "button",
+      //     },
+      //   ],
+      // },
+      // {
+      //   name: "FAQ",
+      //   availableStyles: [
+      //     {
+      //       id: "default",
+      //       name: "One line",
+      //       description: "Text on left & form on right",
+      //       selected: true,
+      //     },
+      //     {
+      //       id: "stacked",
+      //       name: "Stacked",
+      //       description: "Text and input stacked on top of each other",
+      //       selected: false,
+      //     },
+      //     {
+      //       id: "stacked-centered",
+      //       name: "Stacked centered",
+      //       description: "Text and form stacked centered",
+      //       selected: false,
+      //     },
+      //     {
+      //       id: "with-bullet-points",
+      //       name: "With bullet points",
+      //       description: "Text and form on the left and bullet points on right",
+      //       selected: false,
+      //     },
+      //   ],
+      //   contentBlocks: [
+      //     {
+      //       type: ContentBlockTypes.text,
+      //       blockName: "headline",
+      //       text: "Want product news and updates?.",
+      //     },
+      //     {
+      //       type: ContentBlockTypes.text,
+      //       blockName: "subtitle",
+      //       text: "Sign up for our newsletter.",
+      //     },
+      //     {
+      //       type: ContentBlockTypes.textWithLink,
+      //       blockName: "privacyNote",
+      //       text: " We care about your data. Read our",
+      //       link: "#",
+      //     },
+      //     {
+      //       type: ContentBlockTypes.button,
+      //       blockName: "button",
+      //       text: "Subscribe",
+      //       style: "button",
+      //     },
+      //   ],
+      // },
     ],
   },
 };
