@@ -15,7 +15,6 @@ import {
   General,
   Header,
   SelectionVariation,
-  SocialMedia,
   Step,
 } from "./allAvailableOptions.t";
 

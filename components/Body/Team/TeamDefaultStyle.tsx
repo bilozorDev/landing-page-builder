@@ -7,7 +7,6 @@ import IconComponent from "@/components/ui/IconComponent";
 const TeamDefaultStyle = ({ part }: { part: SelectedComponent }) => {
   const { contentBlocks } = part;
   const data = createDataObject(contentBlocks);
-  const brandColor = useGetBrandColor();
 
   return (
     <div className="bg-white py-24 sm:py-32">
