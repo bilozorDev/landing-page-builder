@@ -15,7 +15,7 @@ const FooterTabSettings = createContext<{
 }>({
   footerSettings: {
     style: allAvailableOptions.footer.availableStyles[0],
-    text: "",
+    text: "Company, Inc.",
   },
   setFooterSettings: () => {},
 });
@@ -29,7 +29,7 @@ export const FooterTabSettingsProvider = ({
     useLocalStorageState<FooterTabSettingsType>("footerSettings", {
       defaultValue: {
         style: allAvailableOptions.footer.availableStyles[0],
-        text: "",
+        text: "Company, Inc.",
       },
     });
   return (
